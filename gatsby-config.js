@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Kampoeng Games`,
+    description: `Kampoeng Games merupakan sebuah website e-commerce yang berfokus untuk menjual game dan in-game voucher.`,
+    author: `@datyukianesa`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
