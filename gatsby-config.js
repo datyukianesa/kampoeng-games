@@ -30,17 +30,6 @@ module.exports = {
       },
     },
     // gatsby material-UI config
-    `gatsby-plugin-material-ui`,
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true,
-          disableAutoprefixing: false,
-          disableMinification: false,
-        },
-      },
-    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
