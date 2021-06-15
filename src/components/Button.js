@@ -1,10 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-const Button = ({ children, props }) => {
+const Button = ({ children, to }) => {
   return (
     <button>
-      <Link to={props}></Link>
+      <Link to={to}></Link>
       {children}
     </button>
   )
