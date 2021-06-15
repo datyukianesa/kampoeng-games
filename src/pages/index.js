@@ -2,6 +2,7 @@ import * as React from "react"
 import Section from "../components/Section"
 import Layout from "../components/Layout"
 import Card from "../components/Card"
+import Tombol from "../components/Button"
 
 const IndexPage = () => {
   return (
@@ -37,6 +38,7 @@ const IndexPage = () => {
           delectus, fugit excepturi dolor corrupti quibusdam amet consequatur
           enim non, perspiciatis reiciendis! Tenetur, quidem.
         </p>
+        <Tombol to="/">click me</Tombol>
       </Section>
       <Section id="team" head={"Tim Kami"}>
         <Card head="Fanni Fadhila">
