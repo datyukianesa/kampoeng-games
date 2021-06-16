@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react"
+import Sidebar from "../components/Sidebar"
 
 export default function admin() {
   return (
     <div>
-       <h1 class="font-bold">Hellow world...!!! hahahahaha</h1> 
+      <Sidebar />
     </div>
   )
 }
