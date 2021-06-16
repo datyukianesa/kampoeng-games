@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Nav></Nav>
-      <main>{children}</main>
+      <main className="container px-10">{children}</main>
     </>
   )
 }

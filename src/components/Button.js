@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const Button = ({ children, to }) => {
   return (
-    <button className={`bg-amber-primary`}>
+    <button className={`bg-primary text-secondary`}>
       <Link to={to}></Link>
       {children}
     </button>
