@@ -1,12 +1,13 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-const Button = ({ children, to }) => {
+const Button = ({ children, to, className }) => {
   return (
-    <button className={`bg-primary text-secondary`}>
-      <Link to={to}></Link>
-      {children}
-    </button>
+    <Link to={to}>
+      <button className={`border-2 border-white text-white p-5 ${className}`}>
+        {children}
+      </button>
+    </Link>
   )
 }
 

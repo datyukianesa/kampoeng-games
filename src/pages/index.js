@@ -2,10 +2,38 @@ import * as React from "react"
 import Section from "../components/Section"
 import Layout from "../components/Layout"
 import Card from "../components/Card"
+import Split from "../components/Split"
+import Aside from "../components/Aside"
+import Heading from "../components/Heading"
+import Button from "../components/Button"
+
+import HeroImage from "../svg/HeroImage"
 
 const IndexPage = () => {
   return (
     <Layout>
+      <Split
+        id="home"
+        reverse
+        first={
+          <Aside
+            className={`bg-secondary text-white p-10 text-center lg:px-20 lg:py-5 lg:mx-20`}
+          >
+            <Heading className={`text-white font-extrabold`}>
+              Toko Kebutuhan Gaming Terlengkap di Indonesia
+            </Heading>
+            <p>
+              Para gamers yang ingin mengerjakan hobi mereka di dunia gaming
+              dapat mengunjungi toko kami untuk memenuhi segala kebutuhan mereka
+              dengan harga terjangkau.
+            </p>
+            <Button className={`font-gothic hidden md:inline`} to="#home">
+              ORDER NOW
+            </Button>
+          </Aside>
+        }
+        second={<HeroImage />}
+      ></Split>
       <Section id="profile" head={"Profile Perusahaan"}>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores enim

@@ -1,13 +1,14 @@
 import * as React from "react"
 import Heading from "./Heading.js"
 
-const Section = ({ children, head }) => {
+const Section = ({ id, children, head, className }) => {
   return (
-    <section className="py-20">
+    <section
+      id={id}
+      className={`container px-10 py-20 md:px-20 md:py-10 ${className}`}
+    >
       <Heading>{head}</Heading>
-      <div className="container mx-auto px-16 items-center flex flex-col lg:flex-row">
-        <div className="container flex items-center mx-auto">{children}</div>
-      </div>
+      <div className="">{children}</div>
     </section>
   )
 }

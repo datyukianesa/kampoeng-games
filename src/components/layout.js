@@ -1,11 +1,12 @@
 import * as React from "react"
 import Nav from "./Nav"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, className }) => {
   return (
     <>
-      <Nav></Nav>
-      <main className="container px-10">{children}</main>
+      <main className={`mx-auto px-10 bg-primary ${className}`}>
+        {children}
+      </main>
     </>
   )
 }

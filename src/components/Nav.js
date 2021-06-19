@@ -15,15 +15,15 @@ const Nav = () => {
   `)
   return (
     <div className="bg-primary text-secondary sticky top-0">
-      <div className="container flex flex-col sm:flex-row justify-between items-center mx-auto py-4 px-8">
-        <nav className="container flex">
-          <div className="flex">
-            <Logo className="w-10 h-10"></Logo>
-          </div>
-          <div className={`prose`}>
+      <nav className="container">
+        <div className="flex flex-row">
+          <Logo className="w-10 h-10"></Logo>
+          <div className="prose">
             <h1>{data.site.siteMetadata.title}</h1>
           </div>
-          <div className="flex mt-4 sm:mt-0">
+        </div>
+        <div className="flex flex-row">
+          <div className="flex mt-4 sm:mt-0 ">
             <AnchorLink className="px-4" offset="100" href="#profile">
               Profile
             </AnchorLink>
@@ -40,9 +40,14 @@ const Nav = () => {
               Kontak
             </AnchorLink>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </div>
+    // <div className="">
+    //   <div className="container flex flex-col sm:flex-row justify-between items-center mx-auto py-4 px-8">
+
+    //   </div>
+    // </div>
   )
 }
 

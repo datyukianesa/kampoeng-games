@@ -1,7 +1,9 @@
 import * as React from "react"
 
-const Heading = ({ children }) => {
-  return <h1 className={`prose sm:prose-2xl`}>{children}</h1>
+const Heading = ({ children, className }) => {
+  return (
+    <h1 className={`prose prose-xl md:prose-2xl ${className}`}>{children}</h1>
+  )
 }
 
 export default Heading

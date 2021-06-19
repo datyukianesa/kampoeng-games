@@ -3,9 +3,6 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    container: {
-      center: true,
-    },
     screens: {
       sm: "640px",
       md: "768px",
@@ -32,6 +29,10 @@ module.exports = {
           lighter: "rgba(138,255,208,255)",
           darker: "rgba(56,165,123,255)",
         },
+      },
+      fontFamily: {
+        gothic: "Century Gothic",
+        // neue: "Baron Neue",
       },
     },
   },
