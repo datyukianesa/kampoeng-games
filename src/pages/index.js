@@ -1,5 +1,5 @@
 import * as React from "react"
-import Layout from "../components/Layout"
+import Layout from "../components/Layout.js"
 import Split from "../components/Split"
 import Aside from "../components/Aside"
 import Heading from "../components/Heading"
