@@ -1,10 +1,13 @@
 import * as React from "react"
+
 import Layout from "../components/layout"
 import Split from "../components/Split"
 import Aside from "../components/Aside"
 import Heading from "../components/Heading"
 import Button from "../components/Button"
 import Paragraph from "../components/Paragraph"
+import Section from "../components/Section"
+import { StaticImage } from "gatsby-plugin-image"
 
 import HeroImage from "../svg/HeroImage"
 
@@ -13,10 +16,12 @@ const IndexPage = () => {
     <Layout>
       <Split
         id="home"
+        className={`bg-primary-darker rounded-3xl`}
+        firstClass={`xl:w-full`}
         reverse
         first={
           <Aside
-            className={`bg-secondary flex flex-col text-center p-5 mt-0 lg:mx-20 xl:mx-36`}
+            className={`bg-secondary text-center p-5 lg:mx-14 xl:ml-72 xl:mr-28`}
           >
             <Heading className={`text-white font-extrabold mb-2 lg:py-10`}>
               Toko Kebutuhan Gaming Terlengkap di Indonesia
@@ -27,8 +32,7 @@ const IndexPage = () => {
               dengan harga terjangkau.
             </Paragraph>
             <Button
-              className={`font-gothic m-2 p-5 border-2 border-white text-white`}
-              to="#home"
+              className={`font-gothic my-2 px-5 lg:p-5 border-2 border-white text-white`}
             >
               ORDER NOW
             </Button>
@@ -36,7 +40,7 @@ const IndexPage = () => {
         }
         second={
           <div>
-            <HeroImage className={`lg:m-5`} />
+            <HeroImage className={`p-5`} />
             <div className="hidden lg:block">
               <Heading className={`text-secondary font-bold text-center`}>
                 Download App kami
@@ -57,6 +61,42 @@ const IndexPage = () => {
           </div>
         }
       ></Split>
+      <Split
+        id="desc"
+        className={`bg-gray-300 text-secondary rounded-3xl py-2`}
+        first={
+          <Aside className={`lg:space-y-5`}>
+            <Heading
+              className={`text-center lg:text-left font-extrabold py-2 lg:py-10`}
+            >
+              Dari Vouchers Hingga Games
+            </Heading>
+            <Paragraph className={`text-justify mb-2`}>
+              Di Kampoeng Games, Kami menyediakan segala variasi vouchers dari
+              berbagai provider begitu pula dengan Games. Barang games yang kami
+              sediakan tidak hanya terpaku pada platform PC, kami sediakan pula
+              dari platform Console seperti Playstation dan Xbox. Kami
+              mengusahakan kelengkapan barang sehingga pelanggan puas dengan
+              layanan kami
+            </Paragraph>
+          </Aside>
+        }
+        second={
+          <StaticImage
+            className="xl:w-1/2 xl:ml-32"
+            loading="eager"
+            src="../images/img1.png"
+            alt="Games"
+          ></StaticImage>
+        }
+      ></Split>
+      <Section className={`bg-gray-300 text-secondary rounded-3xl`}>
+        <Heading
+          className={`text-center lg:text-left font-extrabold py-2 lg:py-10`}
+        >
+          Our Team
+        </Heading>
+      </Section>
     </Layout>
   )
 }
