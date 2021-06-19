@@ -2,7 +2,7 @@ import * as React from "react"
 import "@material-tailwind/react/tailwind.css"
 import { Link } from "gatsby"
 import H6 from "@material-tailwind/react/Heading6"
-import Icon from "@material-tailwind/react/Icon"
+// import Icon from "@material-tailwind/react/Icon"
 import Button from "@material-tailwind/react/Button"
 
 export default function Sidebar() {
@@ -30,7 +30,7 @@ export default function Sidebar() {
                 size="lg"
                 ripple="light"
               >
-                <Icon name="dashboard" size="sm" />
+                <span class="material-icons">pie_chart</span>
                 Dashboard
               </Button>
             </Link>

@@ -19,6 +19,7 @@
     "gatsby-plugin-styled-components": "^4.7.1",
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-transformer-sharp": "^3.6.0",
+    "material-design-icons": "^3.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
@@ -32,7 +33,7 @@
     "gatsby-plugin-postcss": "^4.7.1",
     "postcss": "^8.3.2",
     "prettier": "2.2.1",
-    "tailwindcss": "^2.1.4"
+    "tailwindcss": "^2.2.2"
   },
   "keywords": [
     "gatsby"
