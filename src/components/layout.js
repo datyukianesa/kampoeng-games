@@ -1,13 +1,14 @@
 import * as React from "react"
-import Nav from "./Nav"
+import Footer from "./Footer"
 
 const Layout = ({ children, className }) => {
   return (
-    <>
-      <main className={`mx-auto px-10 bg-primary ${className}`}>
-        {children}
-      </main>
-    </>
+    <div className={`bg-primary`}>
+      <main className={`container mx-auto px-10 ${className}`}>{children}</main>
+      <div className="bg-secondary-lighter block">
+        <Footer></Footer>
+      </div>
+    </div>
   )
 }
 
