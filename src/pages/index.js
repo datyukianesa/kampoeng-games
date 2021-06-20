@@ -1,11 +1,13 @@
 import * as React from "react"
-import Section from "../components/Section"
-import Layout from "../components/Layout"
-import Card from "../components/Card"
+
+import Layout from "../components/layout"
 import Split from "../components/Split"
 import Aside from "../components/Aside"
 import Heading from "../components/Heading"
 import Button from "../components/Button"
+import Paragraph from "../components/Paragraph"
+import Section from "../components/Section"
+import { StaticImage } from "gatsby-plugin-image"
 
 import HeroImage from "../svg/HeroImage"
 
@@ -14,111 +16,86 @@ const IndexPage = () => {
     <Layout>
       <Split
         id="home"
+        className={`bg-primary-darker rounded-3xl`}
+        firstClass={`xl:w-full`}
         reverse
         first={
           <Aside
-            className={`bg-secondary text-white p-10 text-center lg:px-20 lg:py-5 lg:mx-20`}
+            className={`bg-secondary text-center p-5 lg:mx-14 xl:ml-72 xl:mr-28`}
           >
-            <Heading className={`text-white font-extrabold`}>
+            <Heading className={`text-white font-extrabold mb-2 lg:py-10`}>
               Toko Kebutuhan Gaming Terlengkap di Indonesia
             </Heading>
-            <p>
+            <Paragraph className={`text-white mb-2`}>
               Para gamers yang ingin mengerjakan hobi mereka di dunia gaming
               dapat mengunjungi toko kami untuk memenuhi segala kebutuhan mereka
               dengan harga terjangkau.
-            </p>
-            <Button className={`font-gothic hidden md:inline`} to="#home">
+            </Paragraph>
+            <Button
+              className={`font-gothic my-2 px-5 lg:p-5 border-2 border-white text-white`}
+            >
               ORDER NOW
             </Button>
           </Aside>
         }
-        second={<HeroImage />}
+        second={
+          <div>
+            <HeroImage className={`p-5`} />
+            <div className="hidden lg:block">
+              <Heading className={`text-secondary font-bold text-center`}>
+                Download App kami
+              </Heading>
+              <div className="grid grid-cols-2 gap-2 place-items-center">
+                <Button
+                  className={`border-2 border-white bg-secondary text-white  m-2 p-3`}
+                >
+                  Lorem ipsum
+                </Button>
+                <Button
+                  className={`border-2 border-white bg-secondary text-white m-2 p-3`}
+                >
+                  Lorem ipsum
+                </Button>
+              </div>
+            </div>
+          </div>
+        }
       ></Split>
-      <Section id="profile" head={"Profile Perusahaan"}>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores enim
-          libero veniam officia! Nisi dolorum, necessitatibus, consequuntur
-          dignissimos aliquam, sapiente est numquam molestias unde sunt sit
-          ipsam voluptates iure consequatur minima modi? Animi rem, molestias
-          repellendus voluptas ullam veritatis officiis necessitatibus a
-          sapiente quas perspiciatis! Quae sed itaque commodi, dolorem mollitia
-          veniam nulla reprehenderit deleniti corrupti voluptatibus impedit
-          tempore doloribus? Id deserunt numquam ipsa odio beatae repudiandae
-          accusamus ab quidem. Eveniet nulla et impedit repudiandae ipsum quia
-          expedita praesentium nam quam laboriosam qui maxime unde alias
-          delectus, fugit excepturi dolor corrupti quibusdam amet consequatur
-          enim non, perspiciatis reiciendis! Tenetur, quidem.
-        </p>
-      </Section>
-      <Section id="about" head={"Tentang Perusahaan"}>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores enim
-          libero veniam officia! Nisi dolorum, necessitatibus, consequuntur
-          dignissimos aliquam, sapiente est numquam molestias unde sunt sit
-          ipsam voluptates iure consequatur minima modi? Animi rem, molestias
-          repellendus voluptas ullam veritatis officiis necessitatibus a
-          sapiente quas perspiciatis! Quae sed itaque commodi, dolorem mollitia
-          veniam nulla reprehenderit deleniti corrupti voluptatibus impedit
-          tempore doloribus? Id deserunt numquam ipsa odio beatae repudiandae
-          accusamus ab quidem. Eveniet nulla et impedit repudiandae ipsum quia
-          expedita praesentium nam quam laboriosam qui maxime unde alias
-          delectus, fugit excepturi dolor corrupti quibusdam amet consequatur
-          enim non, perspiciatis reiciendis! Tenetur, quidem.
-        </p>
-      </Section>
-      <Section id="team" head={"Tim Kami"}>
-        <Card head="Fanni Fadhila">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          quae nam, aliquid perferendis maiores labore corrupti? Mollitia,
-          maiores expedita. Cumque.
-        </Card>
-        <Card head="Fanni Fadhila">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          quae nam, aliquid perferendis maiores labore corrupti? Mollitia,
-          maiores expedita. Cumque.
-        </Card>
-        <Card head="Fanni Fadhila">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          quae nam, aliquid perferendis maiores labore corrupti? Mollitia,
-          maiores expedita. Cumque.
-        </Card>
-        <Card head="Fanni Fadhila">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          quae nam, aliquid perferendis maiores labore corrupti? Mollitia,
-          maiores expedita. Cumque.
-        </Card>
-      </Section>
-      <Section id="services" head={"Produk dan Layanan"}>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores enim
-          libero veniam officia! Nisi dolorum, necessitatibus, consequuntur
-          dignissimos aliquam, sapiente est numquam molestias unde sunt sit
-          ipsam voluptates iure consequatur minima modi? Animi rem, molestias
-          repellendus voluptas ullam veritatis officiis necessitatibus a
-          sapiente quas perspiciatis! Quae sed itaque commodi, dolorem mollitia
-          veniam nulla reprehenderit deleniti corrupti voluptatibus impedit
-          tempore doloribus? Id deserunt numquam ipsa odio beatae repudiandae
-          accusamus ab quidem. Eveniet nulla et impedit repudiandae ipsum quia
-          expedita praesentium nam quam laboriosam qui maxime unde alias
-          delectus, fugit excepturi dolor corrupti quibusdam amet consequatur
-          enim non, perspiciatis reiciendis! Tenetur, quidem.
-        </p>
-      </Section>
-      <Section id="contacts" head={"Contact us!"}>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores enim
-          libero veniam officia! Nisi dolorum, necessitatibus, consequuntur
-          dignissimos aliquam, sapiente est numquam molestias unde sunt sit
-          ipsam voluptates iure consequatur minima modi? Animi rem, molestias
-          repellendus voluptas ullam veritatis officiis necessitatibus a
-          sapiente quas perspiciatis! Quae sed itaque commodi, dolorem mollitia
-          veniam nulla reprehenderit deleniti corrupti voluptatibus impedit
-          tempore doloribus? Id deserunt numquam ipsa odio beatae repudiandae
-          accusamus ab quidem. Eveniet nulla et impedit repudiandae ipsum quia
-          expedita praesentium nam quam laboriosam qui maxime unde alias
-          delectus, fugit excepturi dolor corrupti quibusdam amet consequatur
-          enim non, perspiciatis reiciendis! Tenetur, quidem.
-        </p>
+      <Split
+        id="desc"
+        className={`bg-gray-300 text-secondary rounded-3xl py-2`}
+        first={
+          <Aside className={`lg:space-y-5`}>
+            <Heading
+              className={`text-center lg:text-left font-extrabold py-2 lg:py-10`}
+            >
+              Dari Vouchers Hingga Games
+            </Heading>
+            <Paragraph className={`text-justify mb-2`}>
+              Di Kampoeng Games, Kami menyediakan segala variasi vouchers dari
+              berbagai provider begitu pula dengan Games. Barang games yang kami
+              sediakan tidak hanya terpaku pada platform PC, kami sediakan pula
+              dari platform Console seperti Playstation dan Xbox. Kami
+              mengusahakan kelengkapan barang sehingga pelanggan puas dengan
+              layanan kami
+            </Paragraph>
+          </Aside>
+        }
+        second={
+          <StaticImage
+            className="xl:w-1/2 xl:ml-32"
+            loading="eager"
+            src="../images/img1.png"
+            alt="Games"
+          ></StaticImage>
+        }
+      ></Split>
+      <Section className={`bg-gray-300 text-secondary rounded-3xl`}>
+        <Heading
+          className={`text-center lg:text-left font-extrabold py-2 lg:py-10`}
+        >
+          Our Team
+        </Heading>
       </Section>
     </Layout>
   )
