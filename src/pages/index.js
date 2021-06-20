@@ -65,7 +65,7 @@ const IndexPage = () => {
       ></Split>
       <Split
         id="desc"
-        className={`bg-gray-300 text-secondary rounded-3xl py-2`}
+        className={`bg-gray-200 text-secondary rounded-3xl py-2`}
         first={
           <Aside className={`lg:space-y-5`}>
             <Heading
@@ -92,7 +92,7 @@ const IndexPage = () => {
           ></StaticImage>
         }
       ></Split>
-      <Section className={`bg-secondary rounded-3xl`}>
+      <Section id="team" className={`bg-secondary rounded-3xl`}>
         <Heading
           className={`text-center text-complementary font-extrabold py-2 lg:py-10`}
         >
@@ -235,6 +235,38 @@ const IndexPage = () => {
           </div>
         </div>
       </Section>
+      <Split
+        id="history"
+        className={`bg-gradient-to-t from-complementary to-gray-200 rounded-3xl`}
+        first={
+          <Aside className="py-5">
+            <Paragraph className={`text-justify text-Indent py-5`}>
+              Kampoeng Games telah berdiri sejak tahun 2020, awalnya perusahaan
+              kami hanya melayani pelanggan secara online lewat website dan
+              aplikasi yang telah kami buat dikarenakan virus COVID-19 yang
+              mengharuskan kami untuk meminimalisir interaksi sosial. Itulah
+              mengapa awal berdirinya Kampoeng Games tidak memiliki toko
+              langsung Namun seiringnya waktu berjalan, kami akhirnya memiliki
+              toko yang terletak di Yogyakarta dan Jakarta. Dengan begitu kami
+              dapat mengekspansi modal perusahaan kami. Selain itu, pelanggan
+              dapat mengunjungi toko kami jika ingin berbelanja barang kami
+              secara langsung.
+            </Paragraph>
+            <Paragraph className={`text-justify text-Indent`}>
+              Namun seiringnya waktu berjalan, kami akhirnya memiliki toko yang
+              terletak di Yogyakarta dan Jakarta. Dengan begitu kami dapat
+              mengekspansi modal perusahaan kami. Selain itu, pelanggan dapat
+              mengunjungi toko kami jika ingin berbelanja barang kami secara
+              langsung.
+            </Paragraph>
+          </Aside>
+        }
+        second={
+          <div className="bg-primary rounded-2xl md:ml-20">
+            <HeroImage className={`py-5 my-2`} />
+          </div>
+        }
+      ></Split>
     </Layout>
   )
 }
