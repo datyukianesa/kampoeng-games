@@ -7,6 +7,8 @@ import Heading from "../components/Heading"
 import Button from "../components/Button"
 import Paragraph from "../components/Paragraph"
 import Section from "../components/Section"
+import Card from "../components/Card"
+import ProfileImage from "../components/ProfileImage"
 import { StaticImage } from "gatsby-plugin-image"
 
 import HeroImage from "../svg/HeroImage"
@@ -63,7 +65,7 @@ const IndexPage = () => {
       ></Split>
       <Split
         id="desc"
-        className={`bg-gray-300 text-secondary rounded-3xl py-2`}
+        className={`bg-gray-200 text-secondary rounded-3xl py-2`}
         first={
           <Aside className={`lg:space-y-5`}>
             <Heading
@@ -90,13 +92,181 @@ const IndexPage = () => {
           ></StaticImage>
         }
       ></Split>
-      <Section className={`bg-gray-300 text-secondary rounded-3xl`}>
+      <Section id="team" className={`bg-secondary rounded-3xl`}>
         <Heading
-          className={`text-center lg:text-left font-extrabold py-2 lg:py-10`}
+          className={`text-center text-complementary font-extrabold py-2 lg:py-10`}
         >
           Our Team
         </Heading>
+        <div className="font-extrabold flex flex-col md:flex-row">
+          <div className={`md:m-2`}>
+            <Card className={`text-center`}>
+              <ProfileImage>
+                <StaticImage
+                  className="w-20 h-20 rounded-full m-5"
+                  loading="eager"
+                  src="../images/farrel.png"
+                  alt="Khalif Farrel"
+                ></StaticImage>
+              </ProfileImage>
+              <Heading className={`text-complementary`}>
+                Khalif Farrel Yuandra
+              </Heading>
+              <div className="py-2">
+                <Paragraph className={`text-complementary-darker`}>
+                  Front-end Designer
+                </Paragraph>
+                <Paragraph className={`text-complementary-darker`}>
+                  19.11.3256
+                </Paragraph>
+              </div>
+            </Card>
+            <Card className={`text-center`}>
+              <ProfileImage>
+                <StaticImage
+                  className="w-20 h-20 rounded-full m-5"
+                  loading="eager"
+                  src="../images/tegar.png"
+                  alt="Ignatius Tegar Saputra"
+                ></StaticImage>
+              </ProfileImage>
+              <Heading className={`text-complementary`}>
+                Ignatius Tegar Saputra
+              </Heading>
+              <div className="py-2">
+                <Paragraph className={`text-complementary-darker`}>
+                  Front-end Designer
+                </Paragraph>
+                <Paragraph className={`text-complementary-darker`}>
+                  19.11.3298
+                </Paragraph>
+              </div>
+            </Card>
+          </div>
+          <div className={`md:m-2`}>
+            <Card className={`text-center`}>
+              <ProfileImage>
+                <StaticImage
+                  className="w-20 h-20 rounded-full m-5"
+                  loading="eager"
+                  src="../images/gatsby-icon.png"
+                  alt="Bilal Muhtasyimbillah"
+                ></StaticImage>
+              </ProfileImage>
+              <Heading className={`text-complementary`}>
+                Bilal Muhtasyimbillah
+              </Heading>
+              <div className="py-2">
+                <Paragraph className={`text-complementary-darker`}>
+                  Front-end Designer
+                </Paragraph>
+                <Paragraph className={`text-complementary-darker`}>
+                  19.11.3272
+                </Paragraph>
+              </div>
+            </Card>
+            <Card className={`text-center`}>
+              <ProfileImage>
+                <StaticImage
+                  className="w-20 h-20 rounded-full m-5"
+                  loading="eager"
+                  src="../images/fanni.png"
+                  alt="Fanni Fadhila"
+                ></StaticImage>
+              </ProfileImage>
+              <Heading className={`text-complementary md:pt-4 lg:pt-0`}>
+                Fanni Fadhila
+              </Heading>
+              <div className="py-2">
+                <Paragraph
+                  className={`text-complementary-darker md:pt-5 lg:pt-0`}
+                >
+                  Back-end Developer
+                </Paragraph>
+                <Paragraph className={`text-complementary-darker`}>
+                  19.11.3300
+                </Paragraph>
+              </div>
+            </Card>
+          </div>
+          <div className={`md:m-2`}>
+            <Card className={`text-center`}>
+              <ProfileImage>
+                <StaticImage
+                  className="w-20 h-20 rounded-full m-5"
+                  loading="eager"
+                  src="../images/zhafran.png"
+                  alt="Abyan Zhafran Daffal"
+                ></StaticImage>
+              </ProfileImage>
+              <Heading className={`text-complementary`}>
+                Abyan Zhafran Daffa
+              </Heading>
+              <div className="py-2">
+                <Paragraph className={`text-complementary-darker`}>
+                  Back-end Developer
+                </Paragraph>
+                <Paragraph className={`text-complementary-darker`}>
+                  19.11.3252
+                </Paragraph>
+              </div>
+            </Card>
+            <Card className={`text-center`}>
+              <ProfileImage>
+                <StaticImage
+                  className="w-20 h-20 rounded-full m-5"
+                  loading="eager"
+                  src="../images/nadhira.png"
+                  alt="Nadhira Triadha Pitaloka"
+                ></StaticImage>
+              </ProfileImage>
+              <Heading className={`text-complementary`}>
+                Nadhira Triadha Pitaloka
+              </Heading>
+              <div className="py-2">
+                <Paragraph className={`text-complementary-darker`}>
+                  Front-end Designer
+                </Paragraph>
+                <Paragraph className={`text-complementary-darker`}>
+                  19.11.3270
+                </Paragraph>
+              </div>
+            </Card>
+          </div>
+        </div>
       </Section>
+      <Split
+        id="history"
+        className={`bg-gradient-to-t from-complementary to-gray-200 rounded-3xl`}
+        first={
+          <Aside className="py-5">
+            <Paragraph className={`text-justify text-Indent pb-2`}>
+              Kampoeng Games telah berdiri sejak tahun 2020, awalnya perusahaan
+              kami hanya melayani pelanggan secara online lewat website dan
+              aplikasi yang telah kami buat dikarenakan virus COVID-19 yang
+              mengharuskan kami untuk meminimalisir interaksi sosial. Itulah
+              mengapa awal berdirinya Kampoeng Games tidak memiliki toko
+              langsung Namun seiringnya waktu berjalan, kami akhirnya memiliki
+              toko yang terletak di Yogyakarta dan Jakarta. Dengan begitu kami
+              dapat mengekspansi modal perusahaan kami. Selain itu, pelanggan
+              dapat mengunjungi toko kami jika ingin berbelanja barang kami
+              secara langsung.
+            </Paragraph>
+            <Paragraph className={`text-justify text-Indent lg:pb-2`}>
+              Namun seiringnya waktu berjalan, kami akhirnya memiliki toko yang
+              terletak di Yogyakarta dan Jakarta. Dengan begitu kami dapat
+              mengekspansi modal perusahaan kami. Selain itu, pelanggan dapat
+              mengunjungi toko kami jika ingin berbelanja barang kami secara
+              langsung.
+            </Paragraph>
+          </Aside>
+        }
+        second={
+          <div className="bg-primary rounded-2xl lg:ml-20">
+            <HeroImage className={`py-5 my-2`} />
+          </div>
+        }
+      ></Split>
     </Layout>
   )
 }
