@@ -1,36 +1,44 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { useState } from "react"
-import H6 from "@material-tailwind/react/Heading6"
 import Button from "@material-tailwind/react/Button"
 import NavbarAdmin from "./NavbarAdmin"
+import LogoIcon from "../svg/LogoIcon"
 import "@material-tailwind/react/tailwind.css"
 
 export default function Sidebar() {
   const [showSidebar, setShowSidebar] = useState("-left-64")
+
   return (
     <div>
       <NavbarAdmin showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-      <div className="h-screen overflow-y-auto flex-row flex-nowrap shadow-xl bg-white w-64 py-4 px-6">
+      <div
+        class={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-gray-800 w-64 z-10 py-4 px-6 transition-all duration-300`}
+      >
         <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
           <a
             href="#"
             target="_blank"
             className="mt-2 text-center w-full inline-block"
           >
-            <H6 color="gray">Dashboard Admin</H6>
+            <h6 class="text-white text-xl font-bold">Dashboard Admin</h6>
           </a>
           <div className="flex flex-col">
             <hr className="my-4 min-w-full" />
 
-            <ul className="flex-col min-w-full flex list-none grid grid-cols gap-6">
+            <ul className="flex flex-col min-w-full flex list-none grid grid-cols gap-6">
+              <div class="">
+                <div className="w-20 h-20 rounded-full bg-yellow-400 mx-auto">
+                  <LogoIcon className={"p-2"} />
+                </div>
+              </div>
               <Link to="/">
                 <Button
                   class="mb-4 w-full"
-                  color="lightBlue"
+                  color="amber"
                   buttonType="filled"
                   block={true}
-                  size="lg"
+                  size="regular"
                   ripple="light"
                 >
                   <span class="material-icons">pie_chart</span>
@@ -40,10 +48,10 @@ export default function Sidebar() {
               <Link to="/">
                 <Button
                   class="mb-4 w-full"
-                  color="lightBlue"
+                  color="amber"
                   buttonType="filled"
                   block={true}
-                  size="lg"
+                  size="regular"
                   ripple="light"
                 >
                   <span class="material-icons">pie_chart</span>
@@ -53,10 +61,10 @@ export default function Sidebar() {
               <Link to="/">
                 <Button
                   class="mb-4 w-full"
-                  color="lightBlue"
+                  color="amber"
                   buttonType="filled"
                   block={true}
-                  size="lg"
+                  size="regular"
                   ripple="light"
                 >
                   <span class="material-icons">pie_chart</span>
@@ -66,10 +74,10 @@ export default function Sidebar() {
               <Link to="/">
                 <Button
                   class="mb-4 w-full"
-                  color="lightBlue"
+                  color="amber"
                   buttonType="filled"
                   block={true}
-                  size="lg"
+                  size="regular"
                   ripple="light"
                 >
                   <span class="material-icons">pie_chart</span>
@@ -79,10 +87,10 @@ export default function Sidebar() {
               <Link to="/">
                 <Button
                   class="mb-4 w-full"
-                  color="lightBlue"
+                  color="amber"
                   buttonType="filled"
                   block={true}
-                  size="lg"
+                  size="regular"
                   ripple="light"
                 >
                   <span class="material-icons">pie_chart</span>
@@ -92,10 +100,10 @@ export default function Sidebar() {
               <Link to="/">
                 <Button
                   class="mb-4 w-full"
-                  color="lightBlue"
+                  color="amber"
                   buttonType="filled"
                   block={true}
-                  size="lg"
+                  size="regular"
                   ripple="light"
                 >
                   <span class="material-icons">pie_chart</span>
