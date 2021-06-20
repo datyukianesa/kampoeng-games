@@ -11,6 +11,9 @@ module.exports = {
       "2xl": "1536px",
     },
     extend: {
+      backgroundImage: {
+        cover: "url('/images/amogus.png')",
+      },
       colors: {
         transparent: "transparent",
         current: "currentColor",

@@ -9,6 +9,7 @@ import Paragraph from "../components/Paragraph"
 import Section from "../components/Section"
 import Card from "../components/Card"
 import ProfileImage from "../components/ProfileImage"
+import LogoIcon from "../svg/LogoIcon"
 import { StaticImage } from "gatsby-plugin-image"
 
 import HeroImage from "../svg/HeroImage"
@@ -262,11 +263,106 @@ const IndexPage = () => {
           </Aside>
         }
         second={
-          <div className="bg-primary rounded-2xl lg:ml-20">
+          <div className="bg-primary rounded-3xl lg:ml-20">
             <HeroImage className={`py-5 my-2`} />
           </div>
         }
       ></Split>
+      <Split
+        reverse
+        id="products"
+        className={`bg-gradient-to-b lg:bg-gradient-to-l from-complementary rounded-3xl`}
+        first={
+          <Paragraph className={`text-justify py-5 text-Indent lg:text-right`}>
+            Kampoeng Games sekarang telah memiliki lebih dari 100 games dan
+            voucher dari segala provider. Perusahaan kami juga telah di sponsori
+            oleh berbagai perusahaan lainnya seperti Razer, G-Fuel, Microsoft,
+            Playstation, Xbox, dan lain-lainnya. Dengan ini, Kampoeng Games
+            merupakan toko hiburan dibidang gaming terlengkap di Indonesia.
+          </Paragraph>
+        }
+        second={
+          <div className="lg:p-5 xl:w-1/2 xl:ml-36">
+            <StaticImage
+              className="block"
+              loading="eager"
+              src="../images/amogus.png"
+              alt="Cover"
+            ></StaticImage>
+          </div>
+        }
+      ></Split>
+      <Section id="team" className={`bg-complementary rounded-3xl`}>
+        <div>
+          <Heading
+            className={`text-center text-secondary font-extrabold py-2 xl:ml-28 xl:mr-28`}
+          >
+            Visi dan Misi
+          </Heading>
+        </div>
+        <div>
+          {/* <LogoIcon className={`p-5`}></LogoIcon> */}
+          <div
+            className={`bg-secondary p-4 my-5 rounded-lg lg:mb-7 xl:ml-24 xl:mr-24`}
+          >
+            <Heading className={`text-center text-white font-extrabold`}>
+              Visi
+            </Heading>
+            <Paragraph
+              className={`text-white text-justify lg:ml-24 md:text-center`}
+            >
+              Kampoeng Games menjadi toko hiburan dibidang Gaming terbaik bagi
+              masyarakat Indonesia yang dapat memenuhi segala kebutuhan hobi
+              mereka.
+            </Paragraph>
+          </div>
+        </div>
+        <div className={`flex flex-col lg:-mx-10 lg:flex-row xl:mx-14`}>
+          <div
+            className={`bg-secondary p-4 mb-2 rounded-lg lg:flex-1 lg:mx-10`}
+          >
+            <Heading className={`text-center text-white font-extrabold`}>
+              Misi 1
+            </Heading>
+            <Paragraph className={`text-white text-center`}>
+              Kepuasan Pelanggan
+            </Paragraph>
+          </div>
+          <div
+            className={`bg-secondary p-4 rounded-lg lg:mb-2 lg:flex-1 lg:mx-10`}
+          >
+            <Heading className={`text-center text-white font-extrabold`}>
+              Misi 2
+            </Heading>
+            <Paragraph className={`text-white text-center`}>
+              Menyediakan barang dengan harga terjangkau
+            </Paragraph>
+          </div>
+        </div>
+        <div className={`flex flex-col lg:-mx-10 lg:flex-row xl:mx-14`}>
+          <div
+            className={`bg-secondary p-4 mt-2 rounded-lg lg:flex-1 lg:mx-10`}
+          >
+            <Heading className={`text-center text-white font-extrabold`}>
+              Misi 3
+            </Heading>
+            <Paragraph className={`text-white text-center`}>
+              Variasi barang yang lengkap
+            </Paragraph>
+          </div>
+          <div
+            className={`bg-secondary p-4 mt-2 rounded-lg lg:flex-1 lg:mx-10`}
+          >
+            <Heading className={`text-center text-white font-extrabold`}>
+              Misi 4
+            </Heading>
+            <Paragraph className={`text-white text-center`}>
+              Meningkatkan minat perusahaan luar untuk menanam modalnya di
+              Indonesia
+            </Paragraph>
+          </div>
+        </div>
+      </Section>
     </Layout>
   )
 }
