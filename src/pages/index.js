@@ -240,7 +240,7 @@ const IndexPage = () => {
         className={`bg-gradient-to-t from-complementary to-gray-200 rounded-3xl`}
         first={
           <Aside className="py-5">
-            <Paragraph className={`text-justify text-Indent py-5`}>
+            <Paragraph className={`text-justify text-Indent pb-2`}>
               Kampoeng Games telah berdiri sejak tahun 2020, awalnya perusahaan
               kami hanya melayani pelanggan secara online lewat website dan
               aplikasi yang telah kami buat dikarenakan virus COVID-19 yang
@@ -252,7 +252,7 @@ const IndexPage = () => {
               dapat mengunjungi toko kami jika ingin berbelanja barang kami
               secara langsung.
             </Paragraph>
-            <Paragraph className={`text-justify text-Indent`}>
+            <Paragraph className={`text-justify text-Indent lg:pb-2`}>
               Namun seiringnya waktu berjalan, kami akhirnya memiliki toko yang
               terletak di Yogyakarta dan Jakarta. Dengan begitu kami dapat
               mengekspansi modal perusahaan kami. Selain itu, pelanggan dapat
@@ -262,7 +262,7 @@ const IndexPage = () => {
           </Aside>
         }
         second={
-          <div className="bg-primary rounded-2xl md:ml-20">
+          <div className="bg-primary rounded-2xl lg:ml-20">
             <HeroImage className={`py-5 my-2`} />
           </div>
         }
