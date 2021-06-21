@@ -27,10 +27,8 @@ export default function Sidebar() {
             <hr className="my-4 min-w-full" />
 
             <ul className="flex flex-col min-w-full list-none grid-cols gap-6">
-              <div class="">
-                <div className="w-20 h-20 rounded-full bg-yellow-400 mx-auto">
-                  <LogoIcon className={"p-2"} />
-                </div>
+              <div className="w-20 h-20 rounded-full bg-yellow-400 mx-auto my-2">
+                <LogoIcon className={"p-2"} />
               </div>
               <Link>
                 <Button
