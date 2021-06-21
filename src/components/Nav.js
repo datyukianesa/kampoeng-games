@@ -12,7 +12,7 @@ const Nav = () => {
           </AnchorLink>
         </div>
         <div>
-          <ul
+          <div
             className={`flex flex-row text-center pt-5 text-secondary space-x-5`}
           >
             <AnchorLink
@@ -20,37 +20,37 @@ const Nav = () => {
               offset="100"
               className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
             >
-              <li className={``}>Deskripsi</li>
+              Deskripsi
             </AnchorLink>
             <AnchorLink
               href="#team"
               offset="100"
               className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
             >
-              <li>Tim</li>
+              Tim
             </AnchorLink>
             <AnchorLink
               href="#history"
               offset="100"
               className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
             >
-              <li>Tentang</li>
+              Tentang
             </AnchorLink>
             <AnchorLink
               href="#products"
               offset="100"
               className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
             >
-              <li>Produk</li>
+              Produk
             </AnchorLink>
             <AnchorLink
               href="#vision"
               offset="100"
               className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
             >
-              <li className={`px-2`}>Visi dan Misi</li>
+              <p className={`px-2`}>Visi dan Misi</p>
             </AnchorLink>
-          </ul>
+          </div>
         </div>
       </nav>
     </div>

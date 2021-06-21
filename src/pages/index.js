@@ -19,7 +19,7 @@ import HeroImage from "../svg/HeroImage"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-import { Helmet } from "react-helmet"
+import Seo from "../components/seo"
 
 export const query = graphql`
   query {
@@ -44,9 +44,7 @@ export const query = graphql`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>Home — {data.siteTitle.siteMetadata.title}</title>
-      </Helmet>
+      <Seo title={`Home`}></Seo>
       <Split
         id="home"
         className={`bg-primary-darker rounded-3xl`}
