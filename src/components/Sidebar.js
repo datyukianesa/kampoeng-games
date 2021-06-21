@@ -1,5 +1,4 @@
 import * as React from "react"
-// import { SwitchCase } from "estree"
 import { Link } from "gatsby"
 import { useState } from "react"
 import Button from "@material-tailwind/react/Button"
