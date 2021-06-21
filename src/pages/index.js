@@ -307,7 +307,7 @@ const IndexPage = ({ data }) => {
           </div>
         }
       ></Split>
-      <Section id="team" className={`bg-complementary rounded-3xl mb-20`}>
+      <Section id="vision" className={`bg-complementary rounded-3xl mb-20`}>
         <div>
           <Heading
             className={`text-center text-secondary font-extrabold py-2 xl:ml-28 xl:mr-28`}
