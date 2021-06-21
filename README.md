@@ -2,4 +2,4 @@
   Kampoeng Games
 </h1>
 
-yes
+<h2>Made with Gatsby, tailwind, and @material/tailwind</h2>

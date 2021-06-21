@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Kampoeng Games`,
     description: `Kampoeng Games merupakan sebuah website e-commerce yang berfokus untuk menjual game dan in-game voucher.`,
-    author: `@datyukianesa`,
+    author: `@datyukianesa, @abyanzhafran`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

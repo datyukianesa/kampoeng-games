@@ -16,7 +16,20 @@ import AppstoreBadge from "../svg/AppstoreBadge"
 import PlaystoreBadge from "../svg/PlaystoreBadge"
 import HeroImage from "../svg/HeroImage"
 
-const IndexPage = () => {
+import { graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
+
+export const query = graphql`
+  query {
+    games: file(relativePath: { eq: "img1.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+  }
+`
+
+const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Split
@@ -87,12 +100,10 @@ const IndexPage = () => {
           </Aside>
         }
         second={
-          <StaticImage
+          <GatsbyImage
             className="xl:w-1/2 xl:ml-32"
-            loading="lazy"
-            src="../images/img1.png"
-            alt="Games"
-          ></StaticImage>
+            image={data.games.childImageSharp.gatsbyImageData}
+          />
         }
       ></Split>
       <Section id="team" className={`bg-secondary rounded-3xl`}>

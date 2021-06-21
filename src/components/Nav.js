@@ -4,7 +4,7 @@ import LogoIcon from "../svg/LogoIcon"
 
 const Nav = () => {
   return (
-    <div className="bg-secondary text-white shadow sticky top-0">
+    <div className="bg-secondary text-white shadow sticky top-0 z-50">
       <nav className="container flex flex-col sm:flex-row justify-between items-center mx-auto py-2 px-8">
         <div className="w-20 h-20 rounded-full bg-primary border-8 border-secondary -my-5">
           <AnchorLink href="#home" offset="100">
