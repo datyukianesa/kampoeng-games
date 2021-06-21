@@ -10,9 +10,6 @@ const LayoutDashboard = ({ children, className }) => {
         <main className={`container mx-auto px-10 ${className}`}>
           {children}
         </main>
-        {/* <div className="bg-primary-darker">
-          <Footer></Footer>
-        </div> */}
       </div>
     </>
   )

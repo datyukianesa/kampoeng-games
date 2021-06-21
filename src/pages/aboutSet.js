@@ -8,8 +8,8 @@ import "@material-tailwind/react/tailwind.css"
 
 export default function aboutSet() {
   return (
-    <div className="m-8">
-      <Card>
+    <div className="h-screen flex items-center justify-center">
+      <Card className="w-full border border-gray-300 mx-10">
         <CardHeader color="amber" contentPosition="none">
           <div className="w-full flex items-center justify-between">
             <h2 className="text-white text-2xl">About Page Editor</h2>
