@@ -14,7 +14,7 @@ const Footer = () => {
         </div>
 
         <div className={`pt-20 pb-14 flex-1 text-right `}>
-          <Heading className={`text-secondary`}>Important Links</Heading>
+          {/* <Heading className={`text-secondary`}>Important Links</Heading>
           <ul>
             <li>
               <AnchorLink href="#desc" offset="100">
@@ -37,7 +37,7 @@ const Footer = () => {
                 </Paragraph>
               </AnchorLink>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
       {/* <div className={`flex`}>

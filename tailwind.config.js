@@ -14,6 +14,9 @@ module.exports = {
       backgroundImage: {
         cover: "url('/images/amogus.png')",
       },
+      screens: {
+        sm1: "692px",
+      },
       colors: {
         transparent: "transparent",
         current: "currentColor",
