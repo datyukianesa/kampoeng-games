@@ -10,7 +10,10 @@ import Section from "../components/Section"
 import Card from "../components/Card"
 import ProfileImage from "../components/ProfileImage"
 import { StaticImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 
+import AppstoreBadge from "../svg/AppstoreBadge"
+import PlaystoreBadge from "../svg/PlaystoreBadge"
 import HeroImage from "../svg/HeroImage"
 
 const IndexPage = () => {
@@ -47,17 +50,17 @@ const IndexPage = () => {
               <Heading className={`text-secondary font-bold text-center`}>
                 Download App kami
               </Heading>
-              <div className="grid grid-cols-2 gap-2 place-items-center">
-                <Button
-                  className={`border-2 border-white bg-secondary text-white  m-2 p-3`}
-                >
-                  Lorem ipsum
-                </Button>
-                <Button
-                  className={`border-2 border-white bg-secondary text-white m-2 p-3`}
-                >
-                  Lorem ipsum
-                </Button>
+              <div className="flex flex-row">
+                <div className={`flex-1`}>
+                  <Link to="/">
+                    <AppstoreBadge></AppstoreBadge>
+                  </Link>
+                </div>
+                <div className={`flex-1 mx-9`}>
+                  <Link to="/">
+                    <PlaystoreBadge></PlaystoreBadge>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
