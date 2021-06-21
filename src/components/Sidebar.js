@@ -1,4 +1,5 @@
 import * as React from "react"
+// import { SwitchCase } from "estree"
 import { Link } from "gatsby"
 import { useState } from "react"
 import Button from "@material-tailwind/react/Button"
@@ -13,7 +14,7 @@ export default function Sidebar() {
     <div>
       <NavbarAdmin showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <div
-        class={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-gray-800 w-64 z-10 py-4 px-6 transition-all duration-300`}
+        class={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-secondary w-64 z-10 py-4 px-6 transition-all duration-300`}
       >
         <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
           <a
@@ -26,13 +27,13 @@ export default function Sidebar() {
           <div className="flex flex-col">
             <hr className="my-4 min-w-full" />
 
-            <ul className="flex flex-col min-w-full flex list-none grid grid-cols gap-6">
+            <ul className="flex flex-col min-w-full list-none grid-cols gap-6">
               <div class="">
                 <div className="w-20 h-20 rounded-full bg-yellow-400 mx-auto">
                   <LogoIcon className={"p-2"} />
                 </div>
               </div>
-              <Link to="/">
+              <Link>
                 <Button
                   class="mb-4 w-full"
                   color="amber"
@@ -40,12 +41,13 @@ export default function Sidebar() {
                   block={true}
                   size="regular"
                   ripple="light"
+                  onClick={() => setShowSidebar("-left-64")}
                 >
                   <span class="material-icons">pie_chart</span>
                   Login
                 </Button>
               </Link>
-              <Link to="/">
+              <Link>
                 <Button
                   class="mb-4 w-full"
                   color="amber"
@@ -53,12 +55,13 @@ export default function Sidebar() {
                   block={true}
                   size="regular"
                   ripple="light"
+                  onClick={() => setShowSidebar("-left-64")}
                 >
                   <span class="material-icons">pie_chart</span>
                   Dashboard
                 </Button>
               </Link>
-              <Link to="/">
+              <Link>
                 <Button
                   class="mb-4 w-full"
                   color="amber"
@@ -66,12 +69,13 @@ export default function Sidebar() {
                   block={true}
                   size="regular"
                   ripple="light"
+                  onClick={() => setShowSidebar("-left-64")}
                 >
                   <span class="material-icons">pie_chart</span>
                   Pengaturan Halaman
                 </Button>
               </Link>
-              <Link to="/">
+              <Link>
                 <Button
                   class="mb-4 w-full"
                   color="amber"
@@ -79,12 +83,13 @@ export default function Sidebar() {
                   block={true}
                   size="regular"
                   ripple="light"
+                  onClick={() => setShowSidebar("-left-64")}
                 >
                   <span class="material-icons">pie_chart</span>
                   Pengaturan Tim
                 </Button>
               </Link>
-              <Link to="/">
+              <Link>
                 <Button
                   class="mb-4 w-full"
                   color="amber"
@@ -92,6 +97,7 @@ export default function Sidebar() {
                   block={true}
                   size="regular"
                   ripple="light"
+                  onClick={() => setShowSidebar("-left-64")}
                 >
                   <span class="material-icons">pie_chart</span>
                   Pengaturan Produk
@@ -105,6 +111,7 @@ export default function Sidebar() {
                   block={true}
                   size="regular"
                   ripple="light"
+                  onClick={() => setShowSidebar("-left-64")}
                 >
                   <span class="material-icons">pie_chart</span>
                   Pengaturan Kontak kami
