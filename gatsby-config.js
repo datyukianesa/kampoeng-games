@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Kampoeng Games`,
     description: `Kampoeng Games merupakan sebuah website e-commerce yang berfokus untuk menjual game dan in-game voucher.`,
-    author: `@datyukianesa, @abyanzhafran`,
+    author: [`@datyukianesa`, `@abyanzhafran`],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,13 +20,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Kampoeng Games`,
+        short_name: `KG`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `rgba(243,195,84,255)`,
+        theme_color: `rgba(108,242,189,255)`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/svg/logo_v3.svg`, // This path is relative to the root of the site.
       },
     },
     // gatsby material-UI config
