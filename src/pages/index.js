@@ -9,7 +9,6 @@ import Paragraph from "../components/Paragraph"
 import Section from "../components/Section"
 import Card from "../components/Card"
 import ProfileImage from "../components/ProfileImage"
-import LogoIcon from "../svg/LogoIcon"
 import { StaticImage } from "gatsby-plugin-image"
 
 import HeroImage from "../svg/HeroImage"
@@ -87,7 +86,7 @@ const IndexPage = () => {
         second={
           <StaticImage
             className="xl:w-1/2 xl:ml-32"
-            loading="eager"
+            loading="lazy"
             src="../images/img1.png"
             alt="Games"
           ></StaticImage>
@@ -99,9 +98,9 @@ const IndexPage = () => {
         >
           Our Team
         </Heading>
-        <div className="font-extrabold flex flex-col md:flex-row">
-          <div className={`md:m-2`}>
-            <Card className={`text-center`}>
+        <div className="font-extrabold">
+          <div className={`flex flex-col md:flex-row md:m-2`}>
+            <Card className={`text-center flex-1 md:mx-2`}>
               <ProfileImage>
                 <StaticImage
                   className="w-20 h-20 rounded-full m-5"
@@ -122,7 +121,7 @@ const IndexPage = () => {
                 </Paragraph>
               </div>
             </Card>
-            <Card className={`text-center`}>
+            <Card className={`text-center flex-1 md:mx-2`}>
               <ProfileImage>
                 <StaticImage
                   className="w-20 h-20 rounded-full m-5"
@@ -143,9 +142,8 @@ const IndexPage = () => {
                 </Paragraph>
               </div>
             </Card>
-          </div>
-          <div className={`md:m-2`}>
-            <Card className={`text-center`}>
+
+            <Card className={`text-center flex-1 md:mx-2`}>
               <ProfileImage>
                 <StaticImage
                   className="w-20 h-20 rounded-full m-5"
@@ -166,7 +164,9 @@ const IndexPage = () => {
                 </Paragraph>
               </div>
             </Card>
-            <Card className={`text-center`}>
+          </div>
+          <div className={`flex flex-col md:flex-row md:m-2`}>
+            <Card className={`text-center flex-1 md:mx-2`}>
               <ProfileImage>
                 <StaticImage
                   className="w-20 h-20 rounded-full m-5"
@@ -189,9 +189,7 @@ const IndexPage = () => {
                 </Paragraph>
               </div>
             </Card>
-          </div>
-          <div className={`md:m-2`}>
-            <Card className={`text-center`}>
+            <Card className={`text-center flex-1 md:mx-2`}>
               <ProfileImage>
                 <StaticImage
                   className="w-20 h-20 rounded-full m-5"
@@ -212,7 +210,7 @@ const IndexPage = () => {
                 </Paragraph>
               </div>
             </Card>
-            <Card className={`text-center`}>
+            <Card className={`text-center flex-1 md:mx-2`}>
               <ProfileImage>
                 <StaticImage
                   className="w-20 h-20 rounded-full m-5"
@@ -286,13 +284,14 @@ const IndexPage = () => {
             <StaticImage
               className="block"
               loading="eager"
+              layout="fullWidth"
               src="../images/amogus.png"
               alt="Cover"
             ></StaticImage>
           </div>
         }
       ></Split>
-      <Section id="team" className={`bg-complementary rounded-3xl`}>
+      <Section id="team" className={`bg-complementary rounded-3xl mb-20`}>
         <div>
           <Heading
             className={`text-center text-secondary font-extrabold py-2 xl:ml-28 xl:mr-28`}

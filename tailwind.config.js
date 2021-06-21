@@ -32,6 +32,9 @@ module.exports = {
           lighter: "rgba(138,255,208,255)",
           darker: "rgba(56,165,123,255)",
         },
+        gatsby: {
+          DEFAULT: "rebeccapurple",
+        },
       },
       fontFamily: {
         gothic: "Century Gothic",
