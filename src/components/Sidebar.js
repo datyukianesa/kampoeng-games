@@ -42,7 +42,7 @@ export default function Sidebar() {
                   ripple="light"
                   onClick={() => setShowSidebar("-left-64")}
                 >
-                  <span class="material-icons">pie_chart</span>
+                  <span class="material-icons">login</span>
                   Login
                 </Button>
               </Link>
@@ -56,7 +56,7 @@ export default function Sidebar() {
                   ripple="light"
                   onClick={() => setShowSidebar("-left-64")}
                 >
-                  <span class="material-icons">pie_chart</span>
+                  <span class="material-icons">dashboard</span>
                   Dashboard
                 </Button>
               </Link>
@@ -70,8 +70,8 @@ export default function Sidebar() {
                   ripple="light"
                   onClick={() => setShowSidebar("-left-64")}
                 >
-                  <span class="material-icons">pie_chart</span>
-                  Pengaturan Halaman
+                  <span class="material-icons">article</span>
+                  Halaman
                 </Button>
               </Link>
               <Link>
@@ -84,8 +84,8 @@ export default function Sidebar() {
                   ripple="light"
                   onClick={() => setShowSidebar("-left-64")}
                 >
-                  <span class="material-icons">pie_chart</span>
-                  Pengaturan Tim
+                  <span class="material-icons">groups</span>
+                  Tim
                 </Button>
               </Link>
               <Link>
@@ -98,8 +98,8 @@ export default function Sidebar() {
                   ripple="light"
                   onClick={() => setShowSidebar("-left-64")}
                 >
-                  <span class="material-icons">pie_chart</span>
-                  Pengaturan Produk
+                  <span class="material-icons">settings</span>
+                  Produk/Service
                 </Button>
               </Link>
               <Link to="/">
@@ -112,8 +112,8 @@ export default function Sidebar() {
                   ripple="light"
                   onClick={() => setShowSidebar("-left-64")}
                 >
-                  <span class="material-icons">pie_chart</span>
-                  Pengaturan Kontak kami
+                  <span class="material-icons">contacts</span>
+                  Kontak kami
                 </Button>
               </Link>
             </ul>
