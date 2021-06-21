@@ -1,18 +1,14 @@
 import React from "react"
-import { useLocation } from "@reach/router"
-import Icon from "@material-tailwind/react/Icon"
 import NavbarInput from "@material-tailwind/react/NavbarInput"
-import Image from "@material-tailwind/react/Image"
+// import Image from "@material-tailwind/react/Image"
 import Dropdown from "@material-tailwind/react/Dropdown"
 import DropdownItem from "@material-tailwind/react/DropdownItem"
 import Button from "@material-tailwind/react/Button"
 import "@material-tailwind/react/tailwind.css"
 
 export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
-  const location = useLocation().pathname
-
   return (
-    <nav className="bg-gray-800 md:ml-64 py-3 px-3">
+    <nav className="bg-secondary md:ml-64 py-3 px-4">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-4 md:pl-10">
         <div className="md:hidden">
           <Button
@@ -46,11 +42,7 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
         </div>
 
         <div className="flex justify-between items-center w-full">
-          <h4 className="uppercase text-white text-sm tracking-wider mt-1">
-            {location === "/"
-              ? "DASHBOARD"
-              : location.toUpperCase().replace("/", "")}
-          </h4>
+          <div />
 
           <div className="flex">
             <NavbarInput placeholder="Search" />
@@ -59,9 +51,12 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
               <Dropdown
                 color="transparent"
                 buttonText={
-                  <div className="w-12">
+                  <div className="flex flex-row">
                     <span class="material-icons md-32 text-white">
                       account_circle
+                    </span>
+                    <span class="material-icons md-32 text-white">
+                      arrow_drop_down
                     </span>
                   </div>
                 }
@@ -71,9 +66,8 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
                   color: "transparent",
                 }}
               >
-                <DropdownItem color="lightBlue">Action</DropdownItem>
-                <DropdownItem color="lightBlue">Another Action</DropdownItem>
-                <DropdownItem color="lightBlue">Something Else</DropdownItem>
+                <DropdownItem color="lightBlue">Haloww, name</DropdownItem>
+                <DropdownItem color="lightBlue">Logout</DropdownItem>
               </Dropdown>
             </div>
           </div>
