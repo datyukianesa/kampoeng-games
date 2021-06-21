@@ -26,6 +26,11 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
+    amogus: file(relativePath: { eq: "amogus.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
   }
 `
 
@@ -295,13 +300,10 @@ const IndexPage = ({ data }) => {
         }
         second={
           <div className="lg:p-5 xl:w-1/2 xl:ml-36">
-            <StaticImage
+            <GatsbyImage
               className="block"
-              loading="eager"
-              layout="fullWidth"
-              src="../images/amogus.png"
-              alt="Cover"
-            ></StaticImage>
+              image={data.amogus.childImageSharp.gatsbyImageData}
+            />
           </div>
         }
       ></Split>
