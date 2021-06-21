@@ -41,7 +41,7 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
         </div>
 
         <div className="flex justify-between items-center w-full">
-          <div />
+          <h4 className="text-white font-bold">For Debugging</h4>
 
           <div className="flex">
             <NavbarInput placeholder="Search" />

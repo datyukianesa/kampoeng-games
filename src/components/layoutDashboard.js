@@ -1,12 +1,11 @@
 import * as React from "react"
-// import Footer from "./Footer"
 import Sidebar from "./Sidebar"
 
 const LayoutDashboard = ({ children, className }) => {
   return (
     <>
-      <div className={`bg-primary`}>
-        <Sidebar />
+      <Sidebar />
+      <div className={`bg-primary md:ml-64`}>
         <main className={`container mx-auto px-10 ${className}`}>
           {children}
         </main>

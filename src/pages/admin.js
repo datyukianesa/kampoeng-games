@@ -1,11 +1,10 @@
 import React from "react"
-import Sidebar from "../components/Sidebar"
 import LayoutDashboard from "../components/layoutDashboard"
 
 export default function admin() {
   return (
-    <div>
-      <LayoutDashboard></LayoutDashboard>
-    </div>
+    <LayoutDashboard>
+      <div className="text-dark font-bold text-2xl">Hello brro admin page</div>
+    </LayoutDashboard>
   )
 }
