@@ -13,7 +13,7 @@ export default function Sidebar() {
     <div>
       <NavbarAdmin showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <div
-        class={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-secondary w-64 z-10 py-4 px-6 transition-all duration-300`}
+        class={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-secondary w-64 z-10 py-2 px-6 transition-all duration-300`}
       >
         <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
           <a
@@ -30,7 +30,7 @@ export default function Sidebar() {
               <div className="w-20 h-20 rounded-full bg-yellow-400 mx-auto my-2">
                 <LogoIcon className={"p-2"} />
               </div>
-              <Link>
+              <Link to="/login">
                 <Button
                   class="mb-4 w-full"
                   color="amber"
@@ -44,7 +44,7 @@ export default function Sidebar() {
                   Login
                 </Button>
               </Link>
-              <Link>
+              <Link to="/admin">
                 <Button
                   class="mb-4 w-full"
                   color="amber"
@@ -58,7 +58,7 @@ export default function Sidebar() {
                   Dashboard
                 </Button>
               </Link>
-              <Link>
+              <Link to="/homeSet">
                 <Button
                   class="mb-4 w-full"
                   color="amber"
@@ -100,7 +100,7 @@ export default function Sidebar() {
                   Produk/Service
                 </Button>
               </Link>
-              <Link to="/">
+              <Link to="/accountSet">
                 <Button
                   class="mb-4 w-full"
                   color="amber"
