@@ -11,10 +11,10 @@ export default function accountSet() {
   return (
     <LayoutDashboard>
       <div className="h-screen flex items-center justify-center">
-        <Card className="w-full border border-gray-300 mx-10">
-          <div className="flex flex-row gap-4 pl-4">
-            <div className="w-16 h-16 rounded-full bg-yellow-400 border-2 border-gray-900">
-              <LogoIcon className={"p-2"} />
+        <Card className="w-full border border-gray-300 mx-6">
+          <div className="flex flex-row flex-grow gap-4">
+            <div className="w-12 h-12 md:w-16 rounded-full bg-yellow-400 border-2 border-gray-900">
+              <LogoIcon className={"p-1 md:p-2"} />
             </div>
             <span className="text-dark font-bold text-xl flex items-center">
               Account Setting

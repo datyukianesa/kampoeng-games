@@ -7,7 +7,7 @@ import "@material-tailwind/react/tailwind.css"
 
 export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
   return (
-    <nav className="bg-secondary md:ml-64 py-3 px-4">
+    <nav className="bg-secondary md:ml-64 py-3 px-2 md:px-4">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-4 md:pl-10">
         <div className="md:hidden">
           <Button
@@ -41,12 +41,12 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
         </div>
 
         <div className="flex justify-between items-center w-full">
-          <h4 className="text-white font-bold">For Debugging</h4>
+          <div />
 
           <div className="flex">
-            <NavbarInput placeholder="Search" />
+            <NavbarInput className="flex-grow h-full" placeholder="Search" />
 
-            <div className="-mr-4 ml-6">
+            <div className="-mr-4 ml-2">
               <Dropdown
                 color="transparent"
                 buttonText={
@@ -54,7 +54,7 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
                     <span class="material-icons md-32 text-white">
                       account_circle
                     </span>
-                    <span class="material-icons md-32 text-white">
+                    <span class="material-icons md-32 text-white sm:hidden">
                       arrow_drop_down
                     </span>
                   </div>
