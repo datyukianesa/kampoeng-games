@@ -7,7 +7,7 @@ import "@material-tailwind/react/tailwind.css"
 
 export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
   return (
-    <nav className="bg-secondary md:ml-64 py-3 px-2 md:px-4">
+    <nav className="bg-secondary md:ml-64 py-3 px-4">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-4 md:pl-10">
         <div className="md:hidden">
           <Button
