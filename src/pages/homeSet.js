@@ -9,7 +9,6 @@ import "@material-tailwind/react/tailwind.css"
 
 export default function homeSet() {
   return (
-    // <div className="h-screen flex items-center justify-center">
     <LayoutDashboard>
       <div className="h-screen flex items-center justify-center">
         <Card className="w-full border border-gray-300 mx-10">
@@ -44,6 +43,5 @@ export default function homeSet() {
         </Card>
       </div>
     </LayoutDashboard>
-    // </div>
   )
 }

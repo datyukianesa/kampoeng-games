@@ -9,7 +9,6 @@ import "@material-tailwind/react/tailwind.css"
 
 export default function aboutSet() {
   return (
-    // <div className="h-screen flex items-center justify-center">
     <LayoutDashboard>
       <Card className="w-full border border-gray-300 mx-10">
         <CardHeader color="amber" contentPosition="none">
@@ -42,6 +41,5 @@ export default function aboutSet() {
         </CardBody>
       </Card>
     </LayoutDashboard>
-    // </div>
   )
 }

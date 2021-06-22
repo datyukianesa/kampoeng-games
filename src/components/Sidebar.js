@@ -69,7 +69,7 @@ export default function Sidebar() {
                   onClick={() => setShowSidebar("-left-64")}
                 >
                   <span class="material-icons">article</span>
-                  Halaman
+                  Page Setting
                 </Button>
               </Link>
               <Link>
