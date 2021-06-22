@@ -1,11 +1,13 @@
 import * as React from "react"
 import Sidebar from "./Sidebar"
-import Seo from "./seo"
+import { Helmet } from "react-helmet"
 
 const LayoutDashboard = ({ children, className }) => {
   return (
     <>
-      <Seo title={`Admin Dashboard`}></Seo>
+      <Helmet>
+        <title>Kampoeng Games</title>
+      </Helmet>
       <Sidebar />
       <div className={`bg-primary md:ml-64`}>
         <main className={`container mx-auto px-10 ${className}`}>
