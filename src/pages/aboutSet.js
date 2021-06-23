@@ -1,14 +1,15 @@
-import * as React from "react"
+import React from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
 import Button from "@material-tailwind/react/Button"
 import Textarea from "@material-tailwind/react/Textarea"
+import LayoutDashboard from "../components/layoutDashboard"
 import "@material-tailwind/react/tailwind.css"
 
-export default function AboutSet() {
+export default function aboutSet() {
   return (
-    <div className="h-screen flex items-center justify-center">
+    <LayoutDashboard>
       <Card className="w-full border border-gray-300 mx-10">
         <CardHeader color="amber" contentPosition="none">
           <div className="w-full flex items-center justify-between">
@@ -39,6 +40,6 @@ export default function AboutSet() {
           </form>
         </CardBody>
       </Card>
-    </div>
+    </LayoutDashboard>
   )
 }

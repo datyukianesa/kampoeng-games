@@ -29,7 +29,7 @@ export default function login() {
                 </div>
                 <div className="w-full pr-4 mb-10 font-light">
                   <Input
-                    type="text"
+                    type="password"
                     color="lightBlue"
                     size="regular"
                     outline={true}

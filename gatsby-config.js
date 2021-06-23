@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Kampoeng Games`,
@@ -27,6 +31,15 @@ module.exports = {
         theme_color: `rgba(108,242,189,255)`,
         display: `minimal-ui`,
         icon: `src/svg/logo_v3.svg`, // This path is relative to the root of the site.
+      },
+    },
+    // gatsby-source-contentful config (Using Delivery API )
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `a1827sxwab7q`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: "bLr0O177A1jEXoWbcHtdEpC3p25SinqO0bWV7N3kpc8",
       },
     },
     // gatsby material-UI config
