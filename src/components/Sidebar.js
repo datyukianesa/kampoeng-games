@@ -51,7 +51,7 @@ const Sidebar = () => {
                   Login
                 </Button>
               </Link>
-              <Link to="/Admin">
+              <Link to="/dashboard">
                 <Button
                   class="mb-4 w-full"
                   color="amber"

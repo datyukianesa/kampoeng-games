@@ -28,16 +28,28 @@ export default function homeSet() {
                   success="Homepage"
                 />
               </div>
-              <Button
-                color="lightBlue"
-                buttonType="filled"
-                size="regular"
-                rounded={false}
-                block={false}
-                ripple="light"
-              >
-                Submit
-              </Button>
+              <div className="flex flex-row gap-3">
+                <Button
+                  color="green"
+                  buttonType="filled"
+                  size="regular"
+                  rounded={false}
+                  block={false}
+                  ripple="light"
+                >
+                  Update
+                </Button>
+                <Button
+                  color="lightBlue"
+                  buttonType="filled"
+                  size="regular"
+                  rounded={false}
+                  block={false}
+                  ripple="light"
+                >
+                  Submit
+                </Button>
+              </div>
             </form>
           </CardBody>
         </Card>

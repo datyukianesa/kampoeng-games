@@ -15,10 +15,13 @@ export default function login() {
           <div className="w-16 h-16 rounded-full bg-yellow-400 mx-auto border-2 border-gray-900">
             <LogoIcon className={"p-2"} />
           </div>
+          <span className="text-xl font-bold flex justify-center my-4">
+            Login
+          </span>
           <CardBody>
             <form>
-              <div className="flex flex-col mt-10">
-                <div className="w-full pr-4 mb-10 font-light">
+              <div className="flex flex-col">
+                <div className="w-full pr-4 mb-8 font-light">
                   <Input
                     type="text"
                     color="lightBlue"

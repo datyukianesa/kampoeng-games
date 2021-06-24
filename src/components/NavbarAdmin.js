@@ -21,23 +21,6 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
           >
             <span class="material-icons md-32 text-white">menu</span>
           </Button>
-          <div
-            className={`absolute top-2 md:hidden ${
-              showSidebar === "left-0" ? "left-64" : "-left-64"
-            } z-50 transition-all duration-300`}
-          >
-            <Button
-              color="transparent"
-              buttonType="link"
-              size="lg"
-              iconOnly
-              rounded
-              ripple="light"
-              onClick={() => setShowSidebar("-left-64")}
-            >
-              <span class="material-icons md-32 text-white">close</span>
-            </Button>
-          </div>
         </div>
 
         <div className="flex justify-between items-center w-full">
