@@ -24,6 +24,7 @@ const Sidebar = () => {
               iconOnly
               rounded
               ripple="light"
+              onClick={() => setShowSidebar("-left-64")}
             >
               <span class="material-icons md-28 text-white">menu</span>
             </Button>
