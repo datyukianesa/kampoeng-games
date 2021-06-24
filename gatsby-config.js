@@ -1,6 +1,8 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+const dotenv = require("dotenv")
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config()
+}
 
 module.exports = {
   siteMetadata: {
@@ -39,7 +41,7 @@ module.exports = {
       options: {
         spaceId: `a1827sxwab7q`,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: "bLr0O177A1jEXoWbcHtdEpC3p25SinqO0bWV7N3kpc8",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     // gatsby material-UI config
