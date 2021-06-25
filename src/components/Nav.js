@@ -1,6 +1,7 @@
 import * as React from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import LogoIcon from "../svg/LogoIcon"
+import Button from "@material-tailwind/react/Button"
 
 const Nav = () => {
   return (
@@ -12,43 +13,88 @@ const Nav = () => {
           </AnchorLink>
         </div>
         <div>
-          <ul
-            className={`flex flex-row text-center pt-5 text-secondary space-x-5`}
-          >
-            <AnchorLink
-              href="#desc"
-              offset="100"
-              className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
-            >
-              <li className={``}>Deskripsi</li>
+          <ul className={`flex gap-4 pt-6 pb-1 justify-center mx-auto`}>
+            <div class="absolute left-0 ml-3">
+              <Button
+                color="transparent"
+                buttonType="link"
+                size="lg"
+                iconOnly
+                rounded
+                ripple="light"
+              >
+                <span class="material-icons md-32 text-white">menu</span>
+              </Button>
+            </div>
+            <AnchorLink href="#desc">
+              <Button
+                className="w-36"
+                color="amber"
+                buttonType="filled"
+                size="sm"
+                rounded={true}
+                ripple="light"
+              >
+                <span className="text-secondary-darker normal-case text-base">
+                  Deskripsi
+                </span>
+              </Button>
             </AnchorLink>
-            <AnchorLink
-              href="#team"
-              offset="100"
-              className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
-            >
-              <li>Tim</li>
+            <AnchorLink href="#team">
+              <Button
+                className="w-36"
+                color="amber"
+                buttonType="filled"
+                size="sm"
+                rounded={true}
+                ripple="light"
+              >
+                <span className="text-secondary-darker normal-case text-base">
+                  Tim
+                </span>
+              </Button>
             </AnchorLink>
-            <AnchorLink
-              href="#history"
-              offset="100"
-              className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
-            >
-              <li>Tentang</li>
+            <AnchorLink href="#history">
+              <Button
+                className="w-36"
+                color="amber"
+                buttonType="filled"
+                size="sm"
+                rounded={true}
+                ripple="light"
+              >
+                <span className="text-secondary-darker normal-case text-base">
+                  Tentang
+                </span>
+              </Button>
             </AnchorLink>
-            <AnchorLink
-              href="#products"
-              offset="100"
-              className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
-            >
-              <li>Produk</li>
+            <AnchorLink href="#products">
+              <Button
+                className="w-36"
+                color="amber"
+                buttonType="filled"
+                size="sm"
+                rounded={true}
+                ripple="light"
+              >
+                <span className="text-secondary-darker normal-case text-base">
+                  Produk
+                </span>
+              </Button>
             </AnchorLink>
-            <AnchorLink
-              href="#vision"
-              offset="100"
-              className={`flex-1 bg-primary rounded-lg hover:bg-primary-lighter`}
-            >
-              <li className={`px-2`}>Visi dan Misi</li>
+            <AnchorLink href="#vision">
+              <Button
+                className="w-36"
+                color="amber"
+                buttonType="filled"
+                size="sm"
+                rounded={true}
+                ripple="light"
+              >
+                <span className="text-secondary-darker normal-case text-base">
+                  Visi dan Misi
+                </span>
+              </Button>
             </AnchorLink>
           </ul>
         </div>
