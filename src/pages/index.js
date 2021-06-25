@@ -1,4 +1,6 @@
 import * as React from "react"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 
 import Layout from "../components/layout"
 import Split from "../components/Split"
@@ -38,10 +40,30 @@ export const query = graphql`
         title
       }
     }
+    contentfulKGamesHomepage {
+      product {
+        raw
+      }
+    }
   }
 `
 
 const IndexPage = ({ data }) => {
+  // contentful function
+  const RICHTEXT_OPTIONS = {
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => {
+        return (
+          <Paragraph className={`text-justify py-5 text-Indent lg:text-right`}>
+            {children}
+          </Paragraph>
+        )
+      },
+    },
+  }
+  const value = JSON.parse(data.contentfulKGamesHomepage.product.raw)
+  // console.log(documentToReactComponents(value), RICHTEXT_OPTIONS)
+
   return (
     <Layout>
       <Helmet>
@@ -301,11 +323,12 @@ const IndexPage = ({ data }) => {
         className={`bg-gradient-to-b lg:bg-gradient-to-l from-complementary rounded-3xl`}
         first={
           <Paragraph className={`text-justify py-5 text-Indent lg:text-right`}>
-            Kampoeng Games sekarang telah memiliki lebih dari 100 games dan
+            {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games dan
             voucher dari segala provider. Perusahaan kami juga telah di sponsori
             oleh berbagai perusahaan lainnya seperti Razer, G-Fuel, Microsoft,
             Playstation, Xbox, dan lain-lainnya. Dengan ini, Kampoeng Games
-            merupakan toko hiburan dibidang gaming terlengkap di Indonesia.
+            merupakan toko hiburan dibidang gaming terlengkap di Indonesia. */}
+            {documentToReactComponents(value)}
           </Paragraph>
         }
         second={
