@@ -1,4 +1,4 @@
-const NavItem = [
+export const NavItem = [
   {
     title: "Deskripsi",
     url: "#desc",

@@ -1,5 +1,5 @@
 import * as React from "react"
-import Sidebar from "./Sidebar"
+import Sidebar from "./Sidebar/Sidebar"
 import { Helmet } from "react-helmet"
 
 const LayoutDashboard = ({ children, className }) => {
