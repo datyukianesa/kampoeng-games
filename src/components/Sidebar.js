@@ -2,12 +2,41 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { useState } from "react"
 import Button from "@material-tailwind/react/Button"
-import NavbarAdmin from "../NavbarAdmin"
-import { SideItem } from "./SideItem"
-import LogoIcon from "../../svg/LogoIcon"
+import NavbarAdmin from "./NavbarAdmin"
+import LogoIcon from "../svg/LogoIcon"
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState("-left-64")
+  const SideItem = [
+    {
+      title: "Login",
+      url: "/login",
+      icon: "login",
+    },
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: "dashboard",
+    },
+    {
+      title: "Page Setting",
+      url: "/homeSet",
+      icon: "article",
+    },
+    {
+      title: "Tim",
+      icon: "groups",
+    },
+    {
+      title: "Produk/Service",
+      icon: "settings",
+    },
+    {
+      title: "Kontak kami",
+      url: "/accountSet",
+      icon: "contacts",
+    },
+  ]
 
   return (
     <div>

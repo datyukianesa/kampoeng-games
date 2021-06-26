@@ -1,13 +1,34 @@
 import * as React from "react"
 import { useState } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
-import LogoIcon from "../../svg/LogoIcon"
+import LogoIcon from "../svg/LogoIcon"
 import NavbarContainer from "@material-tailwind/react/NavbarContainer"
-import { NavItem } from "./NavItem"
 import Button from "@material-tailwind/react/Button"
 
 const Nav = () => {
   const [openNavbar, setOpenNavbar] = useState(false)
+  const NavItem = [
+    {
+      title: "Deskripsi",
+      url: "#desc",
+    },
+    {
+      title: "Tim",
+      url: "#team",
+    },
+    {
+      title: "Tentang",
+      url: "#history",
+    },
+    {
+      title: "Produk",
+      url: "#products",
+    },
+    {
+      title: "Visi dan Misi",
+      url: "#vision",
+    },
+  ]
 
   return (
     <div className="bg-secondary text-white shadow sticky top-0 z-50">
