@@ -1,6 +1,6 @@
 import * as React from "react"
 import Footer from "./Footer"
-import Nav from "./Nav"
+import Nav from "./Navbar/Nav"
 
 import { Helmet } from "react-helmet"
 

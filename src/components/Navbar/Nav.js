@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useState } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
-import LogoIcon from "../svg/LogoIcon"
+import LogoIcon from "../../svg/LogoIcon"
 import NavbarContainer from "@material-tailwind/react/NavbarContainer"
 import Button from "@material-tailwind/react/Button"
 
