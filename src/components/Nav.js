@@ -2,11 +2,11 @@ import * as React from "react"
 import { useState } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import LogoIcon from "../svg/LogoIcon"
-import NavbarContainer from "@material-tailwind/react/NavbarContainer"
 import Button from "@material-tailwind/react/Button"
 
 const Nav = () => {
-  const [openNavbar, setOpenNavbar] = useState(false)
+  const [openNavbar, setOpenNavbar] = useState("-top-64")
+  console.log(openNavbar)
   const NavItem = [
     {
       title: "Deskripsi",
@@ -28,55 +28,72 @@ const Nav = () => {
       title: "Visi dan Misi",
       url: "#vision",
     },
+    {
+      title: "Login",
+    },
   ]
 
   return (
     <div className="bg-secondary text-white shadow sticky top-0 z-50">
-      <NavbarContainer className="flex flex-row justify-between mx-auto py-2">
-        <div className="w-20 h-20 rounded-full bg-primary hover:bg-primary-lighter border-8 self-center border-secondary -my-5">
-          <AnchorLink href="#home" offset="200">
-            <LogoIcon className={`p-1`} />
-          </AnchorLink>
-        </div>
-        <div className={`flex-none md-cus:flex justify-center`}>
-          <div
-            class="flex-none gap-2 py-1 md-cus:flex md-cus:gap-0"
-            openNavbar={openNavbar}
-          >
-            <div class="relative right-0 mr-3 md-cus:hidden">
-              <Button
-                color="transparent"
-                buttonType="link"
-                size="lg"
-                iconOnly
-                rounded
-                ripple="light"
-                onClick={() => setOpenNavbar(!openNavbar)}
-              >
-                <span class="material-icons md-32 text-white">menu</span>
-              </Button>
+      <div className="flex flex-col pt-1 mx-4">
+        <div class="flex justify-between">
+          <div className="w-20 h-20 rounded-full bg-primary hover:bg-primary-lighter border-8 self-center border-secondary -my-5">
+            <AnchorLink href="#home" offset="200">
+              <LogoIcon className={`p-1`} />
+            </AnchorLink>
+          </div>
+          <div className={`flex hidden lg:block justify-center`}>
+            <div class="flex-none gap-2 py-1 lg:flex lg:gap-0">
+              {/* at lg > breakpoint */}
+              {NavItem.map(item => {
+                return (
+                  <AnchorLink href={item.url}>
+                    <Button
+                      className="w-36"
+                      color="amber"
+                      buttonType="filled"
+                      size="sm"
+                      rounded={false}
+                      ripple="light"
+                    >
+                      <span className="text-secondary-darker normal-case text-base">
+                        {item.title}
+                      </span>
+                    </Button>
+                  </AnchorLink>
+                )
+              })}
             </div>
-            {NavItem.map(item => {
-              return (
-                <AnchorLink href={item.url}>
-                  <Button
-                    className="w-36"
-                    color="amber"
-                    buttonType="filled"
-                    size="sm"
-                    rounded={true}
-                    ripple="light"
-                  >
-                    <span className="text-secondary-darker normal-case text-base">
-                      {item.title}
-                    </span>
-                  </Button>
-                </AnchorLink>
-              )
-            })}
+          </div>
+          <div class="relative right-0 pb-1 lg:hidden">
+            <Button
+              color="transparent"
+              buttonType="link"
+              size="lg"
+              iconOnly
+              rounded
+              ripple="light"
+              onClick={() => setOpenNavbar("top-0")}
+            >
+              <span class="material-icons md-32 text-white">menu</span>
+            </Button>
           </div>
         </div>
-      </NavbarContainer>
+        {/* at mdcus < breakpoint */}
+        <ul
+          class={`list-none -top-64 ${openNavbar} lg:hidden items-center px-4 pt-10`}
+        >
+          {NavItem.map(item => {
+            return (
+              <AnchorLink href={item.url}>
+                <li class="w-full border-t-2 hover:bg-primary text-white flex justify-center items-center py-2 lg:hidden">
+                  {item.title}
+                </li>
+              </AnchorLink>
+            )
+          })}
+        </ul>
+      </div>
     </div>
   )
 }
