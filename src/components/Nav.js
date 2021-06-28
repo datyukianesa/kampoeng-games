@@ -5,8 +5,7 @@ import LogoIcon from "../svg/LogoIcon"
 import Button from "@material-tailwind/react/Button"
 
 const Nav = () => {
-  const [openNavbar, setOpenNavbar] = useState("-top-64")
-  console.log(openNavbar)
+  const [isOpen, setOpen] = useState(false)
   const NavItem = [
     {
       title: "Deskripsi",
@@ -73,7 +72,7 @@ const Nav = () => {
               iconOnly
               rounded
               ripple="light"
-              onClick={() => setOpenNavbar("top-0")}
+              onClick={() => setOpen(!isOpen)}
             >
               <span class="material-icons md-32 text-white">menu</span>
             </Button>
@@ -81,11 +80,13 @@ const Nav = () => {
         </div>
         {/* at mdcus < breakpoint */}
         <ul
-          class={`list-none -top-64 ${openNavbar} lg:hidden items-center px-4 pt-10`}
+          class={`list-none ${
+            isOpen ? "block" : "hidden"
+          } lg:hidden items-center px-4 pt-10`}
         >
           {NavItem.map(item => {
             return (
-              <AnchorLink href={item.url}>
+              <AnchorLink href={item.url} onClick={() => setOpen(!isOpen)}>
                 <li class="w-full border-t-2 hover:bg-primary text-white flex justify-center items-center py-2 lg:hidden">
                   {item.title}
                 </li>
