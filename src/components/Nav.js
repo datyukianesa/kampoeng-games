@@ -41,24 +41,15 @@ const Nav = () => {
               <LogoIcon className={`p-1`} />
             </AnchorLink>
           </div>
-          <div className={`flex hidden lg:block justify-center`}>
-            <div class="flex-none gap-2 py-1 lg:flex lg:gap-0">
+          <div className={`hidden lg:block justify-center py-2 mr-10`}>
+            <div class="flex-none gap-2 py-1 lg:flex">
               {/* at lg > breakpoint */}
               {NavItem.map(item => {
                 return (
                   <AnchorLink href={item.url}>
-                    <Button
-                      className="w-36"
-                      color="amber"
-                      buttonType="filled"
-                      size="sm"
-                      rounded={false}
-                      ripple="light"
-                    >
-                      <span className="text-secondary-darker normal-case text-base">
-                        {item.title}
-                      </span>
-                    </Button>
+                    <li className="list-none text-white font-medium px-8 normal-case text-base hover:text-yellow-500">
+                      {item.title}
+                    </li>
                   </AnchorLink>
                 )
               })}
