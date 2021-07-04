@@ -41,7 +41,7 @@ const Nav = () => {
               <LogoIcon className={`p-1`} />
             </AnchorLink>
           </div>
-          <div className={`flex hidden lg:block justify-center`}>
+          <div className={`hidden lg:block justify-center`}>
             <div class="flex-none gap-2 py-1 lg:flex lg:gap-0">
               {/* at lg > breakpoint */}
               {NavItem.map(item => {
