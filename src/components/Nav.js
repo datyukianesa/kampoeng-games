@@ -3,6 +3,7 @@ import { useState } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import LogoIcon from "../svg/LogoIcon"
 import Button from "@material-tailwind/react/Button"
+import { Link } from "gatsby"
 
 const Nav = () => {
   const [isOpen, setOpen] = useState(false)
@@ -27,9 +28,6 @@ const Nav = () => {
       title: "Visi dan Misi",
       url: "#vision",
     },
-    {
-      title: "Login",
-    },
   ]
 
   return (
@@ -53,6 +51,9 @@ const Nav = () => {
                   </AnchorLink>
                 )
               })}
+              <div className="list-none text-white font-medium px-8 normal-case text-base hover:text-yellow-500">
+                <Link to="login">Login</Link>
+              </div>
             </div>
           </div>
           <div class="relative right-0 pb-1 lg:hidden">

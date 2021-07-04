@@ -5,6 +5,8 @@ import DropdownItem from "@material-tailwind/react/DropdownItem"
 import Button from "@material-tailwind/react/Button"
 import "@material-tailwind/react/tailwind.css"
 
+import { Link } from "gatsby"
+
 export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
   return (
     <nav className="bg-secondary md:ml-64 py-3 px-4">
@@ -49,7 +51,9 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
                 }}
               >
                 <DropdownItem color="lightBlue">Haloww, name</DropdownItem>
-                <DropdownItem color="lightBlue">Logout</DropdownItem>
+                <DropdownItem color="lightBlue">
+                  <Link to="/">Logout</Link>
+                </DropdownItem>
               </Dropdown>
             </div>
           </div>
