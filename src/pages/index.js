@@ -1,6 +1,6 @@
 import * as React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS, INLINES } from "@contentful/rich-text-types"
+import { BLOCKS } from "@contentful/rich-text-types"
 
 import Layout from "../components/layout"
 import Split from "../components/Split"
@@ -53,11 +53,7 @@ const IndexPage = ({ data }) => {
   const RICHTEXT_OPTIONS = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
-        return (
-          <Paragraph className={`text-justify py-5 text-Indent lg:text-right`}>
-            {children}
-          </Paragraph>
-        )
+        return { children }
       },
     },
   }
@@ -71,7 +67,7 @@ const IndexPage = ({ data }) => {
       </Helmet>
       <Split
         id="home"
-        className={`bg-primary-darker rounded-3xl`}
+        className={`rounded-3xl`}
         firstClass={`xl:w-full`}
         reverse
         first={
@@ -100,13 +96,13 @@ const IndexPage = ({ data }) => {
               <Heading className={`text-secondary font-bold text-center`}>
                 Download App kami
               </Heading>
-              <div className="flex flex-row">
-                <div className={`flex-1`}>
+              <div className="grid grid-cols-2">
+                <div className={`mx-auto`}>
                   <Link to="/">
                     <AppstoreBadge></AppstoreBadge>
                   </Link>
                 </div>
-                <div className={`flex-1 mx-9`}>
+                <div className={`mx-auto`}>
                   <Link to="/">
                     <PlaystoreBadge></PlaystoreBadge>
                   </Link>
@@ -287,7 +283,7 @@ const IndexPage = ({ data }) => {
       </Section>
       <Split
         id="history"
-        className={`bg-gradient-to-t from-complementary to-gray-200 rounded-3xl`}
+        className={`bg-gradient-to-b from-complementary rounded-3xl`}
         first={
           <Aside className="py-5">
             <Paragraph className={`text-justify text-Indent pb-2`}>
@@ -323,11 +319,6 @@ const IndexPage = ({ data }) => {
         className={`bg-gradient-to-b lg:bg-gradient-to-l from-complementary rounded-3xl`}
         first={
           <Paragraph className={`text-justify py-5 text-Indent lg:text-right`}>
-            {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games dan
-            voucher dari segala provider. Perusahaan kami juga telah di sponsori
-            oleh berbagai perusahaan lainnya seperti Razer, G-Fuel, Microsoft,
-            Playstation, Xbox, dan lain-lainnya. Dengan ini, Kampoeng Games
-            merupakan toko hiburan dibidang gaming terlengkap di Indonesia. */}
             {documentToReactComponents(value)}
           </Paragraph>
         }

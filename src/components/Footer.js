@@ -3,6 +3,8 @@ import Heading from "./Heading"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Paragraph from "./Paragraph"
 
+import HeroImage from "../svg/HeroImage"
+
 const Footer = () => {
   return (
     <footer className={``}>
@@ -11,6 +13,9 @@ const Footer = () => {
           <Paragraph className={`pt-20 text-secondary`}>
             Kampoeng Games®
           </Paragraph>
+        </div>
+        <div className={`mx-auto w-32 h-32`}>
+          <HeroImage></HeroImage>
         </div>
         <div className={`pt-20 pb-14 flex-1 text-right `}>
           <Heading className={`text-secondary`}>Important Links</Heading>
@@ -39,9 +44,6 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      {/* <div className={`flex`}>
-        <p className={`bg-gatsby flex-1 text-center`}>Made with Gatsby</p>
-      </div> */}
     </footer>
   )
 }

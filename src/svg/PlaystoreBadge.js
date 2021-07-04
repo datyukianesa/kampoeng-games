@@ -5,6 +5,8 @@ function PlaystoreBadge(props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 5435.8 1604"
+      width={135}
+      height={40}
       {...props}
     >
       <path
