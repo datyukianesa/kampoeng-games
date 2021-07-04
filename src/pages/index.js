@@ -21,8 +21,6 @@ import HeroImage from "../svg/HeroImage"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-import { Helmet } from "react-helmet"
-
 export const query = graphql`
   query {
     games: file(relativePath: { eq: "img1.png" }) {
@@ -62,9 +60,6 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Home — {data.siteTitle.siteMetadata.title}</title>
-      </Helmet>
       <Split
         id="home"
         className={`rounded-3xl`}

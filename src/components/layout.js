@@ -1,15 +1,12 @@
 import * as React from "react"
 import Footer from "./Footer"
 import Nav from "./Nav"
-
-import { Helmet } from "react-helmet"
+import Seo from "../components/seo"
 
 const Layout = ({ children, className }) => {
   return (
     <>
-      <Helmet>
-        <title>Kampoeng Games</title>
-      </Helmet>
+      <Seo title="Home"></Seo>
       <div className={`bg-primary`}>
         <Nav></Nav>
         <main className={`container mx-auto px-10 ${className}`}>

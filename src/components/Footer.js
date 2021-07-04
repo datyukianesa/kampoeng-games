@@ -19,26 +19,20 @@ const Footer = () => {
         </div>
         <div className={`pt-20 pb-14 flex-1 text-right `}>
           <Heading className={`text-secondary`}>Important Links</Heading>
-          <ul>
+          <ul className="text-secondary-lighter">
             <li>
               <AnchorLink href="#desc" offset="100">
-                <Paragraph className={`text-complementary-lighter`}>
-                  Products
-                </Paragraph>
+                <Paragraph>Products</Paragraph>
               </AnchorLink>
             </li>
             <li>
               <AnchorLink href="#team" offset="100">
-                <Paragraph className={`text-complementary-lighter`}>
-                  Tim
-                </Paragraph>
+                <Paragraph>Tim</Paragraph>
               </AnchorLink>
             </li>
             <li>
               <AnchorLink href="#history" offset="100">
-                <Paragraph className={`text-complementary-lighter`}>
-                  History
-                </Paragraph>
+                <Paragraph>History</Paragraph>
               </AnchorLink>
             </li>
           </ul>
