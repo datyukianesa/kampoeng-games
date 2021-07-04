@@ -41,13 +41,8 @@ const Nav = () => {
               <LogoIcon className={`p-1`} />
             </AnchorLink>
           </div>
-<<<<<<< HEAD
-          <div className={`hidden lg:block justify-center`}>
-            <div class="flex-none gap-2 py-1 lg:flex lg:gap-0">
-=======
           <div className={`hidden lg:block justify-center py-2 mr-10`}>
             <div class="flex-none gap-2 py-1 lg:flex">
->>>>>>> 6e240ecc8b76c6cebe1115058f1ba85ecc8c7b7a
               {/* at lg > breakpoint */}
               {NavItem.map(item => {
                 return (
