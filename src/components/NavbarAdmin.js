@@ -7,7 +7,7 @@ import "@material-tailwind/react/tailwind.css"
 
 import { Link } from "gatsby"
 
-export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
+export default function NavbarAdmin({ setShowSidebar }) {
   return (
     <nav className="bg-secondary md:ml-64 py-3 px-4">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-4 md:pl-10">
@@ -51,9 +51,9 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
                 }}
               >
                 <DropdownItem color="lightBlue">Haloww, name</DropdownItem>
-                <DropdownItem color="lightBlue">
-                  <Link to="/">Logout</Link>
-                </DropdownItem>
+                <Link to="/">
+                  <DropdownItem color="lightBlue">Logout</DropdownItem>
+                </Link>
               </Dropdown>
             </div>
           </div>
