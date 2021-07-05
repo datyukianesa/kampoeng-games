@@ -8,7 +8,7 @@ import "@material-tailwind/react/tailwind.css"
 import { getUser, isLoggedIn, logout } from "../services/auth"
 import { Link, navigate } from "gatsby"
 
-export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
+export default function NavbarAdmin({ setShowSidebar }) {
   let greetingMessage = ""
   if (isLoggedIn()) {
     greetingMessage = `Hello ${getUser().name}`
