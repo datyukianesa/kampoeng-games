@@ -5,9 +5,16 @@ import DropdownItem from "@material-tailwind/react/DropdownItem"
 import Button from "@material-tailwind/react/Button"
 import "@material-tailwind/react/tailwind.css"
 
-import { Link } from "gatsby"
+import { getUser, isLoggedIn, logout } from "../services/auth"
+import { Link, navigate } from "gatsby"
 
 export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
+  let greetingMessage = ""
+  if (isLoggedIn()) {
+    greetingMessage = `Hello ${getUser().name}`
+  } else {
+    greetingMessage = "You are not logged in"
+  }
   return (
     <nav className="bg-secondary md:ml-64 py-3 px-4">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-4 md:pl-10">
@@ -50,10 +57,18 @@ export default function NavbarAdmin({ showSidebar, setShowSidebar }) {
                   color: "transparent",
                 }}
               >
-                <DropdownItem color="lightBlue">Haloww, name</DropdownItem>
-                <DropdownItem color="lightBlue">
-                  <Link to="/">Logout</Link>
-                </DropdownItem>
+                <DropdownItem color="lightBlue">{greetingMessage}</DropdownItem>
+                {isLoggedIn() ? (
+                  <Link
+                    to="/"
+                    onClick={event => {
+                      event.preventDefault()
+                      logout(() => navigate(`/app/login`))
+                    }}
+                  >
+                    <DropdownItem color="lightBlue">Logout</DropdownItem>
+                  </Link>
+                ) : null}
               </Dropdown>
             </div>
           </div>

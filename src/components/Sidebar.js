@@ -61,7 +61,7 @@ const Sidebar = () => {
           </div>
           <div className="flex flex-col">
             <hr className="min-w-full" />
-            <div className="w-16 rounded-full bg-yellow-400 mx-auto my-4">
+            <div className="w-16 rounded-full bg-primary mx-auto my-4">
               <LogoIcon className={"p-2"} />
             </div>
 

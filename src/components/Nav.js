@@ -51,9 +51,11 @@ const Nav = () => {
                   </AnchorLink>
                 )
               })}
-              <div className="list-none text-white font-medium px-8 normal-case text-base hover:text-yellow-500">
-                <Link to="login">Login</Link>
-              </div>
+              <Link to="login">
+                <div className="list-none text-white font-medium px-8 normal-case text-base hover:text-yellow-500">
+                  Login
+                </div>
+              </Link>
             </div>
           </div>
           <div class="relative right-0 pb-1 lg:hidden">
