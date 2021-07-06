@@ -1,6 +1,5 @@
 import * as React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS } from "@contentful/rich-text-types"
 
 import Layout from "../components/layout"
 import Split from "../components/Split"
@@ -19,7 +18,7 @@ import PlaystoreBadge from "../svg/PlaystoreBadge"
 import HeroImage from "../svg/HeroImage"
 
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const query = graphql`
   query {
@@ -48,16 +47,84 @@ export const query = graphql`
 
 const IndexPage = ({ data }) => {
   // contentful function
-  const RICHTEXT_OPTIONS = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => {
-        return { children }
-      },
-    },
-  }
   const value = JSON.parse(data.contentfulKGamesHomepage.product.raw)
-  // console.log(documentToReactComponents(value), RICHTEXT_OPTIONS)
 
+  const cardItem = [
+    {
+      name: "Khalif Farrel Yuandra",
+      title: "Front-end Designer",
+      nim: "19.11.3256",
+      imgUrl: "../images/farrel.png",
+    },
+    {
+      name: "Ignatius Tegar Saputra",
+      title: "Front-end Designer",
+      nim: "19.11.3298",
+      imgUrl: "../images/tegar.png",
+    },
+    {
+      name: "Bilal Muhtasyimbillah",
+      title: "Front-end Designer",
+      nim: "19.11.3272",
+      imgUrl: "../images/gatsby-icon.png",
+    },
+    {
+      name: "Fanni Fadhila",
+      title: "Back-end Developer",
+      nim: "19.11.3300",
+      imgUrl: "../images/fanni.png",
+    },
+    {
+      name: "Abyan Zhafran Daffa",
+      title: "Back-end Developer",
+      nim: "19.11.3252",
+      imgUrl: "../images/zhafran.png",
+    },
+    {
+      name: "Nadhira Triadha Pitaloka",
+      title: "Front-end Designer",
+      nim: "19.11.3270",
+      imgUrl: "../images/nadhira.png",
+    },
+  ]
+
+  const vision = [
+    {
+      title: "Misi 1",
+      caption: "Kepuasan Pelanggan",
+    },
+    {
+      title: "Misi 2",
+      caption: "Menyediakan barang dengan harga terjangkau",
+    },
+    {
+      title: "Misi 3",
+      caption: "Variasi barang yang lengkap",
+    },
+    {
+      title: "Misi 4",
+      caption:
+        "Meningkatkan minat perusahaan luar untuk menanam modalnya di Indonesia",
+    },
+  ]
+
+  const parHistory = [
+    {
+      caption:
+        "Kampoeng Games telah berdiri sejak tahun 2020, awalnya perusahaan kami hanya melayani pelanggan secara online lewat website dan aplikasi yang telah kami buat dikarenakan virus COVID-19 yang mengharuskan kami untuk meminimalisir interaksi sosial. Itulah mengapa awal berdirinya Kampoeng Games tidak memiliki toko langsung Namun seiringnya waktu berjalan, kami akhirnya memiliki toko yang terletak di Yogyakarta dan Jakarta. Dengan begitu kami dapat mengekspansi modal perusahaan kami. Selain itu, pelanggan dapat mengunjungi toko kami jika ingin berbelanja barang kami secara langsung.",
+    },
+    {
+      caption:
+        "Namun seiringnya waktu berjalan, kami akhirnya memiliki toko yang terletak di Yogyakarta dan Jakarta. Dengan begitu kami dapat mengekspansi modal perusahaan kami. Selain itu, pelanggan dapat mengunjungi toko kami jika ingin berbelanja barang kami secara langsung.",
+    },
+  ]
+
+  const parDesc = [
+    {
+      caption:
+        "Di Kampoeng Games, Kami menyediakan segala variasi vouchers dari berbagai provider begitu pula dengan Games. Barang games yang kami sediakan tidak hanya terpaku pada platform PC, kami sediakan pula dari platform Console seperti Playstation dan Xbox. Kami mengusahakan kelengkapan barang sehingga pelanggan puas dengan layanan kami",
+    },
+  ]
   return (
     <Layout>
       <Split
@@ -117,14 +184,13 @@ const IndexPage = ({ data }) => {
             >
               Dari Vouchers Hingga Games
             </Heading>
-            <Paragraph className={`text-justify mb-2`}>
-              Di Kampoeng Games, Kami menyediakan segala variasi vouchers dari
-              berbagai provider begitu pula dengan Games. Barang games yang kami
-              sediakan tidak hanya terpaku pada platform PC, kami sediakan pula
-              dari platform Console seperti Playstation dan Xbox. Kami
-              mengusahakan kelengkapan barang sehingga pelanggan puas dengan
-              layanan kami
-            </Paragraph>
+            {parDesc.map(item => {
+              return (
+                <Paragraph className={`text-justify mb-2`}>
+                  {item.caption}
+                </Paragraph>
+              )
+            })}
           </Aside>
         }
         second={
@@ -141,138 +207,33 @@ const IndexPage = ({ data }) => {
           Our Team
         </Heading>
         <div className="font-extrabold">
-          <div className={`flex flex-col md:flex-row md:m-2`}>
-            <Card className={`text-center flex-1 md:mx-2`}>
-              <ProfileImage>
-                <StaticImage
-                  className="w-20 h-20 rounded-full m-5"
-                  loading="eager"
-                  src="../images/farrel.png"
-                  alt="Khalif Farrel"
-                ></StaticImage>
-              </ProfileImage>
-              <Heading className={`text-complementary`}>
-                Khalif Farrel Yuandra
-              </Heading>
-              <div className="py-2">
-                <Paragraph className={`text-complementary-darker`}>
-                  Front-end Designer
-                </Paragraph>
-                <Paragraph className={`text-complementary-darker`}>
-                  19.11.3256
-                </Paragraph>
-              </div>
-            </Card>
-            <Card className={`text-center flex-1 md:mx-2`}>
-              <ProfileImage>
-                <StaticImage
-                  className="w-20 h-20 rounded-full m-5"
-                  loading="eager"
-                  src="../images/tegar.png"
-                  alt="Ignatius Tegar Saputra"
-                ></StaticImage>
-              </ProfileImage>
-              <Heading className={`text-complementary`}>
-                Ignatius Tegar Saputra
-              </Heading>
-              <div className="py-2">
-                <Paragraph className={`text-complementary-darker`}>
-                  Front-end Designer
-                </Paragraph>
-                <Paragraph className={`text-complementary-darker`}>
-                  19.11.3298
-                </Paragraph>
-              </div>
-            </Card>
-
-            <Card className={`text-center flex-1 md:mx-2`}>
-              <ProfileImage>
-                <StaticImage
-                  className="w-20 h-20 rounded-full m-5"
-                  loading="eager"
-                  src="../images/gatsby-icon.png"
-                  alt="Bilal Muhtasyimbillah"
-                ></StaticImage>
-              </ProfileImage>
-              <Heading className={`text-complementary`}>
-                Bilal Muhtasyimbillah
-              </Heading>
-              <div className="py-2">
-                <Paragraph className={`text-complementary-darker`}>
-                  Front-end Designer
-                </Paragraph>
-                <Paragraph className={`text-complementary-darker`}>
-                  19.11.3272
-                </Paragraph>
-              </div>
-            </Card>
-          </div>
-          <div className={`flex flex-col md:flex-row md:m-2`}>
-            <Card className={`text-center flex-1 md:mx-2`}>
-              <ProfileImage>
-                <StaticImage
-                  className="w-20 h-20 rounded-full m-5"
-                  loading="eager"
-                  src="../images/fanni.png"
-                  alt="Fanni Fadhila"
-                ></StaticImage>
-              </ProfileImage>
-              <Heading className={`text-complementary md:pt-4 lg:pt-0`}>
-                Fanni Fadhila
-              </Heading>
-              <div className="py-2">
-                <Paragraph
-                  className={`text-complementary-darker md:pt-5 lg:pt-0`}
-                >
-                  Back-end Developer
-                </Paragraph>
-                <Paragraph className={`text-complementary-darker`}>
-                  19.11.3300
-                </Paragraph>
-              </div>
-            </Card>
-            <Card className={`text-center flex-1 md:mx-2`}>
-              <ProfileImage>
-                <StaticImage
-                  className="w-20 h-20 rounded-full m-5"
-                  loading="eager"
-                  src="../images/zhafran.png"
-                  alt="Abyan Zhafran Daffal"
-                ></StaticImage>
-              </ProfileImage>
-              <Heading className={`text-complementary`}>
-                Abyan Zhafran Daffa
-              </Heading>
-              <div className="py-2">
-                <Paragraph className={`text-complementary-darker`}>
-                  Back-end Developer
-                </Paragraph>
-                <Paragraph className={`text-complementary-darker`}>
-                  19.11.3252
-                </Paragraph>
-              </div>
-            </Card>
-            <Card className={`text-center flex-1 md:mx-2`}>
-              <ProfileImage>
-                <StaticImage
-                  className="w-20 h-20 rounded-full m-5"
-                  loading="eager"
-                  src="../images/nadhira.png"
-                  alt="Nadhira Triadha Pitaloka"
-                ></StaticImage>
-              </ProfileImage>
-              <Heading className={`text-complementary`}>
-                Nadhira Triadha Pitaloka
-              </Heading>
-              <div className="py-2">
-                <Paragraph className={`text-complementary-darker`}>
-                  Front-end Designer
-                </Paragraph>
-                <Paragraph className={`text-complementary-darker`}>
-                  19.11.3270
-                </Paragraph>
-              </div>
-            </Card>
+          <div className={`grid grid-cols-1 md:grid-cols-3 md:m-2`}>
+            {cardItem.map(item => {
+              console.log(typeof item.imgUrl)
+              return (
+                <Card className={`text-center flex-1 md:mx-2`}>
+                  <ProfileImage>
+                    <StaticImage
+                      className="w-20 h-20 rounded-full m-5"
+                      loading="eager"
+                      src="../images/farrel.png"
+                      alt="Khalif Farrel"
+                    ></StaticImage>
+                  </ProfileImage>
+                  <Heading className={`text-complementary`}>
+                    {item.name}
+                  </Heading>
+                  <div className="py-2">
+                    <Paragraph className={`text-complementary-darker`}>
+                      {item.title}
+                    </Paragraph>
+                    <Paragraph className={`text-complementary-darker`}>
+                      {item.nim}
+                    </Paragraph>
+                  </div>
+                </Card>
+              )
+            })}
           </div>
         </div>
       </Section>
@@ -281,25 +242,13 @@ const IndexPage = ({ data }) => {
         className={`bg-gradient-to-b from-complementary rounded-3xl`}
         first={
           <Aside className="py-5">
-            <Paragraph className={`text-justify text-Indent pb-2`}>
-              Kampoeng Games telah berdiri sejak tahun 2020, awalnya perusahaan
-              kami hanya melayani pelanggan secara online lewat website dan
-              aplikasi yang telah kami buat dikarenakan virus COVID-19 yang
-              mengharuskan kami untuk meminimalisir interaksi sosial. Itulah
-              mengapa awal berdirinya Kampoeng Games tidak memiliki toko
-              langsung Namun seiringnya waktu berjalan, kami akhirnya memiliki
-              toko yang terletak di Yogyakarta dan Jakarta. Dengan begitu kami
-              dapat mengekspansi modal perusahaan kami. Selain itu, pelanggan
-              dapat mengunjungi toko kami jika ingin berbelanja barang kami
-              secara langsung.
-            </Paragraph>
-            <Paragraph className={`text-justify text-Indent lg:pb-2`}>
-              Namun seiringnya waktu berjalan, kami akhirnya memiliki toko yang
-              terletak di Yogyakarta dan Jakarta. Dengan begitu kami dapat
-              mengekspansi modal perusahaan kami. Selain itu, pelanggan dapat
-              mengunjungi toko kami jika ingin berbelanja barang kami secara
-              langsung.
-            </Paragraph>
+            {parHistory.map(item => {
+              return (
+                <Paragraph className={`text-justify text-Indent pb-2`}>
+                  {item.caption}
+                </Paragraph>
+              )
+            })}
           </Aside>
         }
         second={
@@ -335,7 +284,6 @@ const IndexPage = ({ data }) => {
           </Heading>
         </div>
         <div>
-          {/* <LogoIcon className={`p-5`}></LogoIcon> */}
           <div
             className={`bg-secondary p-4 my-5 rounded-lg lg:mb-7 xl:ml-24 xl:mr-24`}
           >
@@ -351,50 +299,22 @@ const IndexPage = ({ data }) => {
             </Paragraph>
           </div>
         </div>
-        <div className={`flex flex-col lg:-mx-10 lg:flex-row xl:mx-14`}>
-          <div
-            className={`bg-secondary p-4 mb-2 rounded-lg lg:flex-1 lg:mx-10`}
-          >
-            <Heading className={`text-center text-white font-extrabold`}>
-              Misi 1
-            </Heading>
-            <Paragraph className={`text-white text-center`}>
-              Kepuasan Pelanggan
-            </Paragraph>
-          </div>
-          <div
-            className={`bg-secondary p-4 rounded-lg lg:mb-2 lg:flex-1 lg:mx-10`}
-          >
-            <Heading className={`text-center text-white font-extrabold`}>
-              Misi 2
-            </Heading>
-            <Paragraph className={`text-white text-center`}>
-              Menyediakan barang dengan harga terjangkau
-            </Paragraph>
-          </div>
-        </div>
-        <div className={`flex flex-col lg:-mx-10 lg:flex-row xl:mx-14`}>
-          <div
-            className={`bg-secondary p-4 mt-2 rounded-lg lg:flex-1 lg:mx-10`}
-          >
-            <Heading className={`text-center text-white font-extrabold`}>
-              Misi 3
-            </Heading>
-            <Paragraph className={`text-white text-center`}>
-              Variasi barang yang lengkap
-            </Paragraph>
-          </div>
-          <div
-            className={`bg-secondary p-4 mt-2 rounded-lg lg:flex-1 lg:mx-10`}
-          >
-            <Heading className={`text-center text-white font-extrabold`}>
-              Misi 4
-            </Heading>
-            <Paragraph className={`text-white text-center`}>
-              Meningkatkan minat perusahaan luar untuk menanam modalnya di
-              Indonesia
-            </Paragraph>
-          </div>
+        <div className={`grid grid-cols-1 lg:-mx-10 lg:grid-cols-2 xl:mx-14`}>
+          {vision.map(item => {
+            return (
+              <div
+                className={`bg-secondary p-4 mb-2 rounded-lg lg:flex-1 lg:mx-10`}
+              >
+                <Heading className={`text-center text-white font-extrabold`}>
+                  {item.title}
+                </Heading>
+                <Paragraph className={`text-white text-center`}>
+                  {item.caption}
+                </Paragraph>
+                )
+              </div>
+            )
+          })}
         </div>
       </Section>
     </Layout>
