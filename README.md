@@ -1,5 +1,30 @@
 <h1 align="center">
   Kampoeng Games
 </h1>
+<p>Kampoeng Games adalah sebuah website e-commerce yang berfokus untuk menjual game digital maupun fisik, serta in-game currency. Dibangun menggunakan Gatsby, tailwind, serta integrasi Contentful.</p>
 
-<h2>Made with Gatsby, tailwind, and @material/tailwind</h2>
+<h2>Prerequisites</h2>
+<p>Install Gatsby CLI</p>
+
+```
+npm install -g gatsby-cli
+```
+
+Clone repo dengan git CLI
+
+```
+git clone datyukianesa/kampoeng-games
+cd kampoeng-games
+```
+
+Install prerequisites
+
+```
+npm i
+```
+
+Run local server
+
+```
+gatsby develop
+```
