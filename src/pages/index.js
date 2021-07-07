@@ -18,7 +18,7 @@ import PlaystoreBadge from "../svg/PlaystoreBadge"
 import HeroImage from "../svg/HeroImage"
 
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export const query = graphql`
   query {
@@ -48,6 +48,7 @@ export const query = graphql`
 const IndexPage = ({ data }) => {
   // contentful function
   const value = JSON.parse(data.contentfulKGamesHomepage.product.raw)
+  console.log(documentToReactComponents(value))
 
   const cardItem = [
     {
@@ -209,7 +210,6 @@ const IndexPage = ({ data }) => {
         <div className="font-extrabold">
           <div className={`grid grid-cols-1 md:grid-cols-3 md:m-2`}>
             {cardItem.map(item => {
-              console.log(typeof item.imgUrl)
               return (
                 <Card className={`text-center flex-1 md:mx-2`}>
                   <ProfileImage>
