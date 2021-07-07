@@ -5,9 +5,38 @@ import CardBody from "@material-tailwind/react/CardBody"
 import Button from "@material-tailwind/react/Button"
 import Textarea from "@material-tailwind/react/Textarea"
 import LayoutDashboard from "../components/layoutDashboard"
+import { graphql } from "gatsby"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import "@material-tailwind/react/tailwind.css"
 
-export default function homeSet() {
+export const query = graphql`
+  query {
+    contentfulKGamesHomepage {
+      product {
+        raw
+      }
+    }
+  }
+`
+
+const homeSet = ({ data }) => {
+  const value = JSON.parse(data.contentfulKGamesHomepage.product.raw)
+
+  function changeItem() {
+    return (
+      <Textarea
+        color="lightBlue"
+        size="Regular"
+        outline={true}
+        placeholder="Edit Homepage here...."
+        success="Homepage"
+      >
+        yoi mamen
+      </Textarea>
+    )
+  }
+
   return (
     <LayoutDashboard>
       <div className="h-screen flex items-center justify-center">
@@ -20,21 +49,26 @@ export default function homeSet() {
           <CardBody>
             <form>
               <div className="flex flex-wrap mt-10 mb-8">
-                <Textarea
+                {/* <Textarea
                   color="lightBlue"
                   size="Regular"
                   outline={true}
                   placeholder="Edit Homepage here...."
                   success="Homepage"
-                />
+                >
+                  yoi mamen
+                </Textarea> */}
+                <p>{documentToReactComponents(value)}</p>
               </div>
               <div className="flex flex-row gap-3">
                 <Button
                   color="green"
                   buttonType="filled"
+                  type="Button"
                   size="regular"
                   rounded={false}
                   block={false}
+                  onclick={changeItem()}
                   ripple="light"
                 >
                   Update
@@ -42,6 +76,7 @@ export default function homeSet() {
                 <Button
                   color="lightBlue"
                   buttonType="filled"
+                  type="Button"
                   size="regular"
                   rounded={false}
                   block={false}
@@ -57,3 +92,5 @@ export default function homeSet() {
     </LayoutDashboard>
   )
 }
+
+export default homeSet
