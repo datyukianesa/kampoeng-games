@@ -25,10 +25,12 @@ const Sidebar = () => {
     },
     {
       title: "Tim",
+      url: "/teamSet",
       icon: "groups",
     },
     {
       title: "Produk/Service",
+      url: "/productSet",
       icon: "settings",
     },
     {
