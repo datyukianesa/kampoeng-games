@@ -11,6 +11,7 @@ module.exports = {
     author: [`@datyukianesa`, `@abyanzhafran`],
   },
   plugins: [
+    `gatsby-plugin-nodejs`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
