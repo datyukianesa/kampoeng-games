@@ -20,7 +20,7 @@ const Sidebar = () => {
     },
     {
       title: "Page Setting",
-      url: "/homeSet",
+      url: "/HomeSet",
       icon: "article",
     },
     {

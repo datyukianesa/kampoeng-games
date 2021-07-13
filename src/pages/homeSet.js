@@ -1,13 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
 import Button from "@material-tailwind/react/Button"
 import Textarea from "@material-tailwind/react/Textarea"
+import Modal from "@material-tailwind/react/Modal"
+import ModalHeader from "@material-tailwind/react/ModalHeader"
+import ModalFooter from "@material-tailwind/react/ModalFooter"
 import LayoutDashboard from "../components/layoutDashboard"
 import { graphql } from "gatsby"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import "@material-tailwind/react/tailwind.css"
 
 export const query = graphql`
@@ -20,22 +21,9 @@ export const query = graphql`
   }
 `
 
-const homeSet = ({ data }) => {
+const HomeSet = ({ data }) => {
   const value = JSON.parse(data.contentfulKGamesHomepage.product.raw)
-
-  function changeItem() {
-    return (
-      <Textarea
-        color="lightBlue"
-        size="Regular"
-        outline={true}
-        placeholder="Edit Homepage here...."
-        success="Homepage"
-      >
-        yoi mamen
-      </Textarea>
-    )
-  }
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <LayoutDashboard>
@@ -49,18 +37,34 @@ const homeSet = ({ data }) => {
           <CardBody>
             <form>
               <div className="flex flex-wrap mt-10 mb-8">
-                {/* <Textarea
+                <Textarea
                   color="lightBlue"
                   size="Regular"
                   outline={true}
                   placeholder="Edit Homepage here...."
                   success="Homepage"
                 >
-                  yoi mamen
-                </Textarea> */}
-                <p>{documentToReactComponents(value)}</p>
+                  Kampoeng Games sekarang telah memiliki lebih dari 100 games
+                  dan voucher dari segala provider. Perusahaan kami juga telah
+                  di sponsori oleh berbagai perusahaan lainnya, seperti Razer,
+                  G-Fuel, Microsoft, Playstation, Xbox, dan lain-lainnya. Dengan
+                  ini, Kampoeng Games menjadi toko hiburan dibidang gaming
+                  terlengkap di Indonesia.
+                </Textarea>
+                {/* <p>{documentToReactComponents(value)}</p> */}
               </div>
               <div className="flex flex-row gap-3">
+                <Button
+                  color="red"
+                  buttonType="filled"
+                  type="reset"
+                  size="regular"
+                  rounded={false}
+                  block={false}
+                  ripple="light"
+                >
+                  Reset
+                </Button>
                 <Button
                   color="green"
                   buttonType="filled"
@@ -68,29 +72,42 @@ const homeSet = ({ data }) => {
                   size="regular"
                   rounded={false}
                   block={false}
-                  onclick={changeItem()}
+                  onClick={e => setShowModal(true)}
                   ripple="light"
                 >
                   Update
-                </Button>
-                <Button
-                  color="lightBlue"
-                  buttonType="filled"
-                  type="Button"
-                  size="regular"
-                  rounded={false}
-                  block={false}
-                  ripple="light"
-                >
-                  Submit
                 </Button>
               </div>
             </form>
           </CardBody>
         </Card>
+
+        <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
+          <ModalHeader toggler={() => setShowModal(false)}>
+            Want to Update..??
+          </ModalHeader>
+          <ModalFooter>
+            <Button
+              color="red"
+              buttonType="link"
+              onClick={e => setShowModal(false)}
+              ripple="dark"
+            >
+              Close
+            </Button>
+
+            <Button
+              color="green"
+              onClick={e => setShowModal(false)}
+              ripple="light"
+            >
+              Save Changes
+            </Button>
+          </ModalFooter>
+        </Modal>
       </div>
     </LayoutDashboard>
   )
 }
 
-export default homeSet
+export default HomeSet
