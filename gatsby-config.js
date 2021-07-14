@@ -45,7 +45,30 @@ module.exports = {
         accessToken: "bLr0O177A1jEXoWbcHtdEpC3p25SinqO0bWV7N3kpc8",
       },
     },
-    // gatsby material-UI config
+    // gatsby-source-mysql config
+    {
+      resolve: `gatsby-source-mysql`,
+      options: {
+        connectionDetails: {
+          host: "localhost",
+          user: "root",
+          password: "",
+          database: "dbkgames",
+        },
+        queries: [
+          {
+            statement: "SELECT * FROM tbl_login",
+            idFieldName: "id",
+            name: "country",
+          },
+          {
+            statement: "SELECT * FROM tbl_homepage",
+            idFieldName: "homepageText",
+            name: "homepageText",
+          },
+        ],
+      },
+    }, // gatsby material-UI config
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
