@@ -15,7 +15,7 @@ const Sidebar = () => {
     },
     {
       title: "Dashboard",
-      url: "/dashboard",
+      url: "/dashboardSet",
       icon: "dashboard",
     },
     {
@@ -26,10 +26,12 @@ const Sidebar = () => {
     {
       title: "Tim",
       icon: "groups",
+      url: "/teamSet",
     },
     {
       title: "Produk/Service",
       icon: "settings",
+      url: "/productSet",
     },
     {
       title: "Kontak kami",
