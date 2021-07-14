@@ -59,12 +59,12 @@ module.exports = {
           {
             statement: "SELECT * FROM tbl_login",
             idFieldName: "id",
-            name: "country",
+            name: "tbllogin",
           },
           {
             statement: "SELECT * FROM tbl_homepage",
             idFieldName: "homepageText",
-            name: "homepageText",
+            name: "tblhomepage",
           },
         ],
       },

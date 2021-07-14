@@ -23,8 +23,9 @@ gatsby.prepare({ app }, () => {
   app.get("/try", (req, res) => {
     res.send("Hey World...i will travel youuuuuuu")
   })
-  app.get("/tweets", (req, res) => {
-    let sql = `SELECT * FROM users`
+
+  app.get("/tbl_login", (req, res) => {
+    let sql = `SELECT * FROM tbl_login`
 
     database.query(sql, (err, result) => {
       if (!err) {
@@ -33,6 +34,16 @@ gatsby.prepare({ app }, () => {
       if (err) {
         res.status(400).send(err)
         return
+      }
+    })
+  })
+
+  app.get("/homepage", (req, res) => {
+    let sql = `SELECT * FROM tbl_homepage`
+
+    database.query(sql, (err, result) => {
+      if (!err) {
+        res.send(result)
       }
     })
   })
