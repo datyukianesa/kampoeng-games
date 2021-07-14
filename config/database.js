@@ -4,7 +4,7 @@ const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "express-api",
+  database: "dbkgames",
 })
 
 module.exports = conn
