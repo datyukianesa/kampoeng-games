@@ -1,22 +1,37 @@
 import React from "react"
 import Card from "@material-tailwind/react/Card"
+import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
-import Heading from "../components/Heading"
-import Paragraph from "../components/Paragraph"
-import ProfileImage from "../components/ProfileImage"
-import { StaticImage } from "gatsby-plugin-image"
-import Button from "@material-tailwind/react/Button"
-import LogoIcon from "../svg/LogoIcon"
 import LayoutDashboard from "../components/layoutDashboard"
+import SosmedCard from "../components/SosmedCard"
 import "@material-tailwind/react/tailwind.css"
 
 export default function dashboardSet() {
-  const cardItem = [
+  const visitors = [
     {
-      name: "Khalif Farrel Yuandra",
-      title: "Front-end Designer",
-      nim: "19.11.3256",
-      imgUrl: "../images/farrel.png",
+      id: "1",
+      name: "Bambang",
+      country: "Indonesia",
+    },
+    {
+      id: "2",
+      name: "Deddy",
+      country: "Indonesia",
+    },
+    {
+      id: "3",
+      name: "Suharti",
+      country: "Indonesia",
+    },
+    {
+      id: "4",
+      name: "Reza arap",
+      country: "Indonesia",
+    },
+    {
+      id: "5",
+      name: "Ariel",
+      country: "Indonesia",
     },
   ]
 
@@ -24,58 +39,49 @@ export default function dashboardSet() {
     <LayoutDashboard>
       <div className="h-screen flex items-center justify-center">
         <Card className="w-full border border-gray-300 mx-6">
-          <div className="flex flex-row flex-grow gap-4">
-            <div className="w-12 h-12 md:w-16 rounded-full bg-yellow-400 border-2 border-gray-900">
-              <LogoIcon className={"p-1 md:p-2"} />
+          <CardHeader color="blue" contentPosition="none">
+            <div className="w-full flex items-center justify-between">
+              <h2 className="text-white text-2xl">Page Visits</h2>
             </div>
-            <span className="text-dark font-bold text-xl flex items-center">
-              dashboard
-            </span>
-          </div>
+          </CardHeader>
           <CardBody>
-            <div className={`grid grid-cols-1 md:grid-cols-3 md:m-2`}>
-              {cardItem.map(item => {
-                return (
-                  <Card className={`text-center flex-1 md:mx-2`}>
-                    <ProfileImage>
-                      <StaticImage
-                        className="w-20 h-20 rounded-full m-5"
-                        loading="eager"
-                        src="../images/farrel.png"
-                        alt="Khalif Farrel"
-                      ></StaticImage>
-                    </ProfileImage>
-                    <Heading className={`text-complementary`}>
-                      {item.name}
-                    </Heading>
-                    <div className="py-2">
-                      <Paragraph className={`text-complementary-darker`}>
-                        {item.title}
-                      </Paragraph>
-                      <Paragraph className={`text-complementary-darker`}>
-                        {item.nim}
-                      </Paragraph>
-                    </div>
-                  </Card>
-                )
-              })}
-              <Card className={`flex items-center justify-center md:mx-2`}>
-                {/* <div class="flex items-center"> */}
-                <Button
-                  color="transparent"
-                  buttonType="filled"
-                  size="lg"
-                  iconOnly
-                  rounded
-                  ripple="light"
-                >
-                  <span class="material-icons md-48 text-yellow-400">add</span>
-                </Button>
-                {/* </div> */}
-              </Card>
+            <div className="overflow-x-auto">
+              <table className="items-center w-full bg-transparent border-collapse">
+                <thead>
+                  <tr>
+                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                      ID
+                    </th>
+                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                      Name
+                    </th>
+                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                      Country
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {visitors.map(item => {
+                    return (
+                      <tr>
+                        <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                          {item.id}
+                        </th>
+                        <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                          {item.name}
+                        </td>
+                        <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                          {item.country}
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
             </div>
           </CardBody>
         </Card>
+        <SosmedCard />
       </div>
     </LayoutDashboard>
   )
