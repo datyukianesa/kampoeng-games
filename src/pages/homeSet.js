@@ -18,23 +18,11 @@ export const query = graphql`
         raw
       }
     }
-    allMysqlTblhomepage {
-      edges {
-        node {
-          homepageText
-        }
-      }
-    }
   }
 `
 
 const HomeSet = ({ data }) => {
   const [showModal, setShowModal] = useState(false)
-
-  const text = JSON.stringify(data.allMysqlTblhomepage.edges).replace(
-    /['[\]{}:"]/g,
-    ""
-  )
   return (
     <LayoutDashboard>
       <div className="h-screen flex items-center justify-center">
@@ -54,13 +42,12 @@ const HomeSet = ({ data }) => {
                   placeholder="Edit Homepage here...."
                   success="Homepage"
                 >
-                  {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games
+                  Kampoeng Games sekarang telah memiliki lebih dari 100 games
                   dan voucher dari segala provider. Perusahaan kami juga telah
                   di sponsori oleh berbagai perusahaan lainnya, seperti Razer,
                   G-Fuel, Microsoft, Playstation, Xbox, dan lain-lainnya. Dengan
                   ini, Kampoeng Games menjadi toko hiburan dibidang gaming
-                  terlengkap di Indonesia. */}
-                  {text.replace(/(nodehomepageText)/, "")}
+                  terlengkap di Indonesia.
                 </Textarea>
               </div>
               <div className="flex flex-row gap-3">

@@ -44,30 +44,6 @@ module.exports = {
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: "bLr0O177A1jEXoWbcHtdEpC3p25SinqO0bWV7N3kpc8",
       },
-    },
-    // gatsby-source-mysql config
-    {
-      resolve: `gatsby-source-mysql`,
-      options: {
-        connectionDetails: {
-          host: "localhost",
-          user: "root",
-          password: "",
-          database: "dbkgames",
-        },
-        queries: [
-          {
-            statement: "SELECT * FROM tbl_login",
-            idFieldName: "id",
-            name: "tbllogin",
-          },
-          {
-            statement: "SELECT * FROM tbl_homepage",
-            idFieldName: "homepageText",
-            name: "tblhomepage",
-          },
-        ],
-      },
     }, // gatsby material-UI config
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-gatsby-cloud`,
