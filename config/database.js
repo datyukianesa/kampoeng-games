@@ -1,10 +1,10 @@
 const mysql = require("mysql")
 
 const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "dbkgames",
+  host: "mysql-38969-0.cloudclusters.net",
+  user: "admin",
+  password: "bRZKr7ks",
+  database: "dbKgames",
 })
 
 module.exports = conn

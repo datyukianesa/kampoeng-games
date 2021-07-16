@@ -19,6 +19,12 @@ gatsby.prepare({ app }, () => {
     })
   )
 
+  // app.use(
+  //   bodyParser.urlencoded({
+  //     extended: true,
+  //   })
+  // )
+
   // Here you can define your routes
   app.get("/try", (req, res) => {
     res.send("Hey World...i will travel youuuuuuu")
@@ -39,7 +45,8 @@ gatsby.prepare({ app }, () => {
   })
 
   app.get("/homepage", (req, res) => {
-    let sql = `SELECT * FROM tbl_homepage`
+    // const homepageText = req.body.homepageText
+    const sql = `SELECT * FROM tbl_homepage`
 
     database.query(sql, (err, result) => {
       if (!err) {

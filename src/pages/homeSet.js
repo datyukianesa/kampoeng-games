@@ -1,28 +1,28 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
 import Button from "@material-tailwind/react/Button"
-import Textarea from "@material-tailwind/react/Textarea"
+// import Textarea from "@material-tailwind/react/Textarea"
 import Modal from "@material-tailwind/react/Modal"
 import ModalHeader from "@material-tailwind/react/ModalHeader"
 import ModalFooter from "@material-tailwind/react/ModalFooter"
 import LayoutDashboard from "../components/layoutDashboard"
-import { graphql } from "gatsby"
 import "@material-tailwind/react/tailwind.css"
+import axios from "axios"
 
-export const query = graphql`
-  query {
-    contentfulKGamesHomepage {
-      product {
-        raw
-      }
-    }
-  }
-`
-
-const HomeSet = ({ data }) => {
+const HomeSet = () => {
+  const [textGrep, textList] = useState("")
+  const url = "http://localhost:1337/homepage"
   const [showModal, setShowModal] = useState(false)
+  useEffect(() => {
+    axios.get(url).then((response, req) => {
+      textList(response.data)
+    })
+  }, [])
+
+  const textResult = JSON.stringify(textGrep).replace(/['[\]{}:"]/g, "")
+
   return (
     <LayoutDashboard>
       <div className="h-screen flex items-center justify-center">
@@ -35,33 +35,24 @@ const HomeSet = ({ data }) => {
           <CardBody>
             <form>
               <div className="flex flex-wrap mt-10 mb-8">
-                <Textarea
+                {textResult.replace(/(homepageText)/, "")}
+                {/* <Textarea
                   color="lightBlue"
                   size="Regular"
                   outline={true}
                   placeholder="Edit Homepage here...."
                   success="Homepage"
-                >
-                  Kampoeng Games sekarang telah memiliki lebih dari 100 games
+                > */}
+                {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games
                   dan voucher dari segala provider. Perusahaan kami juga telah
                   di sponsori oleh berbagai perusahaan lainnya, seperti Razer,
                   G-Fuel, Microsoft, Playstation, Xbox, dan lain-lainnya. Dengan
                   ini, Kampoeng Games menjadi toko hiburan dibidang gaming
-                  terlengkap di Indonesia.
-                </Textarea>
+                  terlengkap di Indonesia. */}
+                {/* {textResult.replace(/(homepageText)/, "")} */}
+                {/* </Textarea> */}
               </div>
               <div className="flex flex-row gap-3">
-                <Button
-                  color="red"
-                  buttonType="filled"
-                  type="reset"
-                  size="regular"
-                  rounded={false}
-                  block={false}
-                  ripple="light"
-                >
-                  Reset
-                </Button>
                 <Button
                   color="green"
                   buttonType="filled"
@@ -69,10 +60,19 @@ const HomeSet = ({ data }) => {
                   size="regular"
                   rounded={false}
                   block={false}
-                  onClick={e => setShowModal(true)}
                   ripple="light"
                 >
                   Update
+                </Button>
+                <Button
+                  color="blue"
+                  buttonType="filled"
+                  type="Button"
+                  size="regular"
+                  onClick={e => setShowModal(true)}
+                  ripple="light"
+                >
+                  Submit
                 </Button>
               </div>
             </form>
