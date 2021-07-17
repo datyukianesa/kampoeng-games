@@ -1,13 +1,18 @@
-import React from "react"
+import React, { useState } from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
 import Button from "@material-tailwind/react/Button"
 import Textarea from "@material-tailwind/react/Textarea"
+import Modal from "@material-tailwind/react/Modal"
+import ModalHeader from "@material-tailwind/react/ModalHeader"
+import ModalFooter from "@material-tailwind/react/ModalFooter"
 import LayoutDashboard from "../components/layoutDashboard"
 import "@material-tailwind/react/tailwind.css"
 
-export default function homeSet() {
+const HomeSet = () => {
+  const [showModal, setShowModal] = useState(false)
+
   return (
     <LayoutDashboard>
       <div className="h-screen flex items-center justify-center">
@@ -26,34 +31,68 @@ export default function homeSet() {
                   outline={true}
                   placeholder="Edit Homepage here...."
                   success="Homepage"
-                />
+                >
+                  Kampoeng Games sekarang telah memiliki lebih dari 100 games
+                  dan voucher dari segala provider. Perusahaan kami juga telah
+                  di sponsori oleh berbagai perusahaan lainnya, seperti Razer,
+                  G-Fuel, Microsoft, Playstation, Xbox, dan lain-lainnya. Dengan
+                  ini, Kampoeng Games menjadi toko hiburan dibidang gaming
+                  terlengkap di Indonesia.
+                </Textarea>
               </div>
               <div className="flex flex-row gap-3">
                 <Button
-                  color="green"
+                  color="red"
                   buttonType="filled"
+                  type="reset"
                   size="regular"
                   rounded={false}
                   block={false}
+                  ripple="light"
+                >
+                  Reset
+                </Button>
+                <Button
+                  color="green"
+                  buttonType="filled"
+                  type="Button"
+                  size="regular"
+                  onClick={e => setShowModal(true)}
                   ripple="light"
                 >
                   Update
-                </Button>
-                <Button
-                  color="lightBlue"
-                  buttonType="filled"
-                  size="regular"
-                  rounded={false}
-                  block={false}
-                  ripple="light"
-                >
-                  Submit
                 </Button>
               </div>
             </form>
           </CardBody>
         </Card>
+
+        <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
+          <ModalHeader toggler={() => setShowModal(false)}>
+            Want to Update..??
+          </ModalHeader>
+          <ModalFooter>
+            <Button
+              color="red"
+              buttonType="link"
+              onClick={e => setShowModal(false)}
+              ripple="dark"
+            >
+              Close
+            </Button>
+
+            <Button
+              color="green"
+              onClick={e => setShowModal(false)}
+              ripple="light"
+            >
+              Save Changes
+            </Button>
+          </ModalFooter>
+        </Modal>
       </div>
     </LayoutDashboard>
   )
 }
+
+export default HomeSet

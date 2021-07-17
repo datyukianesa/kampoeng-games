@@ -2,47 +2,36 @@ import React from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
-import Button from "@material-tailwind/react/Button"
 import LayoutDashboard from "../components/layoutDashboard"
+import SosmedCard from "../components/SosmedCard"
 import "@material-tailwind/react/tailwind.css"
 
-export default function teamSet() {
-  const tableItem = [
+export default function dashboardSet() {
+  const visitors = [
     {
       id: "1",
-      name: "Khalif Farrel Yuandra",
-      title: "Front-end Designer",
-      nim: "19.11.3256",
+      name: "Bambang",
+      country: "Indonesia",
     },
     {
       id: "2",
-      name: "Ignatius Tegar Saputra",
-      title: "Front-end Designer",
-      nim: "19.11.3298",
+      name: "Deddy",
+      country: "Indonesia",
     },
     {
       id: "3",
-      name: "Bilal Muhtasyimbillah",
-      title: "Front-end Designer",
-      nim: "19.11.3272",
+      name: "Suharti",
+      country: "Indonesia",
     },
     {
       id: "4",
-      name: "Fanni Fadhila",
-      title: "Back-end Developer",
-      nim: "19.11.3300",
+      name: "Reza arap",
+      country: "Indonesia",
     },
     {
       id: "5",
-      name: "Abyan Zhafran Daffa",
-      title: "Back-end Developer",
-      nim: "19.11.3252",
-    },
-    {
-      id: "6",
-      name: "Nadhira Triadha Pitaloka",
-      title: "Front-end Designer",
-      nim: "19.11.3270",
+      name: "Ariel",
+      country: "Indonesia",
     },
   ]
 
@@ -52,15 +41,7 @@ export default function teamSet() {
         <Card className="w-full border border-gray-300 mx-6">
           <CardHeader color="blue" contentPosition="none">
             <div className="w-full flex items-center justify-between">
-              <h2 className="text-white text-2xl">Edit Team</h2>
-              <Button
-                color="transparent"
-                buttonType="link"
-                size="lg"
-                style={{ padding: 0 }}
-              >
-                See More
-              </Button>
+              <h2 className="text-white text-2xl">Page Visits</h2>
             </div>
           </CardHeader>
           <CardBody>
@@ -75,18 +56,12 @@ export default function teamSet() {
                       Name
                     </th>
                     <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      Position
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      NIM
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      Action
+                      Country
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {tableItem.map(item => {
+                  {visitors.map(item => {
                     return (
                       <tr>
                         <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
@@ -96,18 +71,7 @@ export default function teamSet() {
                           {item.name}
                         </td>
                         <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                          {item.title}
-                        </td>
-                        <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                          {item.nim}
-                        </td>
-                        <td className="border-b border-gray-200 align-middle font-semibold text-sm whitespace-nowrap px-2 py-4 text-left text-bold">
-                          <span className="text-blue-600 cursor-pointer pr-4">
-                            Edit
-                          </span>
-                          <span className="text-red-400 cursor-pointer">
-                            Delete
-                          </span>
+                          {item.country}
                         </td>
                       </tr>
                     )
@@ -117,6 +81,7 @@ export default function teamSet() {
             </div>
           </CardBody>
         </Card>
+        <SosmedCard />
       </div>
     </LayoutDashboard>
   )
