@@ -35,15 +35,6 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/svg/logo_v3.svg`, // This path is relative to the root of the site.
       },
-    },
-    // gatsby-source-contentful config (Using Delivery API )
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `a1827sxwab7q`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: "bLr0O177A1jEXoWbcHtdEpC3p25SinqO0bWV7N3kpc8",
-      },
     }, // gatsby material-UI config
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-gatsby-cloud`,
