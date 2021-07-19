@@ -14,6 +14,7 @@ import axios from "axios"
 const HomeSet = () => {
   const [isChange, setChange] = useState(false)
   const [textGrep, textList] = useState("")
+  const [homepageText, setHomepageText] = useState("")
   // const [textUpdated, setTextUpdated] = useState("")
   const url = "http://localhost:1337/homepage"
   const [showModal, setShowModal] = useState(false)
@@ -25,15 +26,15 @@ const HomeSet = () => {
 
   const textResult = JSON.stringify(textGrep).replace(/['[\]{}:"]/g, "")
 
-  // const submitTxt = () => {
-  //   axios
-  //     .post("http://localhost:1337/api/insert", {
-  //       textUpdated: textUpdated,
-  //     })
-  //     .then(() => {
-  //       alert("successfull insert")
-  //     })
-  // }
+  const submitTxt = () => {
+    axios
+      .post("http://localhost:1337/api/insert", {
+        homepageText: homepageText,
+      })
+      .then(() => {
+        alert("successfull insert")
+      })
+  }
 
   // const doubleCallBtn = () => {
   //   setShowModal(false)
@@ -62,6 +63,7 @@ const HomeSet = () => {
                     outline={true}
                     placeholder="Edit Homepage here...."
                     success="Homepage"
+                    onChange={e => setHomepageText(e.target.value)}
                   />
                 </div>
                 {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games
@@ -130,7 +132,7 @@ const HomeSet = () => {
               Close
             </Button>
 
-            <Button color="green" ripple="light">
+            <Button color="green" onClick={() => submitTxt()} ripple="light">
               Save Changes
             </Button>
           </ModalFooter>

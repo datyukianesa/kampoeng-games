@@ -50,10 +50,10 @@ gatsby.prepare({ app }, () => {
   })
 
   app.post("/api/insert", (req, res) => {
-    const textUpdated = req.body.textUpdated
-    const sql = "INSERT INTO tbl_homepage VALUES tryinsert"
+    const homepageText = req.body.homepageText
+    const sql = "INSERT INTO tbl_homepage (homepageText) VALUES (?)"
 
-    db.query(sql, (err, result) => {
+    db.query(sql, [homepageText], (err, result) => {
       if (!err) {
         res.send(result)
       }
