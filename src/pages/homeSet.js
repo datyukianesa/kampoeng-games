@@ -73,28 +73,44 @@ const HomeSet = () => {
                 {/* </Textarea> */}
               </div>
               <div className="flex flex-row gap-3">
-                <Button
-                  color="green"
-                  buttonType="filled"
-                  type="Button"
-                  size="regular"
-                  rounded={false}
-                  block={false}
-                  onClick={() => setChange(!isChange)}
-                  ripple="light"
-                >
-                  Update
-                </Button>
-                <Button
-                  color="blue"
-                  buttonType="filled"
-                  type="Button"
-                  size="regular"
-                  onClick={e => setShowModal(true)}
-                  ripple="light"
-                >
-                  Submit
-                </Button>
+                <div>
+                  <div class={`${isChange ? "hidden" : "block"} w-full`}>
+                    <Button
+                      color="green"
+                      buttonType="filled"
+                      type="Button"
+                      size="regular"
+                      onClick={() => setChange(!isChange)}
+                      ripple="light"
+                    >
+                      Update
+                    </Button>
+                  </div>
+                  <div class={`${isChange ? "block" : "hidden"} w-full`}>
+                    <Button
+                      color="red"
+                      buttonType="filled"
+                      type="Button"
+                      size="regular"
+                      onClick={() => setChange(!isChange)}
+                      ripple="light"
+                    >
+                      cancel
+                    </Button>
+                  </div>
+                </div>
+                <div>
+                  <Button
+                    color="blue"
+                    buttonType="filled"
+                    type="Button"
+                    size="regular"
+                    onClick={e => setShowModal(true)}
+                    ripple="light"
+                  >
+                    Submit
+                  </Button>
+                </div>
               </div>
             </form>
           </CardBody>
