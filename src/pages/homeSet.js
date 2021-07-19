@@ -3,7 +3,7 @@ import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
 import Button from "@material-tailwind/react/Button"
-// import Textarea from "@material-tailwind/react/Textarea"
+import Textarea from "@material-tailwind/react/Textarea"
 import Modal from "@material-tailwind/react/Modal"
 import ModalHeader from "@material-tailwind/react/ModalHeader"
 import ModalFooter from "@material-tailwind/react/ModalFooter"
@@ -12,7 +12,9 @@ import "@material-tailwind/react/tailwind.css"
 import axios from "axios"
 
 const HomeSet = () => {
+  const [isChange, setChange] = useState(false)
   const [textGrep, textList] = useState("")
+  // const [textUpdated, setTextUpdated] = useState("")
   const url = "http://localhost:1337/homepage"
   const [showModal, setShowModal] = useState(false)
   useEffect(() => {
@@ -22,6 +24,21 @@ const HomeSet = () => {
   }, [])
 
   const textResult = JSON.stringify(textGrep).replace(/['[\]{}:"]/g, "")
+
+  // const submitTxt = () => {
+  //   axios
+  //     .post("http://localhost:1337/api/insert", {
+  //       textUpdated: textUpdated,
+  //     })
+  //     .then(() => {
+  //       alert("successfull insert")
+  //     })
+  // }
+
+  // const doubleCallBtn = () => {
+  //   setShowModal(false)
+  //   submitTxt()
+  // }
 
   return (
     <LayoutDashboard>
@@ -35,21 +52,24 @@ const HomeSet = () => {
           <CardBody>
             <form>
               <div className="flex flex-wrap mt-10 mb-8">
-                {textResult.replace(/(homepageText)/, "")}
-                {/* <Textarea
-                  color="lightBlue"
-                  size="Regular"
-                  outline={true}
-                  placeholder="Edit Homepage here...."
-                  success="Homepage"
-                > */}
+                <p class={`${isChange ? "hidden" : "block"}`}>
+                  {textResult.replace(/(homepageText)/, "")}
+                </p>
+                <div class={`${isChange ? "block" : "hidden"} w-full`}>
+                  <Textarea
+                    color="lightBlue"
+                    size="Regular"
+                    outline={true}
+                    placeholder="Edit Homepage here...."
+                    success="Homepage"
+                  />
+                </div>
                 {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games
                   dan voucher dari segala provider. Perusahaan kami juga telah
                   di sponsori oleh berbagai perusahaan lainnya, seperti Razer,
                   G-Fuel, Microsoft, Playstation, Xbox, dan lain-lainnya. Dengan
                   ini, Kampoeng Games menjadi toko hiburan dibidang gaming
                   terlengkap di Indonesia. */}
-                {/* {textResult.replace(/(homepageText)/, "")} */}
                 {/* </Textarea> */}
               </div>
               <div className="flex flex-row gap-3">
@@ -60,6 +80,7 @@ const HomeSet = () => {
                   size="regular"
                   rounded={false}
                   block={false}
+                  onClick={() => setChange(!isChange)}
                   ripple="light"
                 >
                   Update
@@ -93,11 +114,7 @@ const HomeSet = () => {
               Close
             </Button>
 
-            <Button
-              color="green"
-              onClick={e => setShowModal(false)}
-              ripple="light"
-            >
+            <Button color="green" ripple="light">
               Save Changes
             </Button>
           </ModalFooter>

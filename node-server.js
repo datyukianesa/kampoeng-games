@@ -1,7 +1,7 @@
 const express = require("express")
 const gatsby = require("gatsby-plugin-nodejs")
 var cors = require("cors")
-var database = require("./config/database")
+var db = require("./config/database")
 
 const app = express()
 
@@ -19,21 +19,15 @@ gatsby.prepare({ app }, () => {
     })
   )
 
-  // app.use(
-  //   bodyParser.urlencoded({
-  //     extended: true,
-  //   })
-  // )
-
   // Here you can define your routes
   app.get("/try", (req, res) => {
     res.send("Hey World...i will travel youuuuuuu")
   })
 
   app.get("/tbl_login", (req, res) => {
-    let sql = `SELECT * FROM tbl_login`
+    let sql = "SELECT * FROM tbl_login"
 
-    database.query(sql, (err, result) => {
+    db.query(sql, (err, result) => {
       if (!err) {
         res.send(result)
       }
@@ -46,9 +40,20 @@ gatsby.prepare({ app }, () => {
 
   app.get("/homepage", (req, res) => {
     // const homepageText = req.body.homepageText
-    const sql = `SELECT * FROM tbl_homepage`
+    const sql = "SELECT * FROM tbl_homepage"
 
-    database.query(sql, (err, result) => {
+    db.query(sql, (err, result) => {
+      if (!err) {
+        res.send(result)
+      }
+    })
+  })
+
+  app.post("/api/insert", (req, res) => {
+    const textUpdated = req.body.textUpdated
+    const sql = "INSERT INTO tbl_homepage VALUES tryinsert"
+
+    db.query(sql, (err, result) => {
       if (!err) {
         res.send(result)
       }
