@@ -40,7 +40,7 @@ gatsby.prepare({ app }, () => {
 
   app.get("/homepage", (req, res) => {
     // const homepageText = req.body.homepageText
-    const sql = "SELECT * FROM tbl_homepage"
+    const sql = "SELECT homepageText FROM tbl_homepage"
 
     db.query(sql, (err, result) => {
       if (!err) {
@@ -51,9 +51,22 @@ gatsby.prepare({ app }, () => {
 
   app.post("/api/insert", (req, res) => {
     const homepageText = req.body.homepageText
+    // console.log(homepageText)
     const sql = "INSERT INTO tbl_homepage (homepageText) VALUES (?)"
 
     db.query(sql, [homepageText], (err, result) => {
+      if (!err) {
+        res.send(result)
+      }
+    })
+  })
+
+  app.put("/api/update", (req, res) => {
+    const textUpdate = req.body.textUpdate
+    console.log(textUpdate)
+    const sql = "UPDATE tbl_homepage SET homepageText = ? WHERE id = 1"
+
+    db.query(sql, [textUpdate], (err, result) => {
       if (!err) {
         res.send(result)
       }

@@ -12,12 +12,14 @@ import "@material-tailwind/react/tailwind.css"
 import axios from "axios"
 
 const HomeSet = () => {
+  const [showModal, setShowModal] = useState(false)
   const [isChange, setChange] = useState(false)
+  // CRUD operation const
   const [textGrep, textList] = useState("")
   const [homepageText, setHomepageText] = useState("")
-  // const [textUpdated, setTextUpdated] = useState("")
+  const [textUpdate, setTextUpdate] = useState("")
+  // END CRUD
   const url = "http://localhost:1337/homepage"
-  const [showModal, setShowModal] = useState(false)
   useEffect(() => {
     axios.get(url).then((response, req) => {
       textList(response.data)
@@ -33,6 +35,16 @@ const HomeSet = () => {
       })
       .then(() => {
         alert("successfull insert")
+      })
+  }
+
+  const updateText = () => {
+    axios
+      .put("http://localhost:1337/api/update", {
+        textUpdate: textUpdate,
+      })
+      .then(() => {
+        alert("successfull update")
       })
   }
 
@@ -63,7 +75,7 @@ const HomeSet = () => {
                     outline={true}
                     placeholder="Edit Homepage here...."
                     success="Homepage"
-                    onChange={e => setHomepageText(e.target.value)}
+                    onChange={e => setTextUpdate(e.target.value)}
                   />
                 </div>
                 {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games
@@ -132,7 +144,7 @@ const HomeSet = () => {
               Close
             </Button>
 
-            <Button color="green" onClick={() => submitTxt()} ripple="light">
+            <Button color="green" onClick={() => updateText()} ripple="light">
               Save Changes
             </Button>
           </ModalFooter>
