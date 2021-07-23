@@ -52,6 +52,23 @@ const TeamSet = () => {
       nim: "19.11.3270",
     },
   ]
+  const fields = [
+    {
+      field: "ID",
+    },
+    {
+      field: "Name",
+    },
+    {
+      field: "Position",
+    },
+    {
+      field: "NIM",
+    },
+    {
+      field: "Action",
+    },
+  ]
 
   return (
     <LayoutDashboard>
@@ -74,25 +91,17 @@ const TeamSet = () => {
             </div>
           </CardHeader>
           <CardBody>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto h-80">
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
                   <tr>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      ID
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      Name
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      Position
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      NIM
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      Action
-                    </th>
+                    {fields.map(item => {
+                      return (
+                        <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-base whitespace-nowrap font-semibold text-left">
+                          {item.field}
+                        </th>
+                      )
+                    })}
                   </tr>
                 </thead>
                 <tbody>
