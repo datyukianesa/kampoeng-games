@@ -14,6 +14,8 @@ import "@material-tailwind/react/tailwind.css"
 const TeamSet = () => {
   const [showModal, setShowModal] = useState(false)
   const [showModalDel, setShowModalDel] = useState(false)
+  const [showModalUp, setShowModalUp] = useState(false)
+  const [isShow, setShow] = useState(false)
   const tableItem = [
     {
       id: "1",
@@ -92,6 +94,28 @@ const TeamSet = () => {
           </CardHeader>
           <CardBody>
             <div className="overflow-x-auto h-80">
+              {/* Success Message */}
+              <div
+                class={`${
+                  isShow ? "block" : "hidden"
+                } flex justify-center items-center m-1 font-medium py-1 px-2 rounded-md text-green-700 bg-green-100 border border-green-300`}
+              >
+                <span class="material-icons md-24 font-semibold text-green-800 mr-2">
+                  task_alt
+                </span>
+                <div class="text-xl font-normal  max-w-full flex-initial">
+                  This is a success messsage
+                </div>
+                <div class="flex flex-auto flex-row-reverse">
+                  <span
+                    class="material-icons md-18 font-semibold text-green-800 cursor-pointer"
+                    onClick={() => setShow(!isShow)}
+                  >
+                    close
+                  </span>
+                </div>
+              </div>
+              {/* End MEssage */}
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
                   <tr>
@@ -121,7 +145,10 @@ const TeamSet = () => {
                           {item.nim}
                         </td>
                         <td className="border-b border-gray-200 align-middle font-semibold text-sm whitespace-nowrap px-2 py-4 text-left text-bold">
-                          <span className="text-blue-600 cursor-pointer pr-4">
+                          <span
+                            className="text-blue-600 cursor-pointer pr-4"
+                            onClick={e => setShowModalUp(true)}
+                          >
                             Edit
                           </span>
                           <span
@@ -146,7 +173,7 @@ const TeamSet = () => {
           toggler={() => setShowModal(false)}
         >
           <ModalHeader toggler={() => setShowModal(false)}>
-            Modal Title
+            Add Your Team
           </ModalHeader>
           <ModalBody>
             <div className="flex flex-col mt-4 gap-4">
@@ -174,7 +201,7 @@ const TeamSet = () => {
                   color="lightBlue"
                   size="regular"
                   outline={true}
-                  placeholder="Nim"
+                  placeholder="Nim no(dot)"
                 />
               </div>
             </div>
@@ -200,13 +227,22 @@ const TeamSet = () => {
         </Modal>
         {/* Delete ask Modal */}
         <Modal
-          size="sm"
+          size="lg"
           active={showModalDel}
           toggler={() => setShowModalDel(false)}
         >
-          <ModalHeader toggler={() => setShowModalDel(false)}>
-            Are you sure want to delete..??
-          </ModalHeader>
+          {/* <ModalHeader toggler={() => setShowModalDel(false)}>
+            <div class="pr-2">Want to Delete..??</div>
+          </ModalHeader> */}
+          <div class="flex justify-between">
+            <span class="font-bold pb-4 text-xl">Want to Delete..??</span>
+            <span
+              class="material-icons md-18 text-black font-bold cursor-pointer"
+              onClick={e => setShowModalDel(false)}
+            >
+              close
+            </span>
+          </div>
           <ModalFooter>
             <Button
               color="red"
@@ -219,6 +255,65 @@ const TeamSet = () => {
 
             <Button color="red" ripple="light">
               Delete
+            </Button>
+          </ModalFooter>
+        </Modal>
+        {/* Modal Edit */}
+        <Modal
+          size="regular"
+          active={showModalUp}
+          toggler={() => setShowModalUp(false)}
+        >
+          <ModalHeader toggler={() => setShowModalUp(false)}>
+            Update Team
+          </ModalHeader>
+          <ModalBody>
+            <div className="flex flex-col mt-4 gap-4">
+              <div className="w-full font-light">
+                <Input
+                  type="text"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Username"
+                />
+              </div>
+              <div className="w-full font-light">
+                <Input
+                  type="password"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Password"
+                />
+              </div>
+              <div className="w-full font-light">
+                <Input
+                  type="number"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Nim no(dot)"
+                />
+              </div>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color="red"
+              buttonType="link"
+              onClick={e => setShowModalUp(false)}
+              ripple="dark"
+            >
+              Close
+            </Button>
+
+            <Button
+              color="green"
+              onClick={e => setShowModalUp(false)}
+              ripple="light"
+            >
+              Save Changes
             </Button>
           </ModalFooter>
         </Modal>
