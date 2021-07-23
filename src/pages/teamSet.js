@@ -1,12 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
 import Button from "@material-tailwind/react/Button"
+import Modal from "@material-tailwind/react/Modal"
+import ModalHeader from "@material-tailwind/react/ModalHeader"
+import ModalFooter from "@material-tailwind/react/ModalFooter"
+import ModalBody from "@material-tailwind/react/ModalBody"
+import Input from "@material-tailwind/react/Input"
 import LayoutDashboard from "../components/layoutDashboard"
 import "@material-tailwind/react/tailwind.css"
 
-export default function teamSet() {
+const TeamSet = () => {
+  const [showModal, setShowModal] = useState(false)
+  const [showModalDel, setShowModalDel] = useState(false)
   const tableItem = [
     {
       id: "1",
@@ -55,11 +62,14 @@ export default function teamSet() {
               <h2 className="text-white text-2xl">Edit Team</h2>
               <Button
                 color="transparent"
-                buttonType="link"
+                buttonType="filled"
+                onClick={e => setShowModal(true)}
                 size="lg"
-                style={{ padding: 0 }}
               >
-                See More
+                <span class="material-icons md-24 text-white font-semibold">
+                  add
+                </span>
+                Add Team
               </Button>
             </div>
           </CardHeader>
@@ -105,7 +115,10 @@ export default function teamSet() {
                           <span className="text-blue-600 cursor-pointer pr-4">
                             Edit
                           </span>
-                          <span className="text-red-400 cursor-pointer">
+                          <span
+                            className="text-red-400 cursor-pointer"
+                            onClick={e => setShowModalDel(true)}
+                          >
                             Delete
                           </span>
                         </td>
@@ -117,7 +130,92 @@ export default function teamSet() {
             </div>
           </CardBody>
         </Card>
+        {/* Add Team Modal */}
+        <Modal
+          size="regular"
+          active={showModal}
+          toggler={() => setShowModal(false)}
+        >
+          <ModalHeader toggler={() => setShowModal(false)}>
+            Modal Title
+          </ModalHeader>
+          <ModalBody>
+            <div className="flex flex-col mt-4 gap-4">
+              <div className="w-full font-light">
+                <Input
+                  type="text"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Username"
+                />
+              </div>
+              <div className="w-full font-light">
+                <Input
+                  type="password"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Password"
+                />
+              </div>
+              <div className="w-full font-light">
+                <Input
+                  type="number"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Nim"
+                />
+              </div>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color="red"
+              buttonType="link"
+              onClick={e => setShowModal(false)}
+              ripple="dark"
+            >
+              Close
+            </Button>
+
+            <Button
+              color="green"
+              onClick={e => setShowModal(false)}
+              ripple="light"
+            >
+              Save Changes
+            </Button>
+          </ModalFooter>
+        </Modal>
+        {/* Delete ask Modal */}
+        <Modal
+          size="sm"
+          active={showModalDel}
+          toggler={() => setShowModalDel(false)}
+        >
+          <ModalHeader toggler={() => setShowModalDel(false)}>
+            Are you sure want to delete..??
+          </ModalHeader>
+          <ModalFooter>
+            <Button
+              color="red"
+              buttonType="link"
+              onClick={e => setShowModalDel(false)}
+              ripple="dark"
+            >
+              Close
+            </Button>
+
+            <Button color="red" ripple="light">
+              Delete
+            </Button>
+          </ModalFooter>
+        </Modal>
       </div>
     </LayoutDashboard>
   )
 }
+
+export default TeamSet
