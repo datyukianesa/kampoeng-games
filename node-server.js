@@ -49,6 +49,17 @@ gatsby.prepare({ app }, () => {
     })
   })
 
+  app.get("/team", (req, res) => {
+    // const homepageText = req.body.homepageText
+    const sql = "SELECT * FROM tbl_team"
+
+    db.query(sql, (err, result) => {
+      if (!err) {
+        res.send(result)
+      }
+    })
+  })
+
   app.post("/api/insert", (req, res) => {
     const homepageText = req.body.homepageText
     // console.log(homepageText)

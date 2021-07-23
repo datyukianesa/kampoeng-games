@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
@@ -10,12 +10,22 @@ import ModalBody from "@material-tailwind/react/ModalBody"
 import Input from "@material-tailwind/react/Input"
 import LayoutDashboard from "../components/layoutDashboard"
 import "@material-tailwind/react/tailwind.css"
+import axios from "axios"
 
 const TeamSet = () => {
   const [showModal, setShowModal] = useState(false)
   const [showModalDel, setShowModalDel] = useState(false)
   const [showModalUp, setShowModalUp] = useState(false)
   const [isShow, setShow] = useState(false)
+  // CRUD const
+  const url = "http://localhost:1337/team"
+  const [teamList, setTeamList] = useState("")
+  useEffect(() => {
+    axios.get(url).then((response, req) => {
+      setTeamList(response.data)
+    })
+  }, [])
+  // END CRUD
   const tableItem = [
     {
       id: "1",
@@ -129,7 +139,7 @@ const TeamSet = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {tableItem.map(item => {
+                  {teamList.map(item => {
                     return (
                       <tr>
                         <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
