@@ -27,6 +27,9 @@ const TeamSet = () => {
     })
   }, [])
   // END CRUD
+  const added = () => {
+    alert("Team Added")
+  }
   const fields = [
     {
       field: "ID",
@@ -87,7 +90,6 @@ const TeamSet = () => {
                 </span>
               </div>
             </div>
-            {/* End Success Message */}
             {/* Delete Message */}
             <div
               class={`${
@@ -109,7 +111,6 @@ const TeamSet = () => {
                 </span>
               </div>
             </div>
-            {/* End Delete Message */}
             <div className="overflow-x-auto h-80">
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
@@ -215,7 +216,7 @@ const TeamSet = () => {
               color="green"
               onClick={() => {
                 setShowModal(false)
-                setShow(true)
+                added()
               }}
               ripple="light"
             >
@@ -229,9 +230,6 @@ const TeamSet = () => {
           active={showModalDel}
           toggler={() => setShowModalDel(false)}
         >
-          {/* <ModalHeader toggler={() => setShowModalDel(false)}>
-            <div class="pr-2">Want to Delete..??</div>
-          </ModalHeader> */}
           <div class="flex justify-between">
             <span class="font-bold pb-4 text-xl">Want to Delete..??</span>
             <span
@@ -315,7 +313,10 @@ const TeamSet = () => {
 
             <Button
               color="green"
-              onClick={e => setShowModalUp(false)}
+              onClick={() => {
+                setShowModalUp(false)
+                setShow(true)
+              }}
               ripple="light"
             >
               Save Changes
