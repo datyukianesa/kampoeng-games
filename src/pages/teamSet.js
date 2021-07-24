@@ -17,6 +17,7 @@ const TeamSet = () => {
   const [showModalDel, setShowModalDel] = useState(false)
   const [showModalUp, setShowModalUp] = useState(false)
   const [isShow, setShow] = useState(false)
+  const [isShowDel, setShowDel] = useState(false)
   // CRUD const
   const url = "http://localhost:1337/team"
   const [teamList, setTeamList] = useState([])
@@ -26,44 +27,6 @@ const TeamSet = () => {
     })
   }, [])
   // END CRUD
-  // const tableItem = [
-  //   {
-  //     id: "1",
-  //     name: "Khalif Farrel Yuandra",
-  //     title: "Front-end Designer",
-  //     nim: "19.11.3256",
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Ignatius Tegar Saputra",
-  //     title: "Front-end Designer",
-  //     nim: "19.11.3298",
-  //   },
-  //   {
-  //     id: "3",
-  //     name: "Bilal Muhtasyimbillah",
-  //     title: "Front-end Designer",
-  //     nim: "19.11.3272",
-  //   },
-  //   {
-  //     id: "4",
-  //     name: "Fanni Fadhila",
-  //     title: "Back-end Developer",
-  //     nim: "19.11.3300",
-  //   },
-  //   {
-  //     id: "5",
-  //     name: "Abyan Zhafran Daffa",
-  //     title: "Back-end Developer",
-  //     nim: "19.11.3252",
-  //   },
-  //   {
-  //     id: "6",
-  //     name: "Nadhira Triadha Pitaloka",
-  //     title: "Front-end Designer",
-  //     nim: "19.11.3270",
-  //   },
-  // ]
   const fields = [
     {
       field: "ID",
@@ -114,7 +77,7 @@ const TeamSet = () => {
                   task_alt
                 </span>
                 <div class="text-xl font-normal  max-w-full flex-initial">
-                  This is a success messsage
+                  Succesfully Update Team
                 </div>
                 <div class="flex flex-auto flex-row-reverse">
                   <span
@@ -125,7 +88,27 @@ const TeamSet = () => {
                   </span>
                 </div>
               </div>
-              {/* End MEssage */}
+              {/* End Success Message */}
+              <div
+                class={`${
+                  isShowDel ? "block" : "hidden"
+                } flex justify-center items-center m-1 font-medium py-1 px-2 rounded-md text-red-700 bg-red-100 border border-red-300`}
+              >
+                <span class="material-icons md-24 font-semibold text-red-800 mr-2">
+                  task_alt
+                </span>
+                <div class="text-xl font-normal  max-w-full flex-initial">
+                  Succesfully Delete Team
+                </div>
+                <div class="flex flex-auto flex-row-reverse">
+                  <span
+                    class="material-icons md-18 font-semibold text-red-800 cursor-pointer"
+                    onClick={() => setShowDel(!isShowDel)}
+                  >
+                    close
+                  </span>
+                </div>
+              </div>
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
                   <tr>
@@ -228,14 +211,17 @@ const TeamSet = () => {
 
             <Button
               color="green"
-              onClick={e => setShowModal(false)}
+              onClick={() => {
+                setShowModal(false)
+                setShow(true)
+              }}
               ripple="light"
             >
               Save Changes
             </Button>
           </ModalFooter>
         </Modal>
-        {/* Delete ask Modal */}
+        {/* Delete Modal */}
         <Modal
           size="lg"
           active={showModalDel}
@@ -263,7 +249,14 @@ const TeamSet = () => {
               Close
             </Button>
 
-            <Button color="red" ripple="light">
+            <Button
+              color="red"
+              ripple="light"
+              onClick={() => {
+                setShowModalDel(false)
+                setShowDel(true)
+              }}
+            >
               Delete
             </Button>
           </ModalFooter>
