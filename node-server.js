@@ -49,16 +49,6 @@ gatsby.prepare({ app }, () => {
     })
   })
 
-  app.get("/team", (req, res) => {
-    const sql = "SELECT * FROM tbl_team"
-
-    db.query(sql, (err, result) => {
-      if (!err) {
-        res.send(result)
-      }
-    })
-  })
-
   // Insert Homepage Text
   app.post("/api/insert", (req, res) => {
     const homepageText = req.body.homepageText
@@ -70,13 +60,47 @@ gatsby.prepare({ app }, () => {
       }
     })
   })
+  app.post("/api/insert/team", (req, res) => {
+    const teamInsertUser = req.body.teamInsertUser
+    const teamInsertPass = req.body.teamInsertPass
+    const teamInsertNim = req.body.teamInsertNim
+    console.log(teamInsertUser)
+    console.log(teamInsertPass)
+    console.log(teamInsertNim)
+    const sql = "INSERT INTO tbl_team (name, title, nim) VALUES (?, ?, ?)"
 
-  // Update Homepage Text
+    db.query(
+      sql,
+      [teamInsertUser, teamInsertPass, teamInsertNim],
+      (err, result) => {
+        if (!err) {
+          res.send(result)
+        }
+      }
+    )
+  })
+
+  // All UPDATE
   app.put("/api/update", (req, res) => {
     const textUpdate = req.body.textUpdate
     const sql = "UPDATE tbl_homepage SET homepageText = ? WHERE id = 1"
 
     db.query(sql, [textUpdate], (err, result) => {
+      if (!err) {
+        res.send(result)
+      }
+    })
+  })
+
+  // app.put("/api/update/team", (req, res) => {
+  //   const sql = "UPDATE tbl_team SET name = ?, title = ?, nim = ? WHERE id = ?"
+  // })
+
+  // Fetch all Team data
+  app.get("/team", (req, res) => {
+    const sql = "SELECT * FROM tbl_team"
+
+    db.query(sql, (err, result) => {
       if (!err) {
         res.send(result)
       }

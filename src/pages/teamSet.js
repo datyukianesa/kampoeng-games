@@ -21,20 +21,31 @@ const TeamSet = () => {
   // CRUD operation const
   const url = "http://localhost:1337/team"
   const [teamList, setTeamList] = useState([])
+  const [teamInsertUser, setTeamInsertUser] = useState("")
+  const [teamInsertPass, setTeamInsertPass] = useState("")
+  const [teamInsertNim, setTeamInsertNim] = useState("")
   const [teamDelete, setTeamDelete] = useState("")
-  // console.log(teamDelete)
+  // const [teamUpdate, setTeamUpdate] = useState("")
   useEffect(() => {
     axios.get(url).then((response, req) => {
       setTeamList(response.data)
     })
   }, [])
-  // END CRUD
+  const addTeam = () => {
+    axios
+      .post("http://localhost:1337/api/insert/team", {
+        teamInsertUser: teamInsertUser,
+        teamInsertPass: teamInsertPass,
+        teamInsertNim: teamInsertNim,
+      })
+      .then(() => {
+        alert("Team Added")
+      })
+  }
   const deleteTeam = () => {
     axios.delete(`http://localhost:1337/api/delete/${teamDelete}`)
   }
-  const added = () => {
-    alert("Team Added")
-  }
+  // END CRUD
   const fields = [
     {
       field: "ID",
@@ -192,6 +203,7 @@ const TeamSet = () => {
                   size="regular"
                   outline={true}
                   placeholder="Username"
+                  onChange={e => setTeamInsertUser(e.target.value)}
                 />
               </div>
               <div className="w-full font-light">
@@ -201,6 +213,7 @@ const TeamSet = () => {
                   size="regular"
                   outline={true}
                   placeholder="Password"
+                  onChange={e => setTeamInsertPass(e.target.value)}
                 />
               </div>
               <div className="w-full font-light">
@@ -210,6 +223,7 @@ const TeamSet = () => {
                   size="regular"
                   outline={true}
                   placeholder="Nim no(dot)"
+                  onChange={e => setTeamInsertNim(e.target.value)}
                 />
               </div>
             </div>
@@ -228,7 +242,7 @@ const TeamSet = () => {
               color="green"
               onClick={() => {
                 setShowModal(false)
-                added()
+                addTeam()
               }}
               ripple="light"
             >
