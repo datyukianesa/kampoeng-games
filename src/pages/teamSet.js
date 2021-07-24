@@ -18,15 +18,20 @@ const TeamSet = () => {
   const [showModalUp, setShowModalUp] = useState(false)
   const [isShow, setShow] = useState(false)
   const [isShowDel, setShowDel] = useState(false)
-  // CRUD const
+  // CRUD operation const
   const url = "http://localhost:1337/team"
   const [teamList, setTeamList] = useState([])
+  const [teamDelete, setTeamDelete] = useState("")
+  // console.log(teamDelete)
   useEffect(() => {
     axios.get(url).then((response, req) => {
       setTeamList(response.data)
     })
   }, [])
   // END CRUD
+  const deleteTeam = () => {
+    axios.delete(`http://localhost:1337/api/delete/${teamDelete}`)
+  }
   const added = () => {
     alert("Team Added")
   }
@@ -140,7 +145,10 @@ const TeamSet = () => {
                         <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                           {item.nim}
                         </td>
-                        <td className="border-b border-gray-200 align-middle font-semibold text-sm whitespace-nowrap px-2 py-4 text-left text-bold">
+                        <td
+                          className="border-b border-gray-200 align-middle font-semibold text-sm whitespace-nowrap px-2 py-4 text-left text-bold"
+                          key={item.id}
+                        >
                           <span
                             className="text-blue-600 cursor-pointer pr-4"
                             onClick={e => setShowModalUp(true)}
@@ -149,7 +157,11 @@ const TeamSet = () => {
                           </span>
                           <span
                             className="text-red-400 cursor-pointer"
-                            onClick={e => setShowModalDel(true)}
+                            onClick={() => {
+                              setShowModalDel(true)
+                              setTeamDelete(item.id)
+                            }}
+                            // onChange={e => setTeamDelete(e.target.value)}
                           >
                             Delete
                           </span>
@@ -255,6 +267,7 @@ const TeamSet = () => {
               onClick={() => {
                 setShowModalDel(false)
                 setShowDel(true)
+                deleteTeam()
               }}
             >
               Delete

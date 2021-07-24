@@ -18,6 +18,7 @@ const HomeSet = () => {
   const [textGrep, textList] = useState("")
   const [homepageText, setHomepageText] = useState("")
   const [textUpdate, setTextUpdate] = useState("")
+  // console.log(textUpdate)
   // END CRUD
   const url = "http://localhost:1337/homepage"
   useEffect(() => {
@@ -28,16 +29,6 @@ const HomeSet = () => {
 
   const textResult = JSON.stringify(textGrep).replace(/['[\]{}:"]/g, "")
 
-  const submitTxt = () => {
-    axios
-      .post("http://localhost:1337/api/insert", {
-        homepageText: homepageText,
-      })
-      .then(() => {
-        alert("successfull insert")
-      })
-  }
-
   const updateText = () => {
     axios
       .put("http://localhost:1337/api/update", {
@@ -45,6 +36,16 @@ const HomeSet = () => {
       })
       .then(() => {
         alert("successfull update")
+      })
+  }
+
+  const submitTxt = () => {
+    axios
+      .post("http://localhost:1337/api/insert", {
+        homepageText: homepageText,
+      })
+      .then(() => {
+        alert("successfull insert")
       })
   }
 
@@ -139,7 +140,14 @@ const HomeSet = () => {
               Close
             </Button>
 
-            <Button color="green" onClick={() => updateText()} ripple="light">
+            <Button
+              color="green"
+              onClick={() => {
+                updateText()
+                setShowModal(false)
+              }}
+              ripple="light"
+            >
               Save Changes
             </Button>
           </ModalFooter>

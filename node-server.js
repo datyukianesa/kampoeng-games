@@ -50,7 +50,6 @@ gatsby.prepare({ app }, () => {
   })
 
   app.get("/team", (req, res) => {
-    // const homepageText = req.body.homepageText
     const sql = "SELECT * FROM tbl_team"
 
     db.query(sql, (err, result) => {
@@ -60,9 +59,9 @@ gatsby.prepare({ app }, () => {
     })
   })
 
+  // Insert Homepage Text
   app.post("/api/insert", (req, res) => {
     const homepageText = req.body.homepageText
-    // console.log(homepageText)
     const sql = "INSERT INTO tbl_homepage (homepageText) VALUES (?)"
 
     db.query(sql, [homepageText], (err, result) => {
@@ -72,12 +71,24 @@ gatsby.prepare({ app }, () => {
     })
   })
 
+  // Update Homepage Text
   app.put("/api/update", (req, res) => {
     const textUpdate = req.body.textUpdate
-    console.log(textUpdate)
     const sql = "UPDATE tbl_homepage SET homepageText = ? WHERE id = 1"
 
     db.query(sql, [textUpdate], (err, result) => {
+      if (!err) {
+        res.send(result)
+      }
+    })
+  })
+
+  // Delete Team
+  app.delete("/api/delete/:teamDelete", (req, res) => {
+    const teamDelete = req.params.teamDelete
+    const sql = "DELETE FROM tbl_team WHERE id = ?"
+
+    db.query(sql, [teamDelete], (err, result) => {
       if (!err) {
         res.send(result)
       }
