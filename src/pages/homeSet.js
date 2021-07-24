@@ -48,11 +48,6 @@ const HomeSet = () => {
       })
   }
 
-  // const doubleCallBtn = () => {
-  //   setShowModal(false)
-  //   submitTxt()
-  // }
-
   return (
     <LayoutDashboard>
       <div className="h-screen flex items-center justify-center">

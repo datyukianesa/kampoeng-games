@@ -66,49 +66,51 @@ const TeamSet = () => {
             </div>
           </CardHeader>
           <CardBody>
+            {/* Success Message */}
+            <div
+              class={`${
+                isShow ? "block" : "hidden"
+              } flex justify-center items-center m-1 font-medium py-1 px-2 rounded-md text-green-700 bg-green-100 border border-green-300`}
+            >
+              <span class="material-icons md-24 font-semibold text-green-800 mr-2">
+                task_alt
+              </span>
+              <div class="text-xl font-normal  max-w-full flex-initial">
+                Succesfully Update Team
+              </div>
+              <div class="flex flex-auto flex-row-reverse">
+                <span
+                  class="material-icons md-18 font-semibold text-green-800 cursor-pointer"
+                  onClick={() => setShow(!isShow)}
+                >
+                  close
+                </span>
+              </div>
+            </div>
+            {/* End Success Message */}
+            {/* Delete Message */}
+            <div
+              class={`${
+                isShowDel ? "block" : "hidden"
+              } flex justify-center items-center m-1 font-medium py-1 px-2 rounded-md text-red-700 bg-red-100 border border-red-300`}
+            >
+              <span class="material-icons md-24 font-semibold text-red-800 mr-2">
+                task_alt
+              </span>
+              <div class="text-xl font-normal  max-w-full flex-initial">
+                Succesfully Delete Team
+              </div>
+              <div class="flex flex-auto flex-row-reverse">
+                <span
+                  class="material-icons md-18 font-semibold text-red-800 cursor-pointer"
+                  onClick={() => setShowDel(!isShowDel)}
+                >
+                  close
+                </span>
+              </div>
+            </div>
+            {/* End Delete Message */}
             <div className="overflow-x-auto h-80">
-              {/* Success Message */}
-              <div
-                class={`${
-                  isShow ? "block" : "hidden"
-                } flex justify-center items-center m-1 font-medium py-1 px-2 rounded-md text-green-700 bg-green-100 border border-green-300`}
-              >
-                <span class="material-icons md-24 font-semibold text-green-800 mr-2">
-                  task_alt
-                </span>
-                <div class="text-xl font-normal  max-w-full flex-initial">
-                  Succesfully Update Team
-                </div>
-                <div class="flex flex-auto flex-row-reverse">
-                  <span
-                    class="material-icons md-18 font-semibold text-green-800 cursor-pointer"
-                    onClick={() => setShow(!isShow)}
-                  >
-                    close
-                  </span>
-                </div>
-              </div>
-              {/* End Success Message */}
-              <div
-                class={`${
-                  isShowDel ? "block" : "hidden"
-                } flex justify-center items-center m-1 font-medium py-1 px-2 rounded-md text-red-700 bg-red-100 border border-red-300`}
-              >
-                <span class="material-icons md-24 font-semibold text-red-800 mr-2">
-                  task_alt
-                </span>
-                <div class="text-xl font-normal  max-w-full flex-initial">
-                  Succesfully Delete Team
-                </div>
-                <div class="flex flex-auto flex-row-reverse">
-                  <span
-                    class="material-icons md-18 font-semibold text-red-800 cursor-pointer"
-                    onClick={() => setShowDel(!isShowDel)}
-                  >
-                    close
-                  </span>
-                </div>
-              </div>
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
                   <tr>
