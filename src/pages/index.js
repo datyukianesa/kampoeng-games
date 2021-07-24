@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState, useEffect } from "react"
 
 import Layout from "../components/layout"
 import Split from "../components/Split"
@@ -11,6 +11,7 @@ import Card from "../components/Card"
 import ProfileImage from "../components/ProfileImage"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
+import axios from "axios"
 
 import AppstoreBadge from "../svg/AppstoreBadge"
 import PlaystoreBadge from "../svg/PlaystoreBadge"
@@ -40,6 +41,14 @@ export const query = graphql`
 `
 
 const IndexPage = ({ data }) => {
+  const [text, SetText] = useState("")
+  const url = "http://localhost:1337/homepage"
+  useEffect(() => {
+    axios.get(url).then((response, req) => {
+      SetText(response.data)
+    })
+  })
+  const textResult = JSON.stringify(text).replace(/['[\]{}:"]/g, "")
   const cardItem = [
     {
       name: "Khalif Farrel Yuandra",
@@ -200,7 +209,6 @@ const IndexPage = ({ data }) => {
         <div className="font-extrabold">
           <div className={`grid grid-cols-1 md:grid-cols-3 md:m-2`}>
             {cardItem.map(item => {
-              console.log(typeof item.imgUrl)
               return (
                 <Card className={`text-center flex-1 md:mx-2`}>
                   <ProfileImage>
@@ -254,11 +262,12 @@ const IndexPage = ({ data }) => {
         className={`bg-gradient-to-b lg:bg-gradient-to-l from-complementary rounded-3xl`}
         first={
           <Paragraph className={`text-justify py-5 text-Indent lg:text-right`}>
-            Kampoeng Games sekarang telah memiliki lebih dari 100 games dan
+            {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games dan
             voucher dari segala provider. Perusahaan kami juga telah di sponsori
             oleh berbagai perusahaan lainnya, seperti Razer, G-Fuel, Microsoft,
             Playstation, Xbox, dan lain-lainnya. Dengan ini, Kampoeng Games
-            menjadi toko hiburan di bidang gaming terlengkap di Indonesia.
+            menjadi toko hiburan di bidang gaming terlengkap di Indonesia. */}
+            {textResult.replace(/(homepageText)/, "")}
           </Paragraph>
         }
         second={
