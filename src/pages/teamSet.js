@@ -19,51 +19,51 @@ const TeamSet = () => {
   const [isShow, setShow] = useState(false)
   // CRUD const
   const url = "http://localhost:1337/team"
-  const [teamList, setTeamList] = useState("")
+  const [teamList, setTeamList] = useState([])
   useEffect(() => {
     axios.get(url).then((response, req) => {
       setTeamList(response.data)
     })
   }, [])
   // END CRUD
-  const tableItem = [
-    {
-      id: "1",
-      name: "Khalif Farrel Yuandra",
-      title: "Front-end Designer",
-      nim: "19.11.3256",
-    },
-    {
-      id: "2",
-      name: "Ignatius Tegar Saputra",
-      title: "Front-end Designer",
-      nim: "19.11.3298",
-    },
-    {
-      id: "3",
-      name: "Bilal Muhtasyimbillah",
-      title: "Front-end Designer",
-      nim: "19.11.3272",
-    },
-    {
-      id: "4",
-      name: "Fanni Fadhila",
-      title: "Back-end Developer",
-      nim: "19.11.3300",
-    },
-    {
-      id: "5",
-      name: "Abyan Zhafran Daffa",
-      title: "Back-end Developer",
-      nim: "19.11.3252",
-    },
-    {
-      id: "6",
-      name: "Nadhira Triadha Pitaloka",
-      title: "Front-end Designer",
-      nim: "19.11.3270",
-    },
-  ]
+  // const tableItem = [
+  //   {
+  //     id: "1",
+  //     name: "Khalif Farrel Yuandra",
+  //     title: "Front-end Designer",
+  //     nim: "19.11.3256",
+  //   },
+  //   {
+  //     id: "2",
+  //     name: "Ignatius Tegar Saputra",
+  //     title: "Front-end Designer",
+  //     nim: "19.11.3298",
+  //   },
+  //   {
+  //     id: "3",
+  //     name: "Bilal Muhtasyimbillah",
+  //     title: "Front-end Designer",
+  //     nim: "19.11.3272",
+  //   },
+  //   {
+  //     id: "4",
+  //     name: "Fanni Fadhila",
+  //     title: "Back-end Developer",
+  //     nim: "19.11.3300",
+  //   },
+  //   {
+  //     id: "5",
+  //     name: "Abyan Zhafran Daffa",
+  //     title: "Back-end Developer",
+  //     nim: "19.11.3252",
+  //   },
+  //   {
+  //     id: "6",
+  //     name: "Nadhira Triadha Pitaloka",
+  //     title: "Front-end Designer",
+  //     nim: "19.11.3270",
+  //   },
+  // ]
   const fields = [
     {
       field: "ID",
