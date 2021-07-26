@@ -1,7 +1,7 @@
 const express = require("express")
 const gatsby = require("gatsby-plugin-nodejs")
 var cors = require("cors")
-var db = require("./config/database")
+var db = require("../config/database")
 
 const app = express()
 
