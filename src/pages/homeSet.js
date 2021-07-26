@@ -20,7 +20,8 @@ const HomeSet = () => {
   const [textUpdate, setTextUpdate] = useState("")
   // console.log(textUpdate)
   // END CRUD
-  const url = "http://localhost:1337/homepage"
+  const url = `${process.env.GATSBY_API_URL}/homepage`
+  console.log(url)
   useEffect(() => {
     axios.get(url).then((response, req) => {
       textList(response.data)
@@ -31,7 +32,7 @@ const HomeSet = () => {
 
   const updateText = () => {
     axios
-      .put("http://localhost:1337/api/update", {
+      .put(`${process.env.GATSBY_API_URL}/api/update`, {
         textUpdate: textUpdate,
       })
       .then(() => {
@@ -41,7 +42,7 @@ const HomeSet = () => {
 
   const submitTxt = () => {
     axios
-      .post("http://localhost:1337/api/insert", {
+      .post(`${process.env.GATSBY_API_URL}/api/insert`, {
         homepageText: homepageText,
       })
       .then(() => {
