@@ -3,10 +3,6 @@ const app = express();
 const cors = require("cors");
 const db = require("./database");
 
-app.get("/", (req, res) => {
-  res.send("Hello yoi mamen mamen!");
-});
-
 // This is to allow our api for cross-origin resource sharing
 app.use(cors());
 
@@ -22,6 +18,10 @@ app.use(
 
 // use the express-static middleware
 app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.send("Hello yoi mamen mamen!");
+});
 
 // Here you can define your routes
 app.get("/try", (req, res) => {
