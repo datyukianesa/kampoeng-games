@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const db = require("./database");
-const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.send("Hello yoi mamen mamen!");
@@ -20,6 +19,9 @@ app.use(
     extended: true,
   })
 );
+
+// use the express-static middleware
+app.use(express.static("public"));
 
 // Here you can define your routes
 app.get("/try", (req, res) => {
@@ -121,6 +123,9 @@ app.delete("/api/delete/:teamDelete", (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server is running on port http://localhost:${port}`);
+// });
+
+// start the server listening for requests
+app.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
