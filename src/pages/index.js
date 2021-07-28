@@ -1,5 +1,4 @@
-import * as React from "react"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import React, { useState, useEffect } from "react"
 
 import Layout from "../components/layout"
 import Split from "../components/Split"
@@ -12,13 +11,14 @@ import Card from "../components/Card"
 import ProfileImage from "../components/ProfileImage"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
+import axios from "axios"
 
 import AppstoreBadge from "../svg/AppstoreBadge"
 import PlaystoreBadge from "../svg/PlaystoreBadge"
 import HeroImage from "../svg/HeroImage"
 
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const query = graphql`
   query {
@@ -37,19 +37,18 @@ export const query = graphql`
         title
       }
     }
-    contentfulKGamesHomepage {
-      product {
-        raw
-      }
-    }
   }
 `
 
 const IndexPage = ({ data }) => {
-  // contentful function
-  const value = JSON.parse(data.contentfulKGamesHomepage.product.raw)
-  console.log(documentToReactComponents(value))
-
+  const [text, SetText] = useState("")
+  const url = "http://localhost:1337/homepage"
+  useEffect(() => {
+    axios.get(url).then((response, req) => {
+      SetText(response.data)
+    })
+  })
+  const textResult = JSON.stringify(text).replace(/['[\]{}:"]/g, "")
   const cardItem = [
     {
       name: "Khalif Farrel Yuandra",
@@ -263,7 +262,12 @@ const IndexPage = ({ data }) => {
         className={`bg-gradient-to-b lg:bg-gradient-to-l from-complementary rounded-3xl`}
         first={
           <Paragraph className={`text-justify py-5 text-Indent lg:text-right`}>
-            {documentToReactComponents(value)}
+            {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games dan
+            voucher dari segala provider. Perusahaan kami juga telah di sponsori
+            oleh berbagai perusahaan lainnya, seperti Razer, G-Fuel, Microsoft,
+            Playstation, Xbox, dan lain-lainnya. Dengan ini, Kampoeng Games
+            menjadi toko hiburan di bidang gaming terlengkap di Indonesia. */}
+            {textResult.replace(/(homepageText)/, "")}
           </Paragraph>
         }
         second={

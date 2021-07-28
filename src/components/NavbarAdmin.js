@@ -15,7 +15,6 @@ export default function NavbarAdmin({ setShowSidebar }) {
   } else {
     greetingMessage = "You are not logged in"
   }
-
   return (
     <nav className="bg-secondary md:ml-64 py-3 px-4">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-4 md:pl-10">

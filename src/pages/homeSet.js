@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
@@ -9,9 +9,46 @@ import ModalHeader from "@material-tailwind/react/ModalHeader"
 import ModalFooter from "@material-tailwind/react/ModalFooter"
 import LayoutDashboard from "../components/layoutDashboard"
 import "@material-tailwind/react/tailwind.css"
+import axios from "axios"
 
 const HomeSet = () => {
   const [showModal, setShowModal] = useState(false)
+  const [isChange, setChange] = useState(false)
+  // CRUD operation const
+  const [textGrep, textList] = useState("")
+  const [homepageText, setHomepageText] = useState("")
+  const [textUpdate, setTextUpdate] = useState("")
+  // console.log(textUpdate)
+  // END CRUD
+  const url = "http://localhost:1337/homepage"
+  console.log(url)
+  useEffect(() => {
+    axios.get(url).then((response, req) => {
+      textList(response.data)
+    })
+  }, [])
+
+  const textResult = JSON.stringify(textGrep).replace(/['[\]{}:"]/g, "")
+
+  const updateText = () => {
+    axios
+      .put("http://localhost:1337/api/update", {
+        textUpdate: textUpdate,
+      })
+      .then(() => {
+        alert("successfull update")
+      })
+  }
+
+  const submitTxt = () => {
+    axios
+      .post("http://localhost:1337/api/insert", {
+        homepageText: homepageText,
+      })
+      .then(() => {
+        alert("successfull insert")
+      })
+  }
 
   return (
     <LayoutDashboard>
@@ -25,43 +62,66 @@ const HomeSet = () => {
           <CardBody>
             <form>
               <div className="flex flex-wrap mt-10 mb-8">
-                <Textarea
-                  color="lightBlue"
-                  size="Regular"
-                  outline={true}
-                  placeholder="Edit Homepage here...."
-                  success="Homepage"
-                >
-                  Kampoeng Games sekarang telah memiliki lebih dari 100 games
+                <p class={`${isChange ? "hidden" : "block"}`}>
+                  {textResult.replace(/(homepageText)/, "")}
+                </p>
+                <div class={`${isChange ? "block" : "hidden"} w-full`}>
+                  <Textarea
+                    color="lightBlue"
+                    size="Regular"
+                    outline={true}
+                    placeholder="Edit Homepage here...."
+                    success="Homepage"
+                    onChange={e => setTextUpdate(e.target.value)}
+                  />
+                </div>
+                {/* Kampoeng Games sekarang telah memiliki lebih dari 100 games
                   dan voucher dari segala provider. Perusahaan kami juga telah
                   di sponsori oleh berbagai perusahaan lainnya, seperti Razer,
                   G-Fuel, Microsoft, Playstation, Xbox, dan lain-lainnya. Dengan
                   ini, Kampoeng Games menjadi toko hiburan dibidang gaming
-                  terlengkap di Indonesia.
-                </Textarea>
+                  terlengkap di Indonesia. */}
+                {/* </Textarea> */}
               </div>
               <div className="flex flex-row gap-3">
-                <Button
-                  color="red"
-                  buttonType="filled"
-                  type="reset"
-                  size="regular"
-                  rounded={false}
-                  block={false}
-                  ripple="light"
-                >
-                  Reset
-                </Button>
-                <Button
-                  color="green"
-                  buttonType="filled"
-                  type="Button"
-                  size="regular"
-                  onClick={e => setShowModal(true)}
-                  ripple="light"
-                >
-                  Update
-                </Button>
+                <div>
+                  <div class={`${isChange ? "hidden" : "block"} w-full`}>
+                    <Button
+                      color="green"
+                      buttonType="filled"
+                      type="Button"
+                      size="regular"
+                      onClick={() => setChange(!isChange)}
+                      ripple="light"
+                    >
+                      Update
+                    </Button>
+                  </div>
+                  <div class={`${isChange ? "block" : "hidden"} w-full`}>
+                    <Button
+                      color="red"
+                      buttonType="filled"
+                      type="Button"
+                      size="regular"
+                      onClick={() => setChange(!isChange)}
+                      ripple="light"
+                    >
+                      cancel
+                    </Button>
+                  </div>
+                </div>
+                <div>
+                  <Button
+                    color="blue"
+                    buttonType="filled"
+                    type="Button"
+                    size="regular"
+                    onClick={e => setShowModal(true)}
+                    ripple="light"
+                  >
+                    Submit
+                  </Button>
+                </div>
               </div>
             </form>
           </CardBody>
@@ -83,7 +143,10 @@ const HomeSet = () => {
 
             <Button
               color="green"
-              onClick={e => setShowModal(false)}
+              onClick={() => {
+                updateText()
+                setShowModal(false)
+              }}
               ripple="light"
             >
               Save Changes

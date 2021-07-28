@@ -1,8 +1,6 @@
-const dotenv = require("dotenv")
-
-if (process.env.NODE_ENV !== "production") {
-  dotenv.config()
-}
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -11,6 +9,7 @@ module.exports = {
     author: [`@datyukianesa`, `@abyanzhafran`],
   },
   plugins: [
+    `gatsby-plugin-nodejs`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
@@ -34,17 +33,7 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/svg/logo_v3.svg`, // This path is relative to the root of the site.
       },
-    },
-    // gatsby-source-contentful config (Using Delivery API )
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `a1827sxwab7q`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: "bLr0O177A1jEXoWbcHtdEpC3p25SinqO0bWV7N3kpc8",
-      },
-    },
-    // gatsby material-UI config
+    }, // gatsby material-UI config
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality

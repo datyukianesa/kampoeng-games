@@ -1,48 +1,67 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Card from "@material-tailwind/react/Card"
 import CardHeader from "@material-tailwind/react/CardHeader"
 import CardBody from "@material-tailwind/react/CardBody"
 import Button from "@material-tailwind/react/Button"
+import Modal from "@material-tailwind/react/Modal"
+import ModalHeader from "@material-tailwind/react/ModalHeader"
+import ModalFooter from "@material-tailwind/react/ModalFooter"
+import ModalBody from "@material-tailwind/react/ModalBody"
+import Input from "@material-tailwind/react/Input"
 import LayoutDashboard from "../components/layoutDashboard"
 import "@material-tailwind/react/tailwind.css"
+import axios from "axios"
 
-export default function teamSet() {
-  const tableItem = [
+const TeamSet = () => {
+  const [showModal, setShowModal] = useState(false)
+  const [showModalDel, setShowModalDel] = useState(false)
+  const [showModalUp, setShowModalUp] = useState(false)
+  const [isShow, setShow] = useState(false)
+  const [isShowDel, setShowDel] = useState(false)
+  // CRUD operation const
+  const url = `http://localhost:1337/team`
+  const [teamList, setTeamList] = useState([])
+  const [teamInsertUser, setTeamInsertUser] = useState("")
+  const [teamInsertPass, setTeamInsertPass] = useState("")
+  const [teamInsertNim, setTeamInsertNim] = useState("")
+  const [teamDelete, setTeamDelete] = useState("")
+  // const [teamUpdate, setTeamUpdate] = useState("")
+  console.log(teamList)
+  useEffect(() => {
+    axios.get(url).then((response, req) => {
+      setTeamList(response.data)
+    })
+  }, [])
+  const addTeam = () => {
+    axios
+      .post(`http://localhost:1337/api/insert/team`, {
+        teamInsertUser: teamInsertUser,
+        teamInsertPass: teamInsertPass,
+        teamInsertNim: teamInsertNim,
+      })
+      .then(() => {
+        alert("Team Added")
+      })
+  }
+  const deleteTeam = () => {
+    axios.delete(`http://localhost:1337/api/delete/${teamDelete}`)
+  }
+  // END CRUD
+  const fields = [
     {
-      id: "1",
-      name: "Khalif Farrel Yuandra",
-      title: "Front-end Designer",
-      nim: "19.11.3256",
+      field: "ID",
     },
     {
-      id: "2",
-      name: "Ignatius Tegar Saputra",
-      title: "Front-end Designer",
-      nim: "19.11.3298",
+      field: "Name",
     },
     {
-      id: "3",
-      name: "Bilal Muhtasyimbillah",
-      title: "Front-end Designer",
-      nim: "19.11.3272",
+      field: "Position",
     },
     {
-      id: "4",
-      name: "Fanni Fadhila",
-      title: "Back-end Developer",
-      nim: "19.11.3300",
+      field: "NIM",
     },
     {
-      id: "5",
-      name: "Abyan Zhafran Daffa",
-      title: "Back-end Developer",
-      nim: "19.11.3252",
-    },
-    {
-      id: "6",
-      name: "Nadhira Triadha Pitaloka",
-      title: "Front-end Designer",
-      nim: "19.11.3270",
+      field: "Action",
     },
   ]
 
@@ -55,38 +74,75 @@ export default function teamSet() {
               <h2 className="text-white text-2xl">Edit Team</h2>
               <Button
                 color="transparent"
-                buttonType="link"
+                buttonType="filled"
+                onClick={e => setShowModal(true)}
                 size="lg"
-                style={{ padding: 0 }}
               >
-                See More
+                <span class="material-icons md-24 text-white font-semibold">
+                  add
+                </span>
+                Add Team
               </Button>
             </div>
           </CardHeader>
           <CardBody>
-            <div className="overflow-x-auto">
+            {/* Success Message */}
+            <div
+              class={`${
+                isShow ? "block" : "hidden"
+              } flex justify-center items-center m-1 font-medium py-1 px-2 rounded-md text-green-700 bg-green-100 border border-green-300`}
+            >
+              <span class="material-icons md-24 font-semibold text-green-800 mr-2">
+                task_alt
+              </span>
+              <div class="text-xl font-normal  max-w-full flex-initial">
+                Succesfully Update Team
+              </div>
+              <div class="flex flex-auto flex-row-reverse">
+                <span
+                  class="material-icons md-18 font-semibold text-green-800 cursor-pointer"
+                  onClick={() => setShow(!isShow)}
+                >
+                  close
+                </span>
+              </div>
+            </div>
+            {/* Delete Message */}
+            <div
+              class={`${
+                isShowDel ? "block" : "hidden"
+              } flex justify-center items-center m-1 font-medium py-1 px-2 rounded-md text-red-700 bg-red-100 border border-red-300`}
+            >
+              <span class="material-icons md-24 font-semibold text-red-800 mr-2">
+                task_alt
+              </span>
+              <div class="text-xl font-normal  max-w-full flex-initial">
+                Succesfully Delete Team
+              </div>
+              <div class="flex flex-auto flex-row-reverse">
+                <span
+                  class="material-icons md-18 font-semibold text-red-800 cursor-pointer"
+                  onClick={() => setShowDel(!isShowDel)}
+                >
+                  close
+                </span>
+              </div>
+            </div>
+            <div className="overflow-x-auto h-80">
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
                   <tr>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      ID
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      Name
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      Position
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      NIM
-                    </th>
-                    <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                      Action
-                    </th>
+                    {fields.map(item => {
+                      return (
+                        <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-base whitespace-nowrap font-semibold text-left">
+                          {item.field}
+                        </th>
+                      )
+                    })}
                   </tr>
                 </thead>
                 <tbody>
-                  {tableItem.map(item => {
+                  {teamList.map(item => {
                     return (
                       <tr>
                         <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
@@ -101,11 +157,24 @@ export default function teamSet() {
                         <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                           {item.nim}
                         </td>
-                        <td className="border-b border-gray-200 align-middle font-semibold text-sm whitespace-nowrap px-2 py-4 text-left text-bold">
-                          <span className="text-blue-600 cursor-pointer pr-4">
+                        <td
+                          className="border-b border-gray-200 align-middle font-semibold text-sm whitespace-nowrap px-2 py-4 text-left text-bold"
+                          key={item.id}
+                        >
+                          <span
+                            className="text-blue-600 cursor-pointer pr-4"
+                            onClick={e => setShowModalUp(true)}
+                          >
                             Edit
                           </span>
-                          <span className="text-red-400 cursor-pointer">
+                          <span
+                            className="text-red-400 cursor-pointer"
+                            onClick={() => {
+                              setShowModalDel(true)
+                              setTeamDelete(item.id)
+                            }}
+                            // onChange={e => setTeamDelete(e.target.value)}
+                          >
                             Delete
                           </span>
                         </td>
@@ -117,7 +186,174 @@ export default function teamSet() {
             </div>
           </CardBody>
         </Card>
+        {/* Add Team Modal */}
+        <Modal
+          size="regular"
+          active={showModal}
+          toggler={() => setShowModal(false)}
+        >
+          <ModalHeader toggler={() => setShowModal(false)}>
+            Add Your Team
+          </ModalHeader>
+          <ModalBody>
+            <div className="flex flex-col mt-4 gap-4">
+              <div className="w-full font-light">
+                <Input
+                  type="text"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Username"
+                  onChange={e => setTeamInsertUser(e.target.value)}
+                />
+              </div>
+              <div className="w-full font-light">
+                <Input
+                  type="password"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Password"
+                  onChange={e => setTeamInsertPass(e.target.value)}
+                />
+              </div>
+              <div className="w-full font-light">
+                <Input
+                  type="number"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Nim no(dot)"
+                  onChange={e => setTeamInsertNim(e.target.value)}
+                />
+              </div>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color="red"
+              buttonType="link"
+              onClick={e => setShowModal(false)}
+              ripple="dark"
+            >
+              Close
+            </Button>
+
+            <Button
+              color="green"
+              onClick={() => {
+                setShowModal(false)
+                addTeam()
+              }}
+              ripple="light"
+            >
+              Save Changes
+            </Button>
+          </ModalFooter>
+        </Modal>
+        {/* Delete Modal */}
+        <Modal
+          size="lg"
+          active={showModalDel}
+          toggler={() => setShowModalDel(false)}
+        >
+          <div class="flex justify-between">
+            <span class="font-bold pb-4 text-xl">Want to Delete..??</span>
+            <span
+              class="material-icons md-18 text-black font-bold cursor-pointer"
+              onClick={e => setShowModalDel(false)}
+            >
+              close
+            </span>
+          </div>
+          <ModalFooter>
+            <Button
+              color="red"
+              buttonType="link"
+              onClick={e => setShowModalDel(false)}
+              ripple="dark"
+            >
+              Close
+            </Button>
+
+            <Button
+              color="red"
+              ripple="light"
+              onClick={() => {
+                setShowModalDel(false)
+                setShowDel(true)
+                deleteTeam()
+              }}
+            >
+              Delete
+            </Button>
+          </ModalFooter>
+        </Modal>
+        {/* Modal Edit */}
+        <Modal
+          size="regular"
+          active={showModalUp}
+          toggler={() => setShowModalUp(false)}
+        >
+          <ModalHeader toggler={() => setShowModalUp(false)}>
+            Update Team
+          </ModalHeader>
+          <ModalBody>
+            <div className="flex flex-col mt-4 gap-4">
+              <div className="w-full font-light">
+                <Input
+                  type="text"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Username"
+                />
+              </div>
+              <div className="w-full font-light">
+                <Input
+                  type="password"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Password"
+                />
+              </div>
+              <div className="w-full font-light">
+                <Input
+                  type="number"
+                  color="lightBlue"
+                  size="regular"
+                  outline={true}
+                  placeholder="Nim no(dot)"
+                />
+              </div>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color="red"
+              buttonType="link"
+              onClick={e => setShowModalUp(false)}
+              ripple="dark"
+            >
+              Close
+            </Button>
+
+            <Button
+              color="green"
+              onClick={() => {
+                setShowModalUp(false)
+                setShow(true)
+              }}
+              ripple="light"
+            >
+              Save Changes
+            </Button>
+          </ModalFooter>
+        </Modal>
       </div>
     </LayoutDashboard>
   )
 }
+
+export default TeamSet
