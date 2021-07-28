@@ -19,7 +19,7 @@ const TeamSet = () => {
   const [isShow, setShow] = useState(false)
   const [isShowDel, setShowDel] = useState(false)
   // CRUD operation const
-  const url = `http://localhost:1337/team`
+  const url = "http://kampoeng-games.herokuapp.com/team"
   const [teamList, setTeamList] = useState([])
   const [teamInsertUser, setTeamInsertUser] = useState("")
   const [teamInsertPass, setTeamInsertPass] = useState("")
@@ -34,7 +34,7 @@ const TeamSet = () => {
   }, [])
   const addTeam = () => {
     axios
-      .post(`http://localhost:1337/api/insert/team`, {
+      .post(`http://kampoeng-games.herokuapp.com/api/insert/team`, {
         teamInsertUser: teamInsertUser,
         teamInsertPass: teamInsertPass,
         teamInsertNim: teamInsertNim,
@@ -44,7 +44,7 @@ const TeamSet = () => {
       })
   }
   const deleteTeam = () => {
-    axios.delete(`http://localhost:1337/api/delete/${teamDelete}`)
+    axios.delete(`http://kampoeng-games.herokuapp.com/api/delete/${teamDelete}`)
   }
   // END CRUD
   const fields = [

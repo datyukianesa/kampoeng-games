@@ -20,7 +20,7 @@ const HomeSet = () => {
   const [textUpdate, setTextUpdate] = useState("")
   // console.log(textUpdate)
   // END CRUD
-  const url = "http://localhost:1337/homepage"
+  const url = "https://kampoeng-games.herokuapp.com/homepage"
   console.log(url)
   useEffect(() => {
     axios.get(url).then((response, req) => {
@@ -32,7 +32,7 @@ const HomeSet = () => {
 
   const updateText = () => {
     axios
-      .put("http://localhost:1337/api/update", {
+      .put("https://kampoeng-games.herokuapp.com/api/update", {
         textUpdate: textUpdate,
       })
       .then(() => {
@@ -42,7 +42,7 @@ const HomeSet = () => {
 
   const submitTxt = () => {
     axios
-      .post("http://localhost:1337/api/insert", {
+      .post("https://kampoeng-games.herokuapp.com/api/insert", {
         homepageText: homepageText,
       })
       .then(() => {

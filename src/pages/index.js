@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-
 import Layout from "../components/layout"
 import Split from "../components/Split"
 import Aside from "../components/Aside"
@@ -12,11 +11,9 @@ import ProfileImage from "../components/ProfileImage"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import axios from "axios"
-
 import AppstoreBadge from "../svg/AppstoreBadge"
 import PlaystoreBadge from "../svg/PlaystoreBadge"
 import HeroImage from "../svg/HeroImage"
-
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -42,7 +39,7 @@ export const query = graphql`
 
 const IndexPage = ({ data }) => {
   const [text, SetText] = useState("")
-  const url = "http://localhost:1337/homepage"
+  const url = "https://kampoeng-games.herokuapp.com/homepage"
   useEffect(() => {
     axios.get(url).then((response, req) => {
       SetText(response.data)
