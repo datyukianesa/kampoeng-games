@@ -15,7 +15,7 @@ import AppstoreBadge from "../svg/AppstoreBadge"
 import PlaystoreBadge from "../svg/PlaystoreBadge"
 import HeroImage from "../svg/HeroImage"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export const query = graphql`
   query {
