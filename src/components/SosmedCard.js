@@ -5,6 +5,33 @@ import CardBody from "@material-tailwind/react/CardBody"
 import Progress from "@material-tailwind/react/Progress"
 
 export default function SosmedCard() {
+  const referral = [
+    {
+      name: 'Facebook',
+      total: '1,480',
+      color: 'blue',
+      value: '60',
+    },
+    {
+      name: 'Google',
+      total: '4,807',
+      color: 'red',
+      value: '80',
+    },
+    {
+      name: 'Instagram',
+      total: '3,678',
+      color: 'indigo',
+      value: '75',
+    },
+    {
+      name: 'Twitter',
+      total: '2,645',
+      color: 'red',
+      value: 'lightBlue',
+    },
+  ]
+
   return (
     <Card>
       <CardHeader color="purple" contentPosition="none">
@@ -27,50 +54,21 @@ export default function SosmedCard() {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              {referral.map(item => {
+                return (
+                <tr>
                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  Facebook
+                  {item.name}   
                 </th>
                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  1,480
+                  {item.total}
                 </td>
                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  <Progress color="blue" value="60" />
+                  <Progress color={item.color} value={item.value} />
                 </td>
               </tr>
-              <tr>
-                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  Google
-                </th>
-                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  4,807
-                </td>
-                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  <Progress color="red" value="80" />
-                </td>
-              </tr>
-              <tr>
-                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  Instagram
-                </th>
-                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  3,678
-                </td>
-                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  <Progress color="indigo" value="75" />
-                </td>
-              </tr>
-              <tr>
-                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  Twitter
-                </th>
-                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  2,645
-                </td>
-                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                  <Progress color="lightBlue" value="90" />
-                </td>
-              </tr>
+              )
+              })}
             </tbody>
           </table>
         </div>

@@ -37,8 +37,8 @@ export default function dashboardSet() {
 
   return (
     <LayoutDashboard>
-      <div className="h-screen flex items-center justify-center">
-        <Card className="w-full border border-gray-300 mx-6">
+      <main className="h-full flex flex-col gap-y-12 md:flex-row md:gap-x-6 items-center justify-center py-24">
+        <Card className="w-full border border-gray-300 mx-auto">
           <CardHeader color="blue" contentPosition="none">
             <div className="w-full flex items-center justify-between">
               <h2 className="text-white text-2xl">Page Visits</h2>
@@ -81,8 +81,8 @@ export default function dashboardSet() {
             </div>
           </CardBody>
         </Card>
-        <SosmedCard />
-      </div>
+        <SosmedCard className="mx-auto" />
+      </main>
     </LayoutDashboard>
   )
 }

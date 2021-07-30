@@ -17,7 +17,7 @@ export default function NavbarAdmin({ setShowSidebar }) {
   }
 
   return (
-    <nav className="bg-secondary md:ml-64 py-3 px-4">
+    <nav className="bg-secondary md:ml-64 py-3 px-4 sticky top-0">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-4 md:pl-10">
         <div className="md:hidden">
           <Button
@@ -47,7 +47,7 @@ export default function NavbarAdmin({ setShowSidebar }) {
                     <span class="material-icons md-32 text-white">
                       account_circle
                     </span>
-                    <span class="material-icons md-32 text-white sm:hidden">
+                    <span class="material-icons md-32 text-white">
                       arrow_drop_down
                     </span>
                   </div>
