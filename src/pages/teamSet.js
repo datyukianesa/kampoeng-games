@@ -211,11 +211,11 @@ const TeamSet = () => {
               </div>
               <div className="w-full font-light">
                 <Input
-                  type="password"
+                  type="text"
                   color="lightBlue"
                   size="regular"
                   outline={true}
-                  placeholder="Password"
+                  placeholder="Position"
                   onChange={e => setTeamInsertPass(e.target.value)}
                 />
               </div>
