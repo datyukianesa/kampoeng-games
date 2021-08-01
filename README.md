@@ -28,3 +28,15 @@ Run local server
 ```
 gatsby develop
 ```
+
+Dashboard Page (Frontend Only)
+
+```
+https://kampoenggames.gatsbyjs.io/dashboardSet/
+```
+
+Dashboard Page (With Backend Integration)
+```
+https://kgamesmysql.gatsbyjs.io/dashboardSet/
+```
+
