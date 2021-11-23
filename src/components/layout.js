@@ -12,7 +12,7 @@ const Layout = ({ children, className }) => {
         <main className={`container mx-auto px-10 ${className}`}>
           {children}
         </main>
-        <div className="bg-primary bg-gradient-to-t from-primary-darker ">
+        <div className="bg-primary-darker">
           <Footer></Footer>
         </div>
       </div>

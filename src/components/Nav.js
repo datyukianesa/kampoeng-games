@@ -13,10 +13,6 @@ const Nav = () => {
       url: "#desc",
     },
     {
-      title: "Tim",
-      url: "#team",
-    },
-    {
       title: "Tentang",
       url: "#history",
     },
@@ -27,6 +23,10 @@ const Nav = () => {
     {
       title: "Visi dan Misi",
       url: "#vision",
+    },
+    {
+      title: "About",
+      url: "#team",
     },
   ]
 
@@ -51,11 +51,11 @@ const Nav = () => {
                   </AnchorLink>
                 )
               })}
-              <Link to="login">
+              {/* <Link to="login">
                 <div className="list-none text-white font-medium px-8 normal-case text-base hover:text-yellow-500">
                   Login
                 </div>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div class="relative right-0 pb-1 lg:hidden">

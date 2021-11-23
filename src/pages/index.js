@@ -52,40 +52,10 @@ const IndexPage = ({ data }) => {
 
   const cardItem = [
     {
-      name: "Khalif Farrel Yuandra",
-      title: "Front-end Designer",
-      nim: "19.11.3256",
-      imgUrl: "../images/farrel.png",
-    },
-    {
-      name: "Ignatius Tegar Saputra",
-      title: "Front-end Designer",
-      nim: "19.11.3298",
-      imgUrl: "../images/tegar.png",
-    },
-    {
-      name: "Bilal Muhtasyimbillah",
-      title: "Front-end Designer",
-      nim: "19.11.3272",
-      imgUrl: "../images/gatsby-icon.png",
-    },
-    {
       name: "Fanni Fadhila",
-      title: "Back-end Developer",
+      title: "19 Informatika 11",
       nim: "19.11.3300",
       imgUrl: "../images/fanni.png",
-    },
-    {
-      name: "Abyan Zhafran Daffa",
-      title: "Back-end Developer",
-      nim: "19.11.3252",
-      imgUrl: "../images/zhafran.png",
-    },
-    {
-      name: "Nadhira Triadha Pitaloka",
-      title: "Front-end Designer",
-      nim: "19.11.3270",
-      imgUrl: "../images/nadhira.png",
     },
   ]
 
@@ -201,42 +171,6 @@ const IndexPage = ({ data }) => {
           />
         }
       ></Split>
-      <Section id="team" className={`bg-secondary rounded-3xl`}>
-        <Heading
-          className={`text-center text-complementary font-extrabold py-2 lg:py-10`}
-        >
-          Our Team
-        </Heading>
-        <div className="font-extrabold">
-          <div className={`grid grid-cols-1 md:grid-cols-3 md:m-2`}>
-            {cardItem.map(item => {
-              return (
-                <Card className={`text-center flex-1 md:mx-2`}>
-                  <ProfileImage>
-                    <StaticImage
-                      className="w-20 h-20 rounded-full m-5"
-                      loading="eager"
-                      src="../images/farrel.png"
-                      alt="Khalif Farrel"
-                    ></StaticImage>
-                  </ProfileImage>
-                  <Heading className={`text-complementary`}>
-                    {item.name}
-                  </Heading>
-                  <div className="py-2">
-                    <Paragraph className={`text-complementary-darker`}>
-                      {item.title}
-                    </Paragraph>
-                    <Paragraph className={`text-complementary-darker`}>
-                      {item.nim}
-                    </Paragraph>
-                  </div>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
-      </Section>
       <Split
         id="history"
         className={`bg-gradient-to-b from-complementary rounded-3xl`}
@@ -315,6 +249,42 @@ const IndexPage = ({ data }) => {
               </div>
             )
           })}
+        </div>
+      </Section>
+      <Section id="team" className={`bg-secondary rounded-3xl`}>
+        <Heading
+          className={`text-center text-complementary font-extrabold py-2 lg:py-10`}
+        >
+          Tentang Developer
+        </Heading>
+        <div className="font-extrabold">
+          <div className={`md:grid-cols-3 md:m-2`}>
+            {cardItem.map(item => {
+              return (
+                <Card className={`text-center flex-1 md:mx-2`}>
+                  <ProfileImage>
+                    <StaticImage
+                      className="w-20 h-20 rounded-full m-5"
+                      loading="eager"
+                      src="../images/fanni.png"
+                      alt="Fanni Fadhila"
+                    ></StaticImage>
+                  </ProfileImage>
+                  <Heading className={`text-complementary`}>
+                    {item.name}
+                  </Heading>
+                  <div className="py-2">
+                    <Paragraph className={`text-complementary-darker`}>
+                      {item.title}
+                    </Paragraph>
+                    <Paragraph className={`text-complementary-darker`}>
+                      {item.nim}
+                    </Paragraph>
+                  </div>
+                </Card>
+              )
+            })}
+          </div>
         </div>
       </Section>
     </Layout>
