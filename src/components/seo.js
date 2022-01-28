@@ -9,24 +9,28 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router"
 
 function Seo({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
+  const { pathname } = useLocation()
+  const { site } = useStaticQuery(query)
+
+  const {
+    defaultTitle,
+    titleTemplate,
+    defaultDescription,
+    siteUrl,
+    twitterUsername,
+  } = site.siteMetadata
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    url: `${siteUrl}${pathname}`,
+  }
 
   const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  // const defaultTitle = site.siteMetadata?.title
 
   return (
     <Helmet
@@ -72,11 +76,25 @@ function Seo({ description, lang, meta, title }) {
     />
   )
 }
-
+const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        defaultTitle: title
+        titleTemplate
+        defaultDescription: description
+        siteUrl: url
+        author
+        twitterUsername
+      }
+    }
+  }
+`
 Seo.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
+  description: null,
+  title: null,
 }
 
 Seo.propTypes = {
