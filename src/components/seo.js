@@ -22,6 +22,7 @@ function Seo({ description, lang, meta, title, image: metaImage }) {
           siteUrl: url
           author
           twitterUsername
+          keywords
         }
       }
     }
