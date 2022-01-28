@@ -92,7 +92,7 @@ function Seo({ description, lang, meta, title, image: metaImage }) {
         },
         {
           name: "keywords",
-          content: site.siteMetadata.keywords.join(","),
+          content: site.siteMetadata.keywords.join(`,`),
         },
         {
           name: `twitter:title`,
