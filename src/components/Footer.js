@@ -17,26 +17,6 @@ const Footer = () => {
         <div className={`mx-auto w-32 h-32`}>
           <HeroImage></HeroImage>
         </div>
-        <div className={`pt-20 pb-14 flex-1 text-right `}>
-          <Heading className={`text-secondary`}>Important Links</Heading>
-          <ul className="text-secondary-lighter">
-            <li>
-              <AnchorLink href="#desc" offset="100">
-                <Paragraph>Products</Paragraph>
-              </AnchorLink>
-            </li>
-            <li>
-              <AnchorLink href="#team" offset="100">
-                <Paragraph>Tim</Paragraph>
-              </AnchorLink>
-            </li>
-            <li>
-              <AnchorLink href="#history" offset="100">
-                <Paragraph>History</Paragraph>
-              </AnchorLink>
-            </li>
-          </ul>
-        </div>
       </div>
     </footer>
   )

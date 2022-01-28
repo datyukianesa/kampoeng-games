@@ -7,8 +7,12 @@ if (process.env.NODE_ENV !== "production") {
 module.exports = {
   siteMetadata: {
     title: `Kampoeng Games`,
+    titleTemplate: `%s | Kampoeng Games`,
+    url: `kampoenggames.gatsbyjs.io`,
     description: `Kampoeng Games merupakan sebuah website e-commerce yang berfokus untuk menjual game dan in-game voucher.`,
     author: [`@datyukianesa`, `@abyanzhafran`],
+    twitterUsername: `@datyukianesa`,
+    keywords: [`Kampoeng`, `Games`, `e-commerce`, `voucher`, `game`, `in-game`],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -47,6 +51,7 @@ module.exports = {
     // gatsby material-UI config
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-gatsby-cloud`,
+    `gatsby-plugin-offline`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

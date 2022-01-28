@@ -10,6 +10,8 @@ import Paragraph from "../components/Paragraph"
 import Section from "../components/Section"
 import Card from "../components/Card"
 import ProfileImage from "../components/ProfileImage"
+import Contact from "../components/Contact"
+
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
@@ -19,6 +21,8 @@ import HeroImage from "../svg/HeroImage"
 
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+
+import AnchorLink from "react-anchor-link-smooth-scroll"
 
 export const query = graphql`
   query {
@@ -115,11 +119,13 @@ const IndexPage = ({ data }) => {
               dapat mengunjungi toko kami untuk memenuhi segala kebutuhan mereka
               dengan harga terjangkau.
             </Paragraph>
-            <Button
-              className={`font-gothic my-2 px-5 lg:p-5 border-2 border-white text-white`}
-            >
-              ORDER NOW
-            </Button>
+            <AnchorLink href="#contact" offfset="200">
+              <Button
+                className={`font-gothic my-2 px-5 lg:p-5 border-2 border-white text-white`}
+              >
+                ORDER NOW
+              </Button>
+            </AnchorLink>
           </Aside>
         }
         second={
@@ -286,6 +292,14 @@ const IndexPage = ({ data }) => {
             })}
           </div>
         </div>
+      </Section>
+      <Section id="contact" className={`bg-secondary rounded-3xl`}>
+        <Heading
+          className={`text-center text-complementary font-extrabold py-2 lg:py-10`}
+        >
+          Contact Us!
+        </Heading>
+        <Contact></Contact>
       </Section>
     </Layout>
   )
