@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: {
     title: `Kampoeng Games`,
     titleTemplate: `%s | Kampoeng Games`,
-    url: `kampoenggames.gatsbyjs.io`,
+    url: `https://kampoenggames.gatsbyjs.io`,
     description: `Kampoeng Games merupakan sebuah website e-commerce yang berfokus untuk menjual game dan in-game voucher.`,
     author: [`@datyukianesa`, `@abyanzhafran`],
     twitterUsername: `@datyukianesa`,

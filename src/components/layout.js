@@ -6,7 +6,10 @@ import Seo from "../components/seo"
 const Layout = ({ children, className }) => {
   return (
     <>
-      <Seo title="Home"></Seo>
+      <Seo
+        title="Home"
+        description="Kampoeng Games merupakan sebuah website e-commerce yang berfokus untuk menjual game dan in-game voucher"
+      ></Seo>
       <div className={`bg-primary`}>
         <Nav></Nav>
         <main className={`container mx-auto px-10 ${className}`}>

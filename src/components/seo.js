@@ -36,6 +36,7 @@ function Seo({ description, lang, meta, title, image: metaImage }) {
     defaultDescription,
     siteUrl,
     twitterUsername,
+    keywords,
   } = site.siteMetadata
 
   const metaDescription = description || site.siteMetadata.description
